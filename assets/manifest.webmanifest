@@ -1,0 +1,27 @@
+{
+  "name": "RCE Datastory: Blauw-witte schildjes",
+  "short_name": "Schildjes",
+  "description": "Data story over rijksmonumenten met het blauw-witte schildje volgens het Haags Verdrag.",
+  "lang": "nl-NL",
+  "start_url": "/datastories-cultureelerfgoed/blauw-witte-schildjes/",
+  "scope": "/datastories-cultureelerfgoed/",
+  "display": "standalone",
+  "theme_color": "#ffb612",
+  "background_color": "#ffffff",
+  "categories": ["education", "culture", "reference"],
+  "icons": [ 
+    {
+      "src": "/datastories-cultureelerfgoed/assets/imgs/favicon_rce.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/datastories-cultureelerfgoed/assets/imgs/screenshot-schildjes-1280x720.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Overzichtskaart met schildjes"
+    }
+  ]
+}

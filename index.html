@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Data stories van de Rijksdienst voor het Cultureel Erfgoed">
+  <meta name="author" content="Rijksdienst voor het Cultureel Erfgoed">
+  <link rel="icon" href="assets/imgs/favicon_rce.png" type="image/png" sizes="32x32">
+
+  <title>Data stories | Rijksdienst voor het Cultureel Erfgoed</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Rijksoverheid Sans -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/ro-sans"/>
+
+  <!-- Lokale styles -->
+  <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/stories.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <a href="#main" class="visually-hidden-focusable">Direct naar hoofdinhoud</a>
+
+  <!-- HEADER (zelfde als story) -->
+  <header class="rce-header-full" role="banner">
+    <div class="wrapper">
+      <img class="rce-logo"
+           src="assets/imgs/logo_cultureelerfgoed.svg"
+           alt="Rijksdienst voor het Cultureel Erfgoed">
+    </div>
+  </header>
+
+  <!-- GELE BALK / BREADCRUMB -->
+  <div class="rce-yellow-bar">
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <a href="https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/">Home</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main id="main" class="container my-4">
+
+    <h1 class="mb-3">Data stories van de Rijksdienst voor het Cultureel Erfgoed</h1>
+    <p class="lead">
+      Deze data stories combineren historische en erfgoedgegevens met Linked Open Data en geven nieuwe inzichten in beschermd erfgoed.
+    </p>
+
+    <!-- Blauw‑witte schildjes -->
+    <div class="storyBanner storyBanner--landing">
+      <div class="storyIcon">
+        <a href="blauw-witte-schildjes/schildjes.html" target="_blank" rel="noopener noreferrer">
+          <img src="assets/imgs/og-blauw-witte-schildjes.png" alt="Blauw-witte schildjes">
+        </a>
+      </div>
+      <div class="storyInfo">
+        <a href="blauw-witte-schildjes/schildjes.html" target="_blank" rel="noopener noreferrer" class="storyLabel-link">
+          <div class="storyLabel">Beschermd erfgoed: het blauw-witte schildje in Nederland</div>
+        </a>
+        <div class="storyDescription">
+          Ontdek hoe het Haags Verdrag van 1954 monumenten en collecties beschermt met het blauw-witte schildje.
+          Deze data story laat zien welke rijksmonumenten het schildje dragen en wat het betekent voor de bescherming van cultureel erfgoed in tijden van crisis.
+        </div>
+      </div>
+    </div>
+
+    <!-- IJzersterk erfgoed -->
+    <div class="storyBanner storyBanner--landing">
+      <div class="storyIcon">
+        <a href="ijzersterk-erfgoed/ijzersterk.html" target="_blank" rel="noopener noreferrer">
+          <img src="assets/imgs/ijzersterk.png" alt="IJzersterk erfgoed: staal, gietijzer en smeedijzer">
+        </a>
+      </div>
+      <div class="storyInfo">
+        <a href="ijzersterk-erfgoed/ijzersterk.html" target="_blank" rel="noopener noreferrer" class="storyLabel-link">
+          <div class="storyLabel">IJzersterk erfgoed: zoektocht naar staal, gietijzer en smeedijzer</div>
+        </a>
+        <div class="storyDescription">
+          Verken waar staal, gietijzer en smeedijzer te vinden zijn in rijksmonumenten. Dankzij interactieve SPARQL‑query’s ontdek je functies, locaties en verhalen achter deze ijzersterke toepassingen.
+        </div>
+      </div>
+    </div>
+
+    <!-- Joods erfgoed -->
+<div class="storyBanner storyBanner--landing">
+  <div class="storyIcon">
+    <a href="joods-erfgoed/joods-erfgoed.html" target="_blank" rel="noopener noreferrer">
+      <img src="assets/imgs/joods-erfgoed.png" alt="Joods erfgoed in monumenten">
+    </a>
+  </div>
+  <div class="storyInfo">
+    <a href="joods-erfgoed/joods-erfgoed.html" target="_blank" rel="noopener noreferrer" class="storyLabel-link">
+      <div class="storyLabel">Joods erfgoed in monumenten</div>
+    </a>
+    <div class="storyDescription">
+      Hoe vaak verwijzen monumenten naar termen als sjoel, Hebreeuws of Israëlitisch? In deze data story gebruiken we SPARQL-query’s op het monumentenregister om Joods cultureel erfgoed in kaart te brengen.
+    </div>
+  </div>
+</div>
+
+
+    <!-- Template / nieuwe story -->
+    <div class="storyBanner storyBanner--template">
+      <div class="storyIcon">
+        <a href="template/template.html" target="_blank" rel="noopener">
+          <img src="assets/imgs/og-template.png" alt="Template voor nieuwe data story">
+        </a>
+      </div>
+      <div class="storyInfo">
+        <a href="template/template.html" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="storyLabel">Template voor een nieuwe data story</div>
+        </a>
+        <div class="storyDescription">
+          Start hier met een kant‑en‑klare opzet in RCE‑huisstijl. De pagina bevat voorbeeld‑
+          queries, uitleg, navigatie en een footer. Kopieer de map <code>template</code> naar
+          een nieuwe mapnaam, pas de teksten, queries en metadata aan en publiceer.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PARTNERS -->
+  <section class="partners-block" aria-label="Partners">
+    <div class="d-flex justify-content-center align-items-center gap-3 my-3 partners-logos">
+      <img src="assets/imgs/clariah-logo-square.png" alt="Clariah logo">
+      <img src="assets/imgs/triply-logo-lg.svg" alt="Triply logo">
+    </div>
+    <p>
+      Deze data stories zijn mede mogelijk gemaakt dankzij de code en ideeën ontwikkeld door
+      <a href="https://www.clariah.nl" target="_blank" rel="noopener noreferrer">Clariah</a> en
+      <a href="https://triply.cc" target="_blank" rel="noopener noreferrer">Triply</a>.
+      Hun werk heeft de basis gelegd voor de technische en conceptuele opzet die wij bij de RCE gebruiken.
+    </p>
+  </section>
+
+  <!-- FOOTER (full‑bleed) -->
+  <footer class="footer-rce-full" role="contentinfo">
+    <div class="footer-inner">
+      © Rijksdienst voor het Cultureel Erfgoed ·
+      <a href="mailto:info@cultureelerfgoed.nl" class="footer-link">info@cultureelerfgoed.nl</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

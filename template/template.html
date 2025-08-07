@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RCE Data Stories – Template</title>
+
+  <!-- Basis meta in lijn met story-pagina -->
+  <meta name="description" content="Template voor een interactieve data story van de Rijksdienst voor het Cultureel Erfgoed.">
+  <meta name="author" content="Rijksdienst voor het Cultureel Erfgoed">
+  <link rel="canonical" href="https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/template/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RCE Data Stories – Template">
+  <meta property="og:description" content="Template voor een interactieve data story van de Rijksdienst voor het Cultureel Erfgoed.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/template/">
+  <meta property="og:image" content="https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/assets/imgs/blauwwit.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Blauw-wit schildje als herkenningsteken voor beschermd erfgoed.">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Rijksdienst voor het Cultureel Erfgoed">
+
+  <!-- (optioneel) compacte JSON-LD, generiek gehouden -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "RCE Data Stories – Template",
+    "inLanguage": "nl-NL",
+    "url": "https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/template/",
+    "mainEntityOfPage": "https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/template/",
+    "author": {"@type":"Organization","name":"Rijksdienst voor het Cultureel Erfgoed"},
+    "publisher": {
+      "@type":"Organization",
+      "name":"Rijksdienst voor het Cultureel Erfgoed",
+      "url":"https://www.cultureelerfgoed.nl",
+      "logo":{"@type":"ImageObject","url":"https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/assets/imgs/logo_cultureelerfgoed.svg"}
+    },
+    "image": {
+      "@type":"ImageObject",
+      "url":"https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/assets/imgs/blauwwit.png",
+      "width":1200,"height":630
+    },
+    "description":"Template voor een interactieve data story; gebruik dit als startpunt voor nieuwe verhalen."
+  }
+  </script>
+
+  <!-- Favicon & manifest (zoals op je story) -->
+  <link rel="icon" href="../assets/imgs/favicon_rce.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/imgs/favicon_rce.png" sizes="180x180">
+  <meta name="theme-color" content="#ffb612">
+  <link rel="manifest" href="../assets/manifest.webmanifest">
+
+  <!-- Bootstrap 5.3.7 met SRI -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <!-- Rijksoverheid Sans -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/ro-sans" />
+
+  <!-- Lokale styles (zelfde volgorde als story) -->
+  <link href="../assets/css/main.css?v=0.8.1" rel="stylesheet" type="text/css">
+  <link href="../assets/css/stories.min.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/yasgui.bootstrap.css" rel="stylesheet" type="text/css">
+
+  <meta name="version" content="0.8-template">
+</head>
+
+<body>
+
+  <!-- Skiplink -->
+  <a href="#main" class="visually-hidden-focusable">Direct naar hoofdinhoud</a>
+
+  <!-- HEADER -->
+  <header class="rce-header-full">
+    <div class="wrapper">
+      <img class="rce-logo"
+           src="../assets/imgs/logo_cultureelerfgoed.svg"
+           alt="Rijksdienst voor het Cultureel Erfgoed">
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (zelfde markup/klassen) -->
+  <div class="rce-yellow-bar">
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <a href="https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">&gt;</span>
+        <span aria-current="page">Template</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- TEMPLATE CONTENT -->
+  <main id="main" role="main" class="container mt-3 mb-4 story"
+        aria-label="RCE Data Stories template"
+        data-endpoint="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql">
+<nav class="mb-4" aria-label="Inhoudsopgave" role="doc-toc">
+  <ul>
+    <li><a href="#inleiding">Inleiding</a></li>
+    <!-- ... -->
+    <li><a href="#methode">Methodeverantwoording</a></li>
+    <li><a href="#disclaimer">Disclaimer</a></li>
+    <li><a href="#literatuur">Literatuur</a></li>
+  </ul>
+</nav>
+
+    <h1>RCE Data Stories – Template</h1>
+    <p>
+      Dit is een basis‑template voor een interactieve data story van de
+      Rijksdienst voor het Cultureel Erfgoed (RCE).
+    </p>
+    <p>
+      Je kunt deze template gebruiken om een verhaal op te bouwen met tekst,
+      visualisaties en interactieve SPARQL‑queries. De data wordt rechtstreeks
+      opgehaald via Linked Open Data van de RCE.
+    </p>
+
+    <h2>Hoe werkt deze template?</h2>
+    <ul>
+      <li>De <strong>navigatie en opmaak</strong> zijn ingesteld in RCE‑huisstijl (gedeelde <code>main.css</code>).</li>
+      <li>Voeg <code>&lt;query&gt;</code>-componenten toe voor interactieve visualisaties.</li>
+      <li>Het data‑eindpunt staat standaard op de RCE SPARQL‑service.</li>
+      <li>Vervang voorbeeldbestanden en teksten voor jouw story.</li>
+    </ul>
+
+    <h2>Voorbeeldquery 1: Rijksmonumenten per provincie</h2>
+    <p>
+      Voorbeeld van een eenvoudige query die aantallen rijksmonumenten
+      met een blauw‑wit schildje per provincie ophaalt.
+    </p>
+
+    <query data-query-ref="queries/internationaal-kenteken-per-provincie.rq"></query>
+
+    <p>
+      Handig om geografische spreiding te tonen. Combineer meerdere queries
+      met tekst, kaarten, grafieken of tabellen.
+    </p>
+
+    <h2>Voorbeeldquery 2: Top 20 gemeenten (BarChart)</h2>
+    <p>
+      Niet alles hoeft een kaart te zijn. Hieronder een query die de
+      <strong>top 20 gemeenten</strong> toont met de meeste rijksmonumenten
+      met een blauw‑wit schildje (BarChart).
+    </p>
+
+    <query 
+      data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql#query=prefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX%20owms%3A%20%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2Fowms%3E%0Aprefix%20rn%3A%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F%3E%0A%0ASELECT%20%3Fgemeente%20(COUNT(DISTINCT%20%3Frijksmonument)%20AS%20%3Faantal)%0AWHERE%20%7B%0A%20%20%3Frijksmonument%0A%20%20%20%20ceo%3AinternationaalKenteken%20true%20%3B%0A%20%20%20%20%20%20%20%20%20%20ceo%3AheeftJuridischeStatus%20rn%3Ab2d9a59a-fe1e-4552-9a05-3c2acddff864%20%3B%0A%20%20%20%20ceo%3Arijksmonumentnummer%20%3Frijksmonumentnummer%20%3B%0A%20%20%20%20ceo%3AheeftBasisregistratieRelatie%20%3Fbasisrel%20.%0A%0A%20%20%3Fbasisrel%0A%20%20%20%20ceo%3AheeftGemeente%20%3Fgem%20%3B%0A%20%20%20%20ceo%3AheeftProvincie%20%3Fprov%20.%0A%0A%20%20GRAPH%20owms%3A%20%7B%0A%20%20%20%20%3Fgem%20%20skos%3AprefLabel%20%3Fgemeente%20.%0A%20%20%20%20%3Fprov%20skos%3AprefLabel%20%3Fprovincie%20.%0A%20%20%7D%0A%7D%0AGROUP%20BY%20%3Fgemeente%0AORDER%20BY%20DESC(%3Faantal)%0ALIMIT%2020%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fservices%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22legacyScatterChartLabels%22%3Atrue%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Afalse%7D%2C%22isStacked%22%3Afalse%2C%22booleanRole%22%3A%22certainty%22%2C%22vAxes%22%3A%5B%7B%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22viewWindow%22%3Anull%2C%22viewWindowMode%22%3Anull%2C%22useFormatFromData%22%3Atrue%7D%2C%7B%22useFormatFromData%22%3Atrue%7D%5D%2C%22hAxis%22%3A%7B%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22useFormatFromData%22%3Atrue%2C%22title%22%3A%22Aantal%22%7D%2C%22legend%22%3A%22right%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22title%22%3A%22Overzicht%20per%20gemeente%20-%20top%2020%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22BarChart%22%7D%7D">
+    </query>
+
+    <p>
+      Dit type visualisatie is handig voor <strong>vergelijkingen</strong>, zoals een top 10 of top 20.
+    </p>
+
+<section id="methode">
+  <h2>Methodeverantwoording</h2>
+  <p>
+    <em>Beschrijf hier kort selectie, filters, beperkingen en verantwoording van de gebruikte data. Vervang deze placeholder door jouw tekst.</em>
+  </p>
+  <ul>
+    <li>Welke dataset(s) zijn gebruikt (bijv. CHO)?</li>
+    <li>Welke filters worden toegepast?</li>
+    <li>Beperkingen/onvolledigheid van data.</li>
+    <li>Hoe zijn aantallen en grafieken tot stand gekomen?</li>
+  </ul>
+</section>
+
+
+<section id="literatuur">
+  <h2>Literatuur</h2>
+  <p>
+    <em>Voeg hier relevante verwijzingen toe. Deze sectie is een placeholder.</em>
+  </p>
+</section>
+
+
+<!-- disclaimer -->
+<section id="disclaimer" aria-labelledby="disclaimer-title" class="mt-4">
+  <h2 id="disclaimer-title" class="mb-2">Disclaimer</h2>
+  <details class="disclaimer-box">
+    <summary><strong>Lees de disclaimer</strong></summary>
+    <p><strong>Let op</strong></p>
+    <p><em>U kunt aan de getoonde resultaten geen rechten ontlenen. De informatie is bedoeld om te informeren en biedt geen garantie op volledigheid, juistheid of actualiteit.</em></p>
+    <dl class="row small">
+      <dt class="col-sm-3">Titel</dt>
+      <dd class="col-sm-9">Titel van deze data story</dd>
+
+      <dt class="col-sm-3">Beschrijving</dt>
+      <dd class="col-sm-9">Korte beschrijving van deze data story, aan te passen door de auteur.</dd>
+
+      <dt class="col-sm-3">Publisher</dt>
+      <dd class="col-sm-9"><a href="https://www.cultureelerfgoed.nl" target="_blank" rel="noopener">Rijksdienst voor het Cultureel Erfgoed</a></dd>
+
+      <dt class="col-sm-3">Licentie</dt>
+      <dd class="col-sm-9"><a href="https://opendatacommons.org/licenses/by/1-0/" target="_blank" rel="noopener">Open Data Commons Attribution&nbsp;1.0</a></dd>
+
+      <dt class="col-sm-3">Datasets</dt>
+      <dd class="col-sm-9">
+        <ul class="mb-0 ps-3">
+          <li><a href="https://linkeddata.cultureelerfgoed.nl/rce/cho" target="_blank" rel="noopener">CHO – Cultureel Erfgoed Objecten</a></li>
+          <li><a href="https://linkeddata.cultureelerfgoed.nl/graph/punten" target="_blank" rel="noopener">Punten</a></li>
+          <li><a href="https://linkeddata.cultureelerfgoed.nl/graph/owms" target="_blank" rel="noopener">OWMS‑thesauri</a></li>
+        </ul>
+      </dd>
+
+      <dt class="col-sm-3">Data‑extract</dt>
+      <dd class="col-sm-9"><time datetime="YYYY-MM-DD">[Datum invullen]</time></dd>
+    </dl>
+  </details>
+</section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-rce-full" role="contentinfo">
+    <div class="footer-inner">
+      © Rijksdienst voor het Cultureel Erfgoed ·
+      <a href="mailto:thesauri@cultureelerfgoed.nl" class="footer-link">thesauri@cultureelerfgoed.nl</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+          crossorigin="anonymous" defer></script>
+
+  <script src="https://yasgui.triply.cc/yasgui.polyfill.min.js"></script>
+  <script src="../assets/js/stories.min.js"></script>
+  <script>
+    window.onload = function () {
+      stories();
+    };
+  </script>
+</body>
+</html>

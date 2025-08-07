@@ -1,0 +1,716 @@
+/* =====================================================
+   main.css
+   Versie: 0.8
+   Datum: 2025-07-28
+   Opzet: RCE stijl (RO Sans), Bootstrap 5 compatible
+===================================================== */
+
+/* =====================================================
+   1. Fonts (RO Sans + Roboto2 fallback)
+===================================================== */
+@font-face {
+  font-family: "RO Sans";
+  src: url("../fonts/ro-sans-regular.woff2") format("woff2"),
+       url("../fonts/ro-sans-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "RO Sans";
+  src: url("../fonts/ro-sans-bold.woff2") format("woff2"),
+       url("../fonts/ro-sans-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto2";
+  src: url("../fonts/roboto2-regular.woff2") format("woff2"),
+       url("../fonts/roboto2-regular.woff") format("woff"),
+       url("../fonts/roboto2-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto2";
+  src: url("../fonts/roboto2-bold.woff2") format("woff2"),
+       url("../fonts/roboto2-bold.woff") format("woff"),
+       url("../fonts/roboto2-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =====================================================
+   2. Reset & basis
+===================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "RO Sans", "Roboto2", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column; /* sticky footer */
+  font-size: 16px;
+}
+
+main { flex: 1 0 auto; }
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Link focus overal duidelijk */
+a:focus, a:focus-visible, .footer-link:focus, .footer-link:focus-visible {
+  outline: 3px solid #005ca9; /* Rijksoverheid-blauw */
+  outline-offset: 2px;
+}
+
+/* Skiplink util – gebruikt in HTML */
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:focus-visible {
+  position: static !important;
+  width: auto; height: auto;
+  margin: 0; padding: 0.25rem 0.5rem;
+  background: #ffb612;
+  color: #000;
+  outline: 3px solid #005ca9;
+}
+
+/* Utility: clearfix voor floats */
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* Custom element query: zorg dat het blok-level is */
+query { display: block; width: 100%; }
+
+/* =====================================================
+   3. Header / Logo  — compacte header + rechtse offset
+===================================================== */
+
+/* Compacte header + optische centrering embleem */
+.rce-header-full{
+  width:100%;
+  background:#fff;
+  padding:0; margin:0;
+}
+.rce-header-full .wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0; margin:0;
+  min-height: 92px;    /* was 104px */
+}
+
+/* Let op: global img-margins neutraliseren */
+.rce-header-full img{ margin:0 !important; }
+
+/* Kern: schuif embleem naar midden met negatieve margin + translateX(50%) */
+.rce-logo{
+  display:block;
+  height:140px;
+  width:auto;
+
+  /* desktopwaarden – stem af op jouw gevoel */
+  --mls: -50px;   /* negative margin-inline-start */
+  --tx: 50%;      /* translateX percentage */
+  --ty: -8px;     /* klein omhoog */
+  margin-inline-start: var(--mls);
+  transform: translateX(var(--tx)) translateY(var(--ty));
+}
+
+/* Breakpoints fijnregelen */
+@media (max-width:1200px){
+  .rce-logo{ height:108px; --mls:-32px; --ty:-5px; }
+}
+@media (max-width:992px){
+  .rce-logo{ height:90px;  --mls:-26px; --ty:-4px; }
+}
+@media (max-width:768px){
+  .rce-logo{ height:74px;  --mls:-21px; --ty:-4px; }
+}
+@media (max-width:576px){
+  .rce-logo{ height:60px;  --mls:-15px; --ty:-3px; }
+}
+
+
+/* =====================================================
+   4. Gele balk & breadcrumb (full‑bleed)
+===================================================== */
+.rce-yellow-bar{
+  /* full‑bleed, ook binnen .container/.wrapper */
+  inline-size: 100vw;
+  margin-inline: calc(50% - 50vw);
+
+  background-color:#ffb612;
+  --yb-pad-block: 30px;          /* hoogte van de balk */
+  padding-block: var(--yb-pad-block);
+  padding-inline: 0;
+  margin-top: -4px; 
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+.rce-yellow-bar .breadcrumb-container{
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: "RO Sans", sans-serif;
+  font-size: 1.25rem;            /* groter, zoals op de site */
+  line-height: 1.1;
+}
+
+.breadcrumb-container nav{
+  display:flex;
+  align-items:center;
+}
+
+.breadcrumb-container a{
+  color:#000;
+  text-decoration: underline;
+  font-weight:700;
+}
+.breadcrumb-container a:hover{ text-decoration:none; }
+
+.breadcrumb-sep{
+  margin: 0 .5rem;
+  font-weight:700;
+}
+
+/* Mobiel iets compacter */
+@media (max-width: 768px){
+  .rce-yellow-bar{ --yb-pad-block: 16px; }
+  .rce-yellow-bar .breadcrumb-container{
+    font-size: 1.05rem;
+    flex-wrap: wrap;
+    justify-content: center;     /* wil je links: zet op flex-start */
+    text-align: center;
+    gap: .25rem;
+  }
+}
+
+/* =====================================================
+   5. Typografie & content
+===================================================== */
+h1, h2, h3, h4 {
+  font-family: "RO Sans", "Roboto2", sans-serif;
+  font-weight: 700;
+  color: #292b2c;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  scroll-margin-top: 96px; /* ankerlinks zichtbaar onder header */
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+p { margin-bottom: 1rem; line-height: 1.6; }
+ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+
+blockquote {
+  border-left: 4px solid #ffb612;
+  padding-left: 1rem;
+  color: #555;
+  margin: 1rem 0;
+}
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* Afbeeldingen */
+img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
+img.float-end { float: right; margin-left: 1rem; }
+img.small { max-width: 300px; float: left; margin: 0 1rem 1rem 0; }
+
+/* =====================================================
+   5a. Multicolumn‑utilities
+   ===================================================== */
+.columns-2{
+  column-count: 2;          /* twee kolommen op desktop */
+  column-gap: 1.5rem;       /* >>> hier je gewenste tussenruimte <<< */
+}
+
+@media (max-width: 576px){
+  .columns-2{ column-count: 1; }  /* op mobiel gewoon één kolom */
+}
+
+/* =====================================================
+   6. Story banners & kaarten
+===================================================== */
+.storyBanner { display: flex; align-items: center; margin-bottom: 2rem; }
+
+.storyIcon img {
+  border-radius: 50%;
+  height: 100px; width: 100px; object-fit: cover; margin-right: 20px;
+}
+.storyInfo { color: #292b2c; }
+.storyInfo .storyLabel { font-weight: 700; font-size: 120%; }
+
+/* Cards */
+.sink {
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2), 0 1px 1px rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+/* Optioneel: subtiele rand voor de template-banner */
+.storyBanner--template {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px dashed #cfd8dc;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.storyBanner--template .storyIcon {
+  flex: 0 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storyBanner--template .storyIcon img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.storyBanner--template .storyInfo {
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+.storyBanner--template .storyLabel {
+  color: #01689b; /* RO-blauw */
+}
+
+
+/* =====================================================
+   7. Footer (full‑bleed)
+===================================================== */
+.footer-rce-full{
+  /* full-bleed, ook binnen .container */
+  inline-size: 100vw;
+  margin-inline: calc(50% - 50vw);
+
+  background-color: #ffb612;
+  padding-block: 20px;
+  text-align: center;
+
+  color: #000;
+  font-family: "RO Sans", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.footer-rce-full .footer-inner{
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.footer-link{ color:#000; text-decoration: underline; }
+.footer-link:hover{ text-decoration: none; }
+
+
+/* =====================================================
+   8. Component fixes
+===================================================== */
+/* Yasgui & CodeMirror fullscreen – pas eventueel aan headerhoogte aan */
+.yasgui .yasqe .CodeMirror.CodeMirror-fullscreen { top: 80px; }
+
+/* =====================================================
+   9. Responsive
+===================================================== */
+@media (max-width: 768px) {
+  .rce-header-full { padding-top: 20px; padding-bottom: 10px; }
+
+  /* Indien je onder 768px een vaste hoogte wilt forceren: */
+  .rce-header-full img,
+  .rce-header-full .rce-logo {
+    height: 60px;                 /* overschrijft clamp */
+  }
+
+  .breadcrumb-container { flex-direction: column; text-align: center; }
+  img.float-end { float: none; margin-left: 0; }
+}
+
+@media (max-width: 576px) {
+  .rce-header-full img,
+  .rce-header-full .rce-logo {
+    height: 56px;
+  }
+}
+
+/* ===== YASGUI‑widgets netjes afronden ===== */
+
+/* 1. Maak van het <query>‑element een block formatting context       */
+/*    → overflow:auto zorgt dat de hoogte van het element de floats   */
+/*      omvat, zodat er eronder weer ‘schone’ ruimte is.              */
+query{
+  display:block;
+  overflow:auto;        /* creëert BFC = clears inner floats       */
+  margin:1.5rem 0;      /* wat lucht erboven en eronder            */
+}
+
+/* 2. Extra vangnet: elk groot kop‑ of paragraafelement na een widget */
+/*    moet sowieso onder eventuele resterende floats beginnen.       */
+.story h2,
+.story h3,
+.story p,
+.story ul,
+.story ol{
+  clear:both;
+}
+
+/* optioneel: geef het widget zelf een zachte rand & padding */
+query{
+  border:1px solid #eee;
+  border-radius:6px;
+  padding:0.75rem;
+  background:#fafafa;
+}
+/* ===== layout binnen YASGUI‑widgets fixen ===== */
+query > div > center{               /* het blok met de thumbnail            */
+  float:left;                       /* zet het plaatje links                */
+  margin:0 1.25rem .75rem 0;        /* wat ruimte eromheen                  */
+}
+query > div::after{                 /* clearfix zodat de tekst eronder stopt*/
+  content:""; display:block; clear:both;
+}
+
+/* =====================================================
+   10. Print
+===================================================== */
+@media print {
+  body { color: #000; background: #fff; }
+  .rce-yellow-bar, .footer-rce-full { background: #fff !important; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 90%; }
+  img { break-inside: avoid; }
+}
+
+/* =====================================================
+   11. Disclaimer compact + inklapbaar
+===================================================== */
+#disclaimer { margin-top: 1.5rem; }
+#disclaimer h2 {
+  font-size: 1.1rem;
+  margin: 0 0 .5rem 0;
+}
+
+/* Het <details> element */
+#disclaimer details.disclaimer-box {
+  background-color: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  border-left: 4px solid #cfcfcf;
+  border-radius: 6px;
+  padding: .25rem 1rem .75rem 1rem;  /* ruimte; summary krijgt eigen padding */
+  font-size: 1rem;                   /* gelijk aan lopende tekst */
+  line-height: 1.5;
+  color: #333;
+  overflow: hidden;                  /* voor afgeronde hoeken bij summary-hover */
+}
+
+/* Summary: klikbaar, zonder standaard marker */
+#disclaimer details.disclaimer-box > summary {
+  list-style: none;                  /* verberg marker in Firefox */
+  cursor: pointer;
+  margin: 0 -1rem .5rem -1rem;       /* laat over hele breedte klikken */
+  padding: .5rem 1rem;
+  font-weight: 600;
+  user-select: none;
+}
+#disclaimer details.disclaimer-box > summary::-webkit-details-marker { display: none; }
+
+/* Pijltje/chevron voor summary */
+#disclaimer details.disclaimer-box > summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: .5rem;
+  transition: transform .2s ease;
+}
+#disclaimer details.disclaimer-box[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Optisch accent wanneer open */
+#disclaimer details.disclaimer-box[open] {
+  border-left-color: #bdbdbd;
+}
+
+/* Inhoud binnen de details */
+#disclaimer p { margin-bottom: .5rem; }
+#disclaimer hr { display: none; }          /* scheelt hoogte */
+#disclaimer dl { margin: 0; }
+#disclaimer dt,
+#disclaimer dd { margin-bottom: .25rem; }
+#disclaimer .row { --bs-gutter-x: .5rem; }  /* kleinere kolom-gutter */
+#disclaimer a { color: inherit; text-decoration: underline; }
+#disclaimer a:hover { text-decoration: none; }
+
+/* =====================================================
+   12. LANDING PAGE – storyBanner & partners-blok
+===================================================== */
+
+/* ===== Landing: storyBanner geforceerd in kader ===== */
+.storyBanner.storyBanner--landing{
+  display: flex !important;
+  align-items: center; /* blijft behouden */
+  gap: 16px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 0 transparent;
+}
+
+.storyBanner.storyBanner--landing:hover{
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+/* Icon links kleiner en vast formaat */
+.storyBanner.storyBanner--landing .storyIcon {
+  flex: 0 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storyBanner.storyBanner--landing .storyIcon img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Tekstblok strak */
+.storyBanner.storyBanner--landing .storyInfo{
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+/* Titelstijl */
+.storyBanner.storyBanner--landing .storyLabel{
+  font-size: 1.25rem;       /* iets kleiner */
+  font-weight: 700;
+  margin-bottom: .5rem;
+  color: #01689b;
+}
+.storyBanner.storyBanner--landing .storyLabel-link{
+  text-decoration: none;
+  color: inherit;
+}
+.storyBanner.storyBanner--landing .storyLabel-link:hover{
+  text-decoration: underline;
+}
+
+/* ===== Partners: logo’s veel kleiner en netjes uitlijnen ===== */
+.partners-logos img{
+  max-height: 48px;         /* was 50 maar Triply werd gigantisch; dit limiteert hard */
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 576px){
+  .partners-logos{
+    gap: 16px !important;
+  }
+  .partners-logos img{
+    max-height: 40px;
+  }
+}
+
+/* Kleinere regelafstand in partners-tekst zodat het compacter oogt */
+.partners-block p{
+  font-size: .95rem;
+  line-height: 1.5;
+}
+
+/* --- override YASGUI bullet‑list gedrag in fotosectie --- */
+#foto figure ul,
+#foto figure li,
+#foto figure ul ul,
+#foto figure ul li  {
+  /* reset layout‑eigenschappen die voor een gallerij bedoeld zijn */
+  position: static !important;
+  float: none !important;
+
+  /* normale lijst‑eigenschappen */
+  display: list-item !important;
+  width: auto !important;
+  margin: 0 0 .25rem 1.25rem;   /* nette opsomming */
+  padding: 0;
+  list-style: disc inside;
+}
+/* -------------------------------
+   Ruimer vak + nette lijst binnen #foto
+----------------------------------*/
+#foto .yasr_gallery_item {          /* het hele kaartje */
+  width: 100% !important;           /* kaart neemt volledige breedte */
+  max-width: 700px !important;      /* of wat jij wilt; pas aan */
+  box-sizing: border-box;           
+  padding: 1rem;                    /* wat ruimte binnen de kaart */
+  overflow: hidden;                 /* niets steekt meer uit */
+}
+
+/* Afbeelding groter en links uitgelijnd */
+#foto .yasr_gallery_item img {
+  max-width: 320px !important;      /* grotere foto (pas evt. aan) */
+  height: auto;
+  float: left;                      /* foto links */
+  margin: 0 1.25rem .75rem 0;       /* ruimte eromheen */
+}
+
+/* Reset de “absolute / float”‑trucs van YASR voor de lijst */
+#foto .yasr_gallery_item ul,
+#foto .yasr_gallery_item li {
+  position: static !important;
+  float: none !important;
+  display: list-item !important;
+  width: auto !important;
+  margin: 0 0 .35rem 1.25rem;
+  list-style: disc inside;
+  line-height: 1.45;
+}
+/* -------------------------------------------------
+   #foto – YASGUI‑paneel lekker ruim maken
+--------------------------------------------------*/
+#foto .yasgui .tabPanel,
+#foto .yasgui .tabPanel.active {   /* zowel verborgen als actieve panel */
+  max-height: none !important;     /* geen vaste hoogte‑limiet meer   */
+  height: auto !important;         /* laat de content de hoogte bepalen */
+  overflow: visible !important;    /* scrollbars weg, alles tonen     */
+}
+
+/* (optioneel) tab‑balk verbergen – we gebruiken toch maar 1 tab */
+#foto .yasgui .tabList {
+  display: none !important;
+}
+
+/* =========================================================
+   #foto — definitieve YASGUI‑fix: breder kaartje, nette lijst
+   ========================================================= */
+#foto .yasr_gallery_item {
+  /* kaartje zelf */
+  width: 100% !important;          /* kaart vult figuur */
+  max-width: 680px !important;     /* of pas aan naar smaak */
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;                /* niets steekt uit */
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  position: relative;              /* lost evt. abs‑positie in sub‑items op */
+}
+
+/* foto links – tekst ernaast */
+#foto .yasr_gallery_item img {
+  max-width: 310px !important;     /* breder beeld */
+  height: auto;
+  float: left;
+  margin: 0 1.25rem .75rem 0;
+}
+
+/* lijst terug naar ‘normaal’ */
+#foto .yasr_gallery_item ul,
+#foto .yasr_gallery_item li {
+  position: static   !important;
+  float:    none     !important;
+  display:  list-item!important;
+  width:    auto     !important;
+
+  margin: 0 0 .35rem 1.25rem;
+  padding: 0;
+  list-style: disc inside;
+  line-height: 1.45;
+}
+
+/* clearfix zodat alles eronder weer netjes begint */
+#foto .yasr_gallery_item::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* tab‑paneel onbeperkt hoog + geen scrollbars */
+#foto .yasgui .tabPanel,
+#foto .yasgui .tabPanel.active {
+  max-height: none   !important;
+  height:     auto   !important;
+  overflow:   visible!important;
+}
+
+/* optioneel: de tab‑balk zelf verbergen (er is toch maar één tab) */
+#foto .yasgui .tabList {
+  display: none !important;
+}
+/* ================================
+   Yasgui: nette weergave RDF-HTML met afbeelding + tekst
+   ================================ */
+query > div {
+  overflow: auto;
+  padding: 1rem;
+  background-color: #fafafa;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+query > div > center,
+query > div > div:first-child > center {
+  float: left;
+  margin: 0 1.25rem .75rem 0;
+  max-width: 300px;
+}
+
+query > div ul {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0;
+}
+
+query > div li {
+  margin-bottom: .25rem;
+  word-break: break-word;
+}
+
+query > div::after {
+  content: "";
+  display: table;
+  clear: both;
+}
