@@ -1,11 +1,4 @@
-# Overwrite /mnt/data/eindig-erfgoed.html with a version that:
-# - keeps the FULL provided text (no shortening)
-# - matches the head/asset structure and RCE styling like joods-erfgoed.html
-# - uses the standard RCE header logo, and uses the generated "eindig-erfgoed" logo only in the story banner
-# - includes placeholders for SPARQL widgets with identical <query> markup style
-# - preserves sections + tables exactly as supplied
-
-html = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="utf-8">
@@ -18,14 +11,14 @@ html = r"""<!DOCTYPE html>
   <meta property="og:description" content="Welke rijksmonumenten hun beschermde status verloren hebben, waar ze staan, en wat hun functies waren.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/eindig-erfgoed/eindig-erfgoed.html">
-  <meta property="og:image" content="./assets/imgs/eindig-erfgoed-logo.svg">
+  <meta property="og:image" content="./assets/imgs/eindig-erfgoed-logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="Rijksdienst voor het Cultureel Erfgoed">
 
-  <!-- Stylesheets (volgens joods-erfgoed.html) -->
+  <!-- Stylesheets -->
   <link rel="icon" href="./assets/imgs/favicon_rce.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="./assets/imgs/favicon_rce.png" sizes="180x180">
   <meta name="theme-color" content="#ffb612">
@@ -63,7 +56,7 @@ html = r"""<!DOCTYPE html>
   <!-- Banner / meta -->
   <div class="storyBanner storyBanner--template" role="region" aria-label="Story meta">
     <div class="storyIcon">
-      <img src="./assets/imgs/eindig-erfgoed-logo.svg" alt="Eindig erfgoed logo">
+      <img src="./assets/imgs/eindig-erfgoed-logo.png" alt="Eindig erfgoed logo">
     </div>
     <div class="storyInfo">
       <div class="storyLabel">Public · Rijksdienst voor het Cultureel Erfgoed (RCE)</div>
@@ -111,7 +104,7 @@ met kaarten, tabellen en grafieken krijgt u een helder beeld van de omvang en aa
   <section id="afvoeren"><h2>Afvoeren van rijksmonumenten</h2>
     <p>Afvoeren van rijksmonumenten klinkt misschien alsof het overbodige gebouwen betreft die simpelweg hun charme verloren hebben. Maar niets is minder waar. Dit proces gaat over het zorgvuldig afwegen wat nog echt monumentaal is en wat misschien zijn waarde, verhaal of zelfs identiteit verloren heeft. Ondanks een zorgvuldig vergunningsbeleid kan het gebeuren dat een rijksmonument in een dusdanige staat komt te verkeren dat de waarde in het geding komt. Vaak komt dat door gebeurtenissen waar bewoners of beheerders geen grip op hebben. Een brand kan er bijvoorbeeld toe leiden dat het rijksmonument zijn waarde verliest. Of een overstroming beschadigt het rijksmonument zodanig dat het unieke van het monument verloren gaat. Er zijn dus redenen om na te denken over de status van het rijksmonument. Afvoeren kan dan een van de oplossingen zijn.</p>
     <figure class="sink">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Boerderij_Stelphoeve_Werklust_Biesbosch%2C_aanzicht%2C_1967.jpg" alt='stelphoeve "werklust", aanzicht'>
+      <img src="https://linkeddata.cultureelerfgoed.nl/rce/Asset-dataset/assets/689e039a9978c6bcbc9a142" alt='stelphoeve "werklust", aanzicht'>
       <figcaption>Stelphoeve "werklust" (1853), aanzicht. Voormalig rijksmonument (rm 39849), afgevoerd aug. 2011. foto: h.m. (Herma) van den Berg, mei 1967. © rijksdienst voor het cultureel erfgoed, cc‑by‑sa 3.0.</figcaption>
     </figure>
   </section>
@@ -155,20 +148,9 @@ met kaarten, tabellen en grafieken krijgt u een helder beeld van de omvang en aa
     <p>De gegevens komen uit de CHO-Kennisdataset van de RCE, waarin alle rijksmonumenten zijn opgenomen.</p>
     <p><span style="background-color: yellow; color: black;">Opmaak en widget zoals in joods-erfgoed.html; deze is een placeholder, SPARQL later invullen.</span></p>
     <figure>
-      <query data-config="about:blank#query=-- SPARQL placeholder voor afgevoerde rijksmonumenten --&endpoint=https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql&requestMethod=POST&outputFormat=gchart&outputSettings=%7B%22chartType%22%3A%22Table%22%7D"></query>
+      <query data-config="https://linkeddata.cultureelerfgoed.nl/rce/cho/sparql#query=prefix%20ceox%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceox%23%3E%0Aprefix%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aprefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0Aprefix%20rn%3A%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F%3E%0Aprefix%20owms%3A%20%3Chttp%3A%2F%2Fstandaarden.overheid.nl%2Fowms%2Fterms%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0A%0Aselect%20distinct%20%3Fafgevoerd_rijksmonument%20%3Frijksmonumentnummer%20%3FdatumInschrijving%20%3Fafgevoerd%20%3Fnaam%20%3Fwoonplaats%20%3Fomschrijving%20%28group_concat%28distinct%20%3FfunctieNorm%3B%20separator%3D%22%3B%20%22%29%20as%20%3Ffuncties%29%0A%0Awhere%0A%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Fafgevoerd_rijksmonument%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E.%0A%20%20%20%20%3Fafgevoerd_rijksmonument%20ceo%3Arijksmonumentnummer%20%3Frijksmonumentnummer.%0A%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafgevoerd_rijksmonument%20ceo%3AdatumInschrijvingInMonumentenregister%20%3FdatumInschrijving.%0A%20%20%20%20%7D%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafgevoerd_rijksmonument%20ceo%3Aregistratiedatum%20%3Fafgevoerd.%0A%20%20%20%20%7D%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafgevoerd_rijksmonument%20ceo%3AheeftNaam%2Fceo%3Anaam%20%3Fnaam.%0A%20%20%20%20%7D%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafgevoerd_rijksmonument%20ceo%3AheeftBasisregistratieRelatie%2Fceo%3AheeftBAGRelatie%2Fceo%3Awoonplaatsnaam%20%3Fwoonplaats.%0A%20%20%20%20%7D%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafgevoerd_rijksmonument%20ceo%3AheeftOmschrijving%20%3Fomschrijving_%20.%0A%20%20%20%20%20%20%3Fomschrijving_%20ceo%3Aomschrijving%20%3Fomschrijving%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ceo%3AformeelStandpunt%20%221%22%5E%5Exsd%3Aboolean.%0A%20%20%20%20%20%20%23%20%20%20%20bind%28replace%28replace%28%3Fomschrijving_%2C%20%22%5Cr%22%2C%20%22%22%29%2C%20%22%5Cn%22%2C%20%22%22%29%20as%20%3Fomschrijving%29%0A%0A%20%20%20%20%7D%0A%20%20%20%20optional%20%7B%0Aoptional%20%7B%0A%20%20%3Fafgevoerd_rijksmonument%20ceo%3AheeftOorspronkelijkeFunctie%2Fceo%3AheeftFunctieNaam%20%3Ffunctienaam%20.%0A%20%20%3Ffunctienaam%20skos%3AprefLabel%20%3FfunctieLabel%20.%0A%20%20%23%20Alleen%20NL%20%28of%20taalloos%29%20en%20haakjes%20weg%0A%20%20bind%28replace%28%3FfunctieLabel%2C%20%22%5C%5Cs%2A%5C%5C%28.%2A%3F%5C%5C%29%22%2C%20%22%22%29%20as%20%3FfunctieNorm%29%0A%7D%0A%20%23%20%20%20%20%20bind%28replace%28%3Ffunctie_%2C%20%22%5C%5Cs%5C%5C%28.%2A%5C%5C%29%7C%5C%5C%28.%2A%5C%5C%29%22%2C%20%22%22%29%20as%20%3Ffunctie%29%0A%20%20%20%7D%0A%20%20%7D%0A%7D%0Agroup%20by%20%3Fafgevoerd_rijksmonument%20%3Frijksmonumentnummer%20%3FdatumInschrijving%20%3Fafgevoerd%20%3Fnaam%20%3Fwoonplaats%20%3Fomschrijving&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&tabTitle=Query%2022&outputFormat=Charts&outputSettings=%7B%22chartType%22%3A%22Table%22%2C%22options%22%3A%7B%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Afalse%7D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22legacyScatterChartLabels%22%3Atrue%2C%22booleanRole%22%3A%22certainty%22%2C%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%7D%7D%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%7D%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%7D%7D%5D%2C%22annotations%22%3A%7B%22domain%22%3A%7B%22style%22%3A%22line%22%7D%7D%2C%22showRowNumber%22%3Atrue%2C%22page%22%3A%22enable%22%2C%22pageSize%22%3A%225%22%7D%7D"></query>
       <figcaption id="tabel-caption" class="mt-2">Afgevoerde rijksmonumenten in tabel</figcaption>
     </figure>
-
-    <pre class="small">
-rijksmonumentnummer
- 	afgevoerd_rijksmonument	rijksmonumentnummer	datumInschrijving	afgevoerd	naam	woonplaats	omschrijving	functies
-1	rijksmonument:34894	5776	Oct 6, 1970	Feb 7, 1990	 	Amsterdam	Pand met gevel (XVIII) onder punttop (XIX); goede roedenverdeling.	Woonhuis
-2	rijksmonument:12538	10813	Dec 9, 1988	Jun 6, 1989	 	Brielle	Huis met gepleisterde, ingezwenkte lijstgevel ca. 1800, gemoderniseerd XIX d.	Woonhuis
-3	rijksmonument:12090	38243	Dec 1, 1971	Nov 24, 2003	 	Boven-Leeuwen	Gepleisterde HOEVE, blijkens jaartalankers in de voorgevel uit 1780. Rechts een opkamer. Met riet gedekt wolfdak.	Boerderij
-4	rijksmonument:53136	45448	Nov 29, 1967	Feb 1, 2022	 	 	Terrein waarin een grafheuvel. Datering: Neolithicum en/of Bronstijd en IJzertijd.	Archeologie
-5	rijksmonument:17488	33118	Sep 3, 1981	Dec 29, 2005	 	 	KOETSHUIS van het huis "Scherpenzeel". Gepleisterd, driebeukig koetshuis in neo-Tudorvormen. Gebouwd ten tijde van de verbouwing van het Huis "Scherpenzeel", in 1856 door arch. Van Lunteren. De drie beuken, waarvan de middelste brede is, iets terugligt ten opzichte van de andere en aan voor- en achterzijde twee inrijpoorten heeft, hebben ieder een met pannen gedekt zadeldak tussen tuitgevels met enige geveltrappen. In het midden van de linker zijgevel twee paar openslaande deuren met een houten afdak op gietijzeren kolommen en met giet- en smeedijzeren a-jour decoratie. In de zijbeuken rechthoekige, vier- en zesdelige vensters met houten, ruitvormige roedenverdeling in de bovenramen. In de geveltoppen van de zijbeuken aan de voorzijde twee gekoppelde rondboogvensters. In de geveltoppen van de middenbeuk aan voor- en achterzijde een luik.	Bijgebouwen kastelen enz.
-...
-    </pre>
   </section>
 
   <!-- Tijdlijn -->
@@ -176,53 +158,10 @@ rijksmonumentnummer
     <p>Onderstaande visualisatie laat zien hoeveel rijksmonumenten per jaar zijn afgevoerd. Elke staaf geeft het aantal afvoeringen in dat jaar weer. Zo wordt zichtbaar in welke perioden relatief veel of juist weinig rijksmonumenten hun status verloren. Deze telling is gebaseerd op de registratiedatum van de statuswijziging in het Monumentenregister.</p>
 
     <figure>
-      <query data-config="about:blank#query=-- SPARQL placeholder tijdlijn --&endpoint=https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql&requestMethod=POST&outputFormat=gchart&outputSettings=%7B%22chartType%22%3A%22ColumnChart%22%7D"></query>
+      <query data-config="https://linkeddata.cultureelerfgoed.nl/rce/cho/sparql#query=prefix%20ceox%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceox%23%3E%0Aprefix%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aprefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0Aprefix%20rn%3A%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F%3E%0Aprefix%20owms%3A%20%3Chttp%3A%2F%2Fstandaarden.overheid.nl%2Fowms%2Fterms%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0A%0Aselect%20%3Fjaar%20%28count%28distinct%20%3Frm%29%20as%20%3FaantalAfgevoerd%29%0Awhere%20%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Frm%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%20%3B%0A%20%20%20%20%20%20%20%20ceo%3Aregistratiedatum%20%3Fafvoerdatum%20.%0A%0A%20%20%20%20%23%20Pak%20altijd%20de%20eerste%204%20tekens%20als%20jaar%2C%20werkt%20voor%20zowel%20date%2C%20dateTime%20als%20string%0A%20%20%20%20bind%28%28substr%28str%28%3Fafvoerdatum%29%2C%201%2C%204%29%29%20as%20%3Fjaar%29%0A%20%20%7D%0A%20%20%23%20optioneel%3A%20beperk%20periode%0A%20%20%23%20filter%28%3Fjaar%20%3E%3D%201960%20%26%26%20%3Fjaar%20%3C%3D%202025%29%0A%7D%0Agroup%20by%20%3Fjaar%0Aorder%20by%20%3Fjaar%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&tabTitle=Query%2022&outputFormat=Charts&outputSettings=%7B%22chartType%22%3A%22ColumnChart%22%2C%22options%22%3A%7B%22annotations%22%3A%7B%22domain%22%3A%7B%7D%7D%2C%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22title%22%3A%22Jaar%22%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%7D%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%7D%2C%22logScale%22%3Afalse%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%7D%2C%22logScale%22%3Afalse%7D%5D%2C%22isStacked%22%3Atrue%2C%22booleanRole%22%3A%22certainty%22%2C%22legend%22%3A%22right%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22600px%22%2C%22title%22%3A%22Afgevoerde%20Rijksmonumenten%20per%20jaar%22%2C%22series%22%3A%7B%220%22%3A%7B%22color%22%3A%22%23e69138%22%7D%7D%7D%7D"></query>
       <figcaption>Afgevoerde Rijksmonumenten per jaar</figcaption>
     </figure>
 
-    <pre class="small">
-jaar	aantalAfgevoerd
-1987	26
-1988	33
-1989	48
-1990	51
-1991	22
-1992	20
-1993	17
-1994	12
-1995	24
-1996	78
-1997	112
-1998	66
-1999	136
-2000	165
-2001	301
-2002	114
-2003	130
-2004	249
-2005	435
-2006	268
-2007	138
-2008	79
-2009	128
-2010	169
-2011	230
-2012	273
-2013	128
-2014	223
-2015	96
-2016	161
-2017	12
-2018	71
-2019	54
-2020	50
-2021	30
-2022	35
-2023	51
-2024	44
-2025	23
-    </pre>
-  </section>
 
   <!-- Ingeschreven vs. afgevoerd -->
   <section id="ingeschreven-vs-afgevoerd"><h2>Ingeschreven vs. afgevoerde rijksmonumenten per jaar</h2>
