@@ -15,20 +15,21 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Eindig erfgoed: afgevoerde rijksmonumenten">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="Rijksdienst voor het Cultureel Erfgoed">
 
   <!-- Stylesheets -->
-  <link rel="icon" href="./assets/imgs/favicon_rce.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="./assets/imgs/favicon_rce.png" sizes="180x180">
+  <link rel="icon" href="../assets/imgs/favicon_rce.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/imgs/favicon_rce.png" sizes="180x180">
   <meta name="theme-color" content="#ffb612">
-  <link rel="manifest" href="./assets/manifest.webmanifest">
+  <link rel="manifest" href="../assets/manifest.webmanifest">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/ro-sans" />
-  <link href="./assets/css/main.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/stories.min.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/yasgui.bootstrap.css" rel="stylesheet" type="text/css">
-  <meta name="version" content="1.1-eindig-erfgoed">
+  <link href="../assets/css/main.css?v=0.8.1" rel="stylesheet" type="text/css">
+  <link href="../assets/css/stories.min.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/yasgui.bootstrap.css" rel="stylesheet" type="text/css">
+  <meta name="version" content="1.0-eindig-erfgoed">
 </head>
 
 <body>
@@ -39,17 +40,14 @@
   </div>
 </header>
 
-<div class="rce-yellow-bar">
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <a href="https://cultureelerfgoed.github.io/datastories-cultureelerfgoed/">Home</a>
-      <span class="breadcrumb-sep">&gt;</span>
-      <span aria-current="page">Eindig erfgoed</span>
-    </nav>
-  </div>
-</div>
+<body>
+<a href="#main" class="visually-hidden-focusable">Direct naar hoofdinhoud</a>
+<header class="rce-header-full"><div class="wrapper"><img class="rce-logo" src="../assets/imgs/logo_cultureelerfgoed.svg" alt="Rijksdienst voor het Cultureel Erfgoed"></div></header>
+<div class="rce-yellow-bar"><div class="breadcrumb-container">
+<nav aria-label="breadcrumb"><a href="https://datastories.cultureelerfgoed.nl/">Home</a> <span class="breadcrumb-sep">&gt;</span> <span aria-current="page">Eindig erfgoed</span></nav></div></div>
 
-<main id="main" role="main" class="container mt-3 mb-4 story" aria-label="Eindig erfgoed">
+
+<main id="main" role="main" class="container mt-3 mb-4 story" aria-label="Joods erfgoed">
 
   <h1>Eindig erfgoed: afgevoerde rijksmonumenten, wanneer bescherming stopt</h1>
 
@@ -171,73 +169,8 @@ met kaarten, tabellen en grafieken krijgt u een helder beeld van de omvang en aa
       <figcaption>Vergelijking afgevoerde en aangewezen Rijksmonumenten per jaar</figcaption>
     </figure>
 
-    <pre class="small">
-jaar	aantalIngeschreven	aantalAfgevoerd
-1965	1771	0
-1966	7619	0
-1967	6272	0
-1968	3226	0
-1969	1769	0
-1970	7526	0
-1971	3011	0
-1972	1600	0
-1973	2759	0
-1974	966	0
-1975	889	0
-1976	988	0
-1977	410	0
-1978	468	0
-1979	311	0
-1980	369	0
-1981	184	0
-1982	196	0
-1983	199	0
-1984	390	0
-1985	270	0
-1986	147	0
-1987	83	26
-1988	62	33
-1989	126	48
-1990	195	51
-1991	265	22
-1992	372	20
-1993	456	17
-1994	641	12
-1995	495	24
-1996	412	78
-1997	1103	112
-1998	1222	66
-1999	1717	136
-2000	1796	165
-2001	3315	301
-2002	3859	114
-2003	709	130
-2004	1042	249
-2005	878	435
-2006	779	268
-2007	301	138
-2008	153	79
-2009	101	128
-2010	316	169
-2011	246	230
-2012	277	273
-2013	188	128
-2014	261	223
-2015	142	96
-2016	198	161
-2017	29	12
-2018	11	71
-2019	9	54
-2020	2	50
-2021	23	30
-2022	1	35
-2023	0	51
-2024	2	44
-2025	5	23
-    </pre>
-  </section>
 
-  <!-- Provincies -->
+    <!-- Provincies -->
   <section id="provincies"><h2>Aantal en percentage afgevoerde rijksmonumenten per provincie</h2>
     <figure>
       <query data-config="about:blank#query=-- SPARQL placeholder provincies --&endpoint=https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql&requestMethod=POST&outputFormat=gchart&outputSettings=%7B%22chartType%22%3A%22BarChart%22%7D"></query>
