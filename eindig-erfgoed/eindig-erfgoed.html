@@ -251,46 +251,18 @@ Werk-woonhuis	31	0.7
     <p>Gegevens over de reden van afvoering zijn niet in de dataset opgenomen en konden daarom niet worden meegenomen in de analyses. Hierdoor kunnen trends of geografische verschillen niet direct worden gekoppeld aan oorzaken zoals brand, sloop of verbouwing.</p>
     <p>De resultaten zijn momentopnames van een dynamische dataset die dagelijks wordt bijgewerkt. Bij herhaald uitvoeren van de queries kunnen de aantallen veranderen.</p>
   </section>
-
-  <!-- Disclaimer -->
-  <section id="disclaimer" aria-labelledby="disclaimer-titel">
-    <h2 id="disclaimer-titel">DISCLAIMER</h2>
-    <details class="disclaimer-box">
-      <summary>Lees de disclaimer</summary>
-      <p>Er kunnen geen rechten worden ontleend aan de weergegeven resultaten. De verstrekte informatie is uitsluitend bedoeld voor informatieve doeleinden en biedt geen garantie op volledigheid, juistheid of actualiteit.</p>
-      <hr>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <dl>
-            <dt>Titel:</dt><dd>Afgevoerde rijksmonumenten</dd>
-            <dt>Beschrijving:</dt><dd>Deze story bevat data over afgevoerde rijksmonumenten. De reden van afvoering is niet opgenomen.</dd>
-            <dt>Publisher:</dt><dd>Rijksdienst voor het Cultureel Erfgoed (RCE)</dd>
-            <dt>Licentie:</dt><dd>Open Data Commons Attribution License</dd>
-          </dl>
-        </div>
-        <div class="col-12 col-md-6">
-          <dl>
-            <dt>Dataset(s):</dt><dd><a href="https://linkeddata.cultureelerfgoed.nl/rce/cho" target="_blank" rel="noopener">https://linkeddata.cultureelerfgoed.nl/rce/cho</a></dd>
-            <dt>Datum created:</dt><dd>2024-10-28</dd>
-            <dt>Datum modified:</dt><dd>2024-10-28</dd>
-            <dt>Data status:</dt><dd>Dynamisch – dagelijkse update</dd>
-            <dt>Story status:</dt><dd>In bewerking – wordt regelmatig aangevuld met nieuwe data</dd>
-          </dl>
-        </div>
-      </div>
-    </details>
-  </section>
-
 </main>
 
 <footer class="footer-rce-full" role="contentinfo">
   <div class="footer-inner">
-    © Rijksdienst voor het Cultureel Erfgoed ·
-    <a href="mailto:info@cultureelerfgoed.nl" class="footer-link">info@cultureelerfgoed.nl</a>
+    © Rijksdienst voor het Cultureel Erfgoed · <a href="mailto:info@cultureelerfgoed.nl" class="footer-link">info@cultureelerfgoed.nl</a>
   </div>
 </footer>
 
-<!-- YASGUI embed voor <query> widgets -->
-<script defer src="./assets/js/yasgui.embed.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
+<script src="../assets/js/stories.min.js" defer></script>
+<script>window.onload = function () { stories(); };</script>
+
 </body>
 </html>
