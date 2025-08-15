@@ -714,6 +714,7 @@ query > div::after {
   display: table;
   clear: both;
 }
+
 /* === Override: laat tekst naast floats lopen buiten .story === */
 .story p,
 .story ul,
