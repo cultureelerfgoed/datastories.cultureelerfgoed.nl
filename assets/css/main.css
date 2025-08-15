@@ -714,3 +714,9 @@ query > div::after {
   display: table;
   clear: both;
 }
+/* === Override: laat tekst naast floats lopen buiten .story === */
+main p,
+main ul,
+main ol {
+  clear: none;
+}
