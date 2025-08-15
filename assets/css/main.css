@@ -715,9 +715,11 @@ query > div::after {
   clear: both;
 }
 
-/* === Override: laat tekst naast floats lopen buiten .story === */
+/* 1) Laat tekst naast floats lopen in .story */
 .story p,
 .story ul,
-.story ol {
-  clear: none !important;
-}
+.story ol { clear: none !important; }
+
+/* 2) Haal de bovenmarge weg van de eerste paragraaf ná een figure
+      zodat er geen groot gat links van de foto ontstaat */
+.story figure + p { margin-top: 0; }
