@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Eindig erfgoed: afgevoerde rijksmonumenten</title>
+  <meta name="robots" content="index,follow">
+  <link rel="alternate" hreflang="nl" href="https://datastories.cultureelerfgoed.nl/eindig-erfgoed/">
   <meta name="description" content="Data‑story over afgevoerde rijksmonumenten: wanneer bescherming stopt. Overzichten in SPARQL, kaarten, tabellen en grafieken.">
   <meta name="author" content="Rijksdienst voor het Cultureel Erfgoed">
   <link rel="canonical" href="https://datastories.cultureelerfgoed.nl/eindig-erfgoed/">
   <meta property="og:title" content="Eindig erfgoed: afgevoerde rijksmonumenten">
   <meta property="og:description" content="Welke rijksmonumenten hun beschermde status verloren hebben, waar ze staan, en wat hun functies waren.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://datastories.cultureelerfgoed.nl/eindig-erfgoed/eindig-erfgoed.html">
+  <meta property="og:url" content="https://datastories.cultureelerfgoed.nl/eindig-erfgoed/">
   <meta property="og:image" content="https://datastories.cultureelerfgoed.nl/assets/imgs/eindig-erfgoed.png">
   <link rel="icon" href="https://datastories.cultureelerfgoed.nl/assets/imgs/eindig-erfgoed-icon.png" sizes="512x512" type="image/png">
   <link rel="apple-touch-icon" href="https://datastories.cultureelerfgoed.nl/assets/imgs/eindig-erfgoed-icon.png" sizes="180x180">
@@ -20,6 +22,30 @@
   <meta property="og:image:alt" content="Eindig erfgoed: afgevoerde rijksmonumenten">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="Rijksdienst voor het Cultureel Erfgoed">
+
+  <!-- json-ld -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Eindig erfgoed: afgevoerde rijksmonumenten",
+  "description": "Data-story over afgevoerde rijksmonumenten: wanneer bescherming stopt. Overzichten in SPARQL, kaarten, tabellen en grafieken.",
+  "author": { "@type": "Organization", "name": "Rijksdienst voor het Cultureel Erfgoed" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rijksdienst voor het Cultureel Erfgoed",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://datastories.cultureelerfgoed.nl/assets/imgs/logo_cultureelerfgoed.svg"
+    }
+  },
+  "image": "https://datastories.cultureelerfgoed.nl/assets/imgs/eindig-erfgoed.png",
+  "datePublished": "2025-08-18",
+  "dateModified": "2024-10-28",
+  "inLanguage": "nl-NL",
+  "mainEntityOfPage": "https://datastories.cultureelerfgoed.nl/eindig-erfgoed/"
+}
+</script>
 
   <!-- Stylesheets -->
   <link rel="icon" href="../assets/imgs/favicon_rce.png" sizes="32x32" type="image/png">
@@ -47,7 +73,7 @@
 
   <h1>Eindig erfgoed: afgevoerde rijksmonumenten, wanneer bescherming stopt</h1>
 
-  <h3>Wat u in deze data story vindt</h3>
+  <h2>Wat u in deze data story vindt</h2>
   <ul>
     <li>welke rijksmonumenten hun beschermde status verloren hebben</li>
     <li>waar deze monumenten staan, per provincie en gemeente</li>
@@ -78,7 +104,7 @@
   <!-- Inleiding -->
   <section id="inleiding"><h2>Inleiding</h2>
     <p>In deze data story ontdekt u hoe, waar en waarom rijksmonumenten uit het register verdwijnen.
-de gegevens laten zien welke objecten de status "afgevoerd" hebben gekregen, hoe dat zich over nederland verspreidt en welke functies daarbij het meest voorkomen.
+de gegevens laten zien welke objecten de status "afgevoerd" hebben gekregen, hoe dat zich over Nederland verspreidt en welke functies daarbij het meest voorkomen.
 met kaarten, tabellen en grafieken krijgt u een helder beeld van de omvang en aard van deze afvoeringen.</p>
   </section>
 
@@ -97,18 +123,19 @@ met kaarten, tabellen en grafieken krijgt u een helder beeld van de omvang en aa
 
   <p>Afvoeren van rijksmonumenten klinkt misschien alsof het overbodige gebouwen betreft die simpelweg hun charme verloren hebben. Maar niets is minder waar. Dit proces gaat over het zorgvuldig afwegen wat nog echt monumentaal is en wat misschien zijn waarde, verhaal of zelfs identiteit verloren heeft. Ondanks een zorgvuldig vergunningsbeleid kan het gebeuren dat een rijksmonument in een dusdanige staat komt te verkeren dat de waarde in het geding komt. Vaak komt dat door gebeurtenissen waar bewoners of beheerders geen grip op hebben. Een brand kan er bijvoorbeeld toe leiden dat het rijksmonument zijn waarde verliest. Of een overstroming beschadigt het rijksmonument zodanig dat het unieke van het monument verloren gaat. Er zijn dus redenen om na te denken over de status van het rijksmonument. Afvoeren kan dan een van de oplossingen zijn.</p>
 
-    <figure class="sink gauge6">
-      <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql#query=prefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0A%0Aselect%20(count(distinct%20%3Fafgevoerd_rijksmonument)%20as%20%3FAfgevoerd)%0Awhere%20%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Fafgevoerd_rijksmonument%0A%20%20%20%20%20%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%20%239227%3Dafgevoerd.%0A%20%20%7D%0A%7D%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Atrue%7D%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22min%22%3A%221%22%2C%22max%22%3A%226000%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22Gauge%22%7D%7D"></query>
-      <figcaption>Aantal afgevoerde rijksmonumenten</figcaption>
+    <figure class="sink gauge6" role="group" aria-labelledby="gauge-title" aria-describedby="gauge-desc">
+       <h3 id="gauge-title" class="visually-hidden">Aantal afgevoerde rijksmonumenten</h3>
+  <query aria-label="Metergrafiek met het totaal aantal afgevoerde rijksmonumenten"
+     data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql#query=prefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0A%0Aselect%20(count(distinct%20%3Fafgevoerd_rijksmonument)%20as%20%3FAfgevoerd)%0Awhere%20%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Fafgevoerd_rijksmonument%0A%20%20%20%20%20%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%20%239227%3Dafgevoerd.%0A%20%20%7D%0A%7D%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Atrue%7D%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22min%22%3A%221%22%2C%22max%22%3A%226000%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22Gauge%22%7D%7D"></query>
+    <figcaption>Aantal afgevoerde rijksmonumenten</figcaption>
     </figure>
   </section>
-
 
   <!-- Wanneer rijksmonumenten afvoeren? -->
   <section id="wanneer"><h2>Wanneer rijksmonumenten afvoeren?</h2>
     <p>Een rijksmonument krijgt niet zomaar die status; het gaat hier vaak om gebouwen en objecten die iets wezenlijks vertellen over onze geschiedenis, van cultuurhistorisch belang zijn of een unieke verschijning vormen. Maar tijden veranderen. Gebouwen verliezen soms hun bijzondere karakter, raken beschadigd of gaan zo grondig op de schop dat hun oorspronkelijke waarde verdwijnt. Zelfs onder een traject waarbij vergunningen verleend zijn, kan het voorkomen dat een gebouw zijn waarde verliest. In het verleden zijn bijvoorbeeld tijdens verbouwingen panden plotseling ingestort of werden bijzondere onderdelen, zoals tegels of schouwonderdelen, vervreemd.</p>
     <p>Op zulke momenten vragen de betrokken medewerkers van de Rijksdienst voor het Cultureel Erfgoed (RCE) zich namens de minister af: is datgene wat het gebouw of object een rijksmonument maakt nog aanwezig, en vertegenwoordigt het nog steeds de waarde als rijksmonument? Het zal duidelijk zijn dat als een beschermd object, bijvoorbeeld een grafzerk, verdwenen is, er niets meer te beschermen valt. Maar het wordt ingewikkelder wanneer bijvoorbeeld een boerderij afbrandt, waarbij na onderzoek blijkt dat de dragende balken en historische muurdelen zijn verbrand of zodanig beschadigd dat alleen nieuwbouw resteert. De overwegingen die dan gemaakt worden, kunnen ertoe leiden dat het rijksmonument afgevoerd wordt.</p>
-    <p>In een kennisbankartikel [LINK VOLGT] over dit onderwerp worden een aantal voorbeelden van afgevoerde monumenten uitgewerkt.</p>
+    <p>In een <a href="https://kennis.cultureelerfgoed.nl/index.php/Kennisbank_-_uitgelicht" target="_blank">kennisbankartikel </a> over dit onderwerp worden een aantal voorbeelden van afgevoerde monumenten uitgewerkt.</p>
   </section>
 
 
@@ -278,7 +305,13 @@ met kaarten, tabellen en grafieken krijgt u een helder beeld van de omvang en aa
 
 <footer class="footer-rce-full" role="contentinfo">
   <div class="footer-inner">
-    © Rijksdienst voor het Cultureel Erfgoed · <a href="mailto:info@cultureelerfgoed.nl" class="footer-link">info@cultureelerfgoed.nl</a>
+    © Rijksdienst voor het Cultureel Erfgoed ·
+    <nav aria-label="Footer">
+      <a href="mailto:info@cultureelerfgoed.nl" class="footer-link">info@cultureelerfgoed.nl</a> ·
+      <a href="https://www.cultureelerfgoed.nl/contact" class="footer-link">Contact</a> ·
+      <a href="https://www.cultureelerfgoed.nl/disclaimer" class="footer-link">Disclaimer</a> ·
+      <a href="https://www.cultureelerfgoed.nl/toegankelijkheid" class="footer-link">Toegankelijkheid</a>
+    </nav>
   </div>
 </footer>
 
