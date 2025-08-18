@@ -724,24 +724,16 @@ query > div::after {
       zodat er geen groot gat links van de foto ontstaat */
 .story figure + p { margin-top: 0; }
 
-/* 6×6 cm gauge, geen minimale hoogte */
-.sink.gauge6 {
-  float: left;
-  width: 6cm;
-  height: 6cm;
-  min-height: 0 !important;   /* overschrijft evt. globale min-height */
-  margin: 1em 1em 0 0;
+/* 6×6 cm kaartje voor de gauge */
+.sink.gauge6{
+  float:left;
+  width:6cm; height:6cm;
+  min-height:0 !important;
+  margin:1em 1em 0 0;
 }
+.sink.gauge6 > query{ display:block; width:95%; height:95%; }
+.sink.gauge6 figcaption{ font-size:.8em; line-height:1.3; }
 
-/* laat de query het hele vlak vullen */
-.sink.gauge6 > query {
-  display: block;
-  width: 95%;
-  height: 95%;
-}
-
-/* onderschrift wat compacter */
-.sink.gauge6 figcaption {
-  font-size: .8em;
-  line-height: 1.3;
-}
+/* Zorg dat widgets ‘netjes afsluiten’ en koppen onder floats beginnen */
+query{ display:block; overflow:auto; margin:1.5rem 0; }
+.story h2,.story h3,.story p,.story ul,.story ol{ clear:both; }
