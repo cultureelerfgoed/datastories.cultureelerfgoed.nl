@@ -723,3 +723,31 @@ query > div::after {
 /* 2) Haal de bovenmarge weg van de eerste paragraaf ná een figure
       zodat er geen groot gat links van de foto ontstaat */
 .story figure + p { margin-top: 0; }
+
+/* 6×6 cm gauge, geen minimale hoogte */
+.sink.gauge6 {
+  float: left;
+  width: 6cm;
+  height: 6cm;
+  min-height: 0 !important;   /* overschrijft evt. globale min-height */
+  margin: 1em 1em 0 0;
+}
+
+/* laat de query het hele vlak vullen */
+.sink.gauge6 > query {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* als het script extra wrappers binnen <query> zet */
+.sink.gauge6 > query * {
+  height: 100%;
+  max-height: 100%;
+}
+
+/* onderschrift wat compacter */
+.sink.gauge6 figcaption {
+  font-size: .8em;
+  line-height: 1.3;
+}
