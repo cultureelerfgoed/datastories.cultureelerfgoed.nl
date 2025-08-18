@@ -736,8 +736,8 @@ query > div::after {
 /* laat de query het hele vlak vullen */
 .sink.gauge6 > query {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
 }
 
 /* onderschrift wat compacter */
