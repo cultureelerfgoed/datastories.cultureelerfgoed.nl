@@ -727,7 +727,7 @@ query > div::after {
 /* Gauge-kaartje: figure groeit mee; gauge zelf is 6×6 cm */
 .sink.gauge6{
   float: left;
-  width: 6cm;
+  width: 7cm;
   height: auto !important;      /* caption telt mee → geen overlap */
   min-height: 0 !important;
   margin: 1em 1em 0 0;
@@ -735,7 +735,7 @@ query > div::after {
 
 .sink.gauge6 > query{
   display: block;
-  width: 6cm;
+  width: 7cm;
   height: 6cm;                  /* de gauge zelf */
 }
 
