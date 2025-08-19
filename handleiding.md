@@ -4,7 +4,7 @@ Deze handleiding beschrijft hoe je een nieuwe datastory maakt, publiceert en opn
 
 ---
 
-## 📁 1. Structuur van de site
+## 1. Structuur van de site
 
 ```
 /
@@ -23,7 +23,7 @@ Deze handleiding beschrijft hoe je een nieuwe datastory maakt, publiceert en opn
 
 ---
 
-## 🧱 2. Nieuwe story aanmaken
+## 2. Nieuwe story aanmaken
 
 1. Kopieer `template/template.html` naar een nieuwe map, bijv. `verloren-erfgoed/`
 2. Hernoem het bestand naar `verloren-erfgoed.html`
@@ -34,7 +34,7 @@ Deze handleiding beschrijft hoe je een nieuwe datastory maakt, publiceert en opn
 
 ---
 
-## 🧠 3. Head & metadata
+## 3. Head & metadata
 
 - `<title>` – unieke, korte titel
 - `<meta name="description">` – max. 155 tekens
@@ -58,7 +58,7 @@ Deze handleiding beschrijft hoe je een nieuwe datastory maakt, publiceert en opn
 
 ---
 
-## 🧭 4. Navigatie & structuur
+## 4. Navigatie & structuur
 
 - Gebruik altijd een **skiplink** bovenaan:
   ```html
@@ -73,7 +73,7 @@ Deze handleiding beschrijft hoe je een nieuwe datastory maakt, publiceert en opn
 
 ---
 
-## 📊 5. Queries & visualisaties
+## 5. Queries & visualisaties
 
 - Omring `<query>` elementen met `<figure>` + `<figcaption>`
 - Voeg altijd `aria-labelledby` en `aria-describedby` toe
@@ -95,7 +95,7 @@ Voorbeeld:
 
 ---
 
-## 🖼 6. Afbeeldingen
+## 6. Afbeeldingen
 
 Gebruik dit patroon:
 
@@ -111,7 +111,7 @@ Gebruik dit patroon:
 
 ---
 
-## 🦶 7. Footer
+## 7. Footer
 
 Gebruik:
 
@@ -130,7 +130,7 @@ Gebruik:
 
 ---
 
-## ✅ 8. Checklist (kort)
+## 8. Checklist (kort)
 
 - [ ] Metadata ingevuld (title, description, OG, canonical)
 - [ ] Koppenstructuur klopt (`<h1>`–`<h2>`–`<h3>`)
@@ -142,7 +142,7 @@ Gebruik:
 
 ---
 
-## 🔍 9. Checklist (uitgebreid)
+## 9. Checklist (uitgebreid)
 
 ### Head & SEO
 - [ ] `<title>` en `<meta description>` zijn uniek
@@ -166,7 +166,7 @@ Gebruik:
 
 ---
 
-## 🚫 Veelgemaakte fouten
+## Veelgemaakte fouten
 
 - Canonical ≠ OG-url
 - `<h2>` wordt overgeslagen → structuurfout
@@ -176,4 +176,97 @@ Gebruik:
 
 ---
 
+## 10. Snippets
+
+<!-- =============================== -->
+<!-- INLEIDING                       -->
+<!-- =============================== -->
+<section id="inleiding" aria-labelledby="inleiding-title" class="mt-4">
+  <h2 id="inleiding-title" class="mb-2">Inleiding</h2>
+
+  <p>In deze datastory geven we achtergrondinformatie en context 
+  bij het gekozen thema. We lichten toe waarom dit onderwerp 
+  relevant is en welke vragen we met de data willen beantwoorden.</p>
+</section>
+
+<!-- =============================== -->
+<!-- WAT VIND JE IN DEZE STORY       -->
+<!-- =============================== -->
+<section id="wat-vind-je" aria-labelledby="wat-vind-je-title" class="mt-4">
+  <h2 id="wat-vind-je-title" class="mb-2">Wat vind je in deze story?</h2>
+
+  <p>Deze datastory bevat de volgende onderdelen:</p>
+  <ul>
+    <li>Kernvragen die we onderzoeken</li>
+    <li>Overzicht van relevante data en visualisaties</li>
+    <li>Toelichting op methode en bronnen</li>
+    <li>Conclusies of observaties</li>
+  </ul>
+</section>
+
+<!-- =============================== -->
+<!-- INHOUDSOPGAVE                   -->
+<!-- =============================== -->
+<nav id="inhoudsopgave" aria-labelledby="inhoudsopgave-title" class="mt-4">
+  <h2 id="inhoudsopgave-title" class="mb-2">Inhoudsopgave</h2>
+
+  <ol>
+    <li><a href="#inleiding">Inleiding</a></li>
+    <li><a href="#wat-vind-je">Wat vind je in deze story?</a></li>
+    <li><a href="#methode">Methode en verantwoording</a></li>
+    <li><a href="#disclaimer">Disclaimer</a></li>
+  </ol>
+</nav>
+
+<!-- =============================== -->
+<!-- DISCLAIMER                      -->
+<!-- =============================== -->
+<section id="disclaimer" aria-labelledby="disclaimer-title" class="mt-4">
+  <h2 id="disclaimer-title" class="mb-2">Disclaimer</h2>
+
+  <details class="disclaimer-box">
+    <summary><strong>Lees de disclaimer</strong></summary>
+
+    <p><strong>Let op</strong></p>
+    <p><em>U kunt aan de getoonde resultaten geen rechten ontlenen. 
+    De informatie is bedoeld om te informeren en biedt geen garantie 
+    op volledigheid, juistheid of actualiteit.</em></p>
+
+    <dl class="row small">
+      <dt class="col-sm-3">Titel</dt>
+      <dd class="col-sm-9">Titel van de datastory</dd>
+
+      <dt class="col-sm-3">Beschrijving</dt>
+      <dd class="col-sm-9">Korte beschrijving van de gebruikte dataset</dd>
+    </dl>
+  </details>
+</section>
+
+<!-- =============================== -->
+<!-- METHODE EN VERANTWOORDING       -->
+<!-- =============================== -->
+<section id="methode" aria-labelledby="methode-title" class="mt-4">
+  <h2 id="methode-title" class="mb-2">Methode en verantwoording</h2>
+
+  <details class="methode-box">
+    <summary><strong>Lees meer over de methode</strong></summary>
+
+    <p>Hier komt een toelichting op de werkwijze: 
+    welke data zijn gebruikt, hoe zijn de queries opgesteld, 
+    welke aannames zijn gemaakt en welke beperkingen gelden.</p>
+
+    <p>Vermeld ook bronvermeldingen en eventueel links naar 
+    documentatie of aanvullende informatie.</p>
+  </details>
+</section>
+
 Gereed? **Commit + push → klaar.**
+
+## Literatuur
+
+- Netwerk Digitaal Erfgoed. *Gids Linked Data Stories: databeheerders en communicatieadviseurs werken samen*.  
+  [https://netwerkdigitaalerfgoed.nl/nieuws/gids-linked-data-stories-databeheerders-communicatieadviseurs-samenwerken/](https://netwerkdigitaalerfgoed.nl/nieuws/gids-linked-data-stories-databeheerders-communicatieadviseurs-samenwerken/)
+
+- Timmermans, M., Boskaljon, B., Mout, P., & Vanderheiden, J. (2023).  
+  *Gids voor het maken van linked data stories – Storytelling aan de hand van LOD*.  
+  Zenodo. [https://doi.org/10.5281/zenodo.7936890](https://doi.org/10.5281/zenodo.7936890)

@@ -44,3 +44,56 @@ Deze datastories zijn mede mogelijk gemaakt dankzij de code en ideeën ontwikkel
 ---
 
 *Deze repository bevat de codebasis om datastories te ontwikkelen en te publiceren binnen de context van het cultureel erfgoed.*
+
+---
+
+## Voor ontwikkelaars
+
+Wil je zelf een nieuwe datastory maken of bestaande aanpassen?  
+Gebruik hiervoor de uitgebreide [handleiding](handleiding.md). Hieronder vind je een korte samenvatting:
+
+### Stappen
+1. Kopieer `template/template.html` naar een nieuwe map (bijv. `mijn-story/`).
+2. Hernoem naar `mijn-story.html` en pas inhoud en metadata aan.
+3. Voeg eventuele afbeeldingen toe in `assets/imgs/`.
+4. Voeg een nieuwe tegel toe op `index.html` met link en bannerafbeelding.
+5. Commit + push → publicatie via GitHub Pages gaat automatisch.
+
+### Checklist
+- Metadata ingevuld (title, description, OG, canonical)
+- Koppenstructuur correct (`<h1>`, `<h2>`, `<h3>`)
+- Afbeeldingen voorzien van `alt`, vaste grootte en lazy loading
+- Queries hebben fallback en aria-attributen
+- Disclaimer en methode zijn toegevoegd
+- Nieuwe tegel staat in `index.html`
+- Alle links werken
+
+Zie [handleiding.md](handleiding.md) voor de volledige checklist en HTML-snippets (inleiding, inhoudsopgave, disclaimer, methode).
+
+---
+
+## Publicatie & Hosting
+
+Deze repository wordt gehost via **GitHub Pages**.  
+- Branch: `main`  
+- Custom domain: `datastories.cultureelerfgoed.nl` (CNAME aanwezig)  
+- HTTPS wordt automatisch ingeschakeld wanneer de DNS correct staat.  
+
+---
+
+## Licentie
+
+- Code en handleiding: MIT-licentie (tenzij anders vermeld).
+- Afbeeldingen en datasets: gebruik conform de aangegeven bron en licentie (bijv. Creative Commons).  
+  Raadpleeg per story de specifieke vermelding in het bronmateriaal.
+
+---
+
+## Literatuur
+
+- Netwerk Digitaal Erfgoed. *Gids Linked Data Stories: databeheerders en communicatieadviseurs werken samen*.  
+  [https://netwerkdigitaalerfgoed.nl/nieuws/gids-linked-data-stories-databeheerders-communicatieadviseurs-samenwerken/](https://netwerkdigitaalerfgoed.nl/nieuws/gids-linked-data-stories-databeheerders-communicatieadviseurs-samenwerken/)
+
+- Timmermans, M., Boskaljon, B., Mout, P., & Vanderheiden, J. (2023).  
+  *Gids voor het maken van linked data stories – Storytelling aan de hand van LOD*.  
+  Zenodo. [https://doi.org/10.5281/zenodo.7936890](https://doi.org/10.5281/zenodo.7936890)
