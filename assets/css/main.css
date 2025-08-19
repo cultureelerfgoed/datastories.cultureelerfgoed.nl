@@ -756,3 +756,27 @@ query{
 .story h2, .story h3{
   clear: both;
 }
+
+/* Teruglink naast h2 en h3 koppen */
+h2 .back-to-toc,
+h3 .back-to-toc {
+  font-size: .75em;         
+  margin-left: .4rem;       
+  text-decoration: none;
+  opacity: .6;
+  vertical-align: middle;
+}
+
+h2 .back-to-toc:hover,
+h3 .back-to-toc:hover,
+h2 .back-to-toc:focus,
+h3 .back-to-toc:focus {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+h2 .back-to-toc:focus-visible,
+h3 .back-to-toc:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

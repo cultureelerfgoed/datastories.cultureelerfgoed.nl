@@ -82,8 +82,8 @@
   </ul>
 
   <!-- Inhoudsopgave -->
-  <h2>Inhoud</h2>
-  <nav class="mb-4" aria-label="Inhoudsopgave" role="doc-toc">
+<h2 id="toc">Inhoud</h2>
+<nav class="mb-4" aria-label="Inhoudsopgave" role="doc-toc">
     <ul>
       <li><a href="#inleiding">Inleiding</a></li>
       <li><a href="#afvoeren">Afvoeren van rijksmonumenten</a></li>
@@ -224,7 +224,10 @@ met kaarten, tabellen en grafieken krijgt u een helder beeld van de omvang en aa
     </figure>
 
   <!-- Gemeenten -->
-  <section id="top20-gemeenten"><h2>Top 20 gemeenten naar aantal afgevoerde rijksmonumenten</h2>
+  <section id="top20-gemeenten">
+  <h2>
+    Top 20 gemeenten naar aantal afgevoerde rijksmonumenten
+    <a href="#toc" class="back-to-toc" aria-label="Terug naar inhoudsopgave" title="Terug naar inhoudsopgave">⮌</a></h2>
     <figure>
       <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql#query=PREFIX%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0APREFIX%20ceo%3A%20%20%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0APREFIX%20skos%3A%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX%20xsd%3A%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0A%0ASELECT%20%3Fgemeente%20%3Faantal%0A%20%20%20%20%20%20%20((xsd%3Adecimal(%3Faantal)%20*%20100)%20%2F%20xsd%3Adecimal(%3Ftotaal)%20AS%20%3FpercentageVanTotaal)%0AWHERE%20%7B%0A%20%20%7B%20%23%20Aantallen%20per%20gemeente%20(alleen%20afgevoerd)%0A%20%20%20%20SELECT%20%3Fgemeente%20(COUNT(DISTINCT%20%3Fcho)%20AS%20%3Faantal)%0A%20%20%20%20WHERE%20%7B%0A%20%20%20%20%20%20GRAPH%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%20%20%20%20%3Fcho%20a%20ceo%3ARijksmonument%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20ceo%3AheeftBasisregistratieRelatie%20%5B%20ceo%3AheeftGemeente%20%3FgemURI%20%5D%20.%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20GRAPH%20graph%3Aowms%20%7B%0A%20%20%20%20%20%20%20%20%3FgemURI%20skos%3AprefLabel%20%3Fgemeente%20.%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20GROUP%20BY%20%3Fgemeente%0A%20%20%7D%0A%20%20%7B%20%23%20Landelijk%20totaal%20afgevoerd%0A%20%20%20%20SELECT%20(COUNT(DISTINCT%20%3Frm)%20AS%20%3Ftotaal)%0A%20%20%20%20WHERE%20%7B%0A%20%20%20%20%20%20GRAPH%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%20%20%20%20%3Frm%20a%20ceo%3ARijksmonument%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%20.%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0AORDER%20BY%20DESC(%3Faantal)%20%3Fgemeente%0ALIMIT%2020&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22legacyScatterChartLabels%22%3Atrue%2C%22legend%22%3A%22right%22%2C%22series%22%3A%7B%220%22%3A%7B%22color%22%3A%22%23ff9900%22%2C%22errorBars%22%3A%7B%22errorType%22%3A%22none%22%7D%7D%7D%2C%22title%22%3A%22Top%2020%20gemeenten%20afgevoerde%20rijksmonumenten%22%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Afalse%7D%2C%22useFirstColumnAsDomain%22%3Atrue%2C%22isStacked%22%3Afalse%2C%22booleanRole%22%3A%22certainty%22%2C%22vAxes%22%3A%5B%7B%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22viewWindow%22%3Anull%2C%22viewWindowMode%22%3Anull%2C%22useFormatFromData%22%3Atrue%7D%2C%7B%22useFormatFromData%22%3Atrue%7D%5D%2C%22hAxis%22%3A%7B%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22useFormatFromData%22%3Afalse%2C%22title%22%3A%22Aantal%22%2C%22formatOptions%22%3A%7B%22source%22%3A%22inline%22%7D%2C%22format%22%3A%220.%23%23%22%7D%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22BarChart%22%7D%7D"></query>
       <figcaption>Top 20 gemeenten met de meeste afvoeringen</figcaption>
