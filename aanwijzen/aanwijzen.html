@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aanwijzingen van rijksmonumenten door de jaren heen</title>
+  <meta name="description" content="Data story over aanwijzingen in het rijksmonumentenregister, vanaf de eerste aanwijzingen in 1961 tot heden. Met grafieken, tabellen en kaarten op basis van Linked Open Data." />
+  <meta name="author" content="Marije Timmermans" />
+  <meta name="date" content="2023-05-03" />
+  <!--
+    Skeleton for the new-style data story page.
+    This follows the structure used in the 'Eindig erfgoed' (afgevoerde rijksmonumenten) story.
+    All visual classes (story, sink, lead, meta, etc.) are expected to be defined by the site's shared CSS.
+  -->
+
+</head>
+<body>
+<main class="story" id="top">
+
+  <!-- =======================
+       Sectie 1. Introductie
+  ======================== -->
+  <header>
+    <h1>Aanwijzingen van rijksmonumenten door de jaren heen</h1>
+    <p class="meta">Auteur: <strong>Marije Timmermans</strong> • Publicatiedatum: <time datetime="2023-05-03">3 mei 2023</time></p>
+    <p>
+      Sinds <strong>1961</strong> worden objecten in Nederland officieel aangewezen als rijksmonument. Deze aanwijzing bepaalt dat een gebouw, terrein of object van nationaal belang is en bescherming verdient. Het rijksmonumentenregister geeft een overzicht van al deze aanwijzingen door de tijd heen.
+    </p>
+    <p>
+      Deze data story laat zien hoe het aanwijzen van monumenten zich sinds de jaren zestig heeft ontwikkeld. We kijken naar <em>wanneer</em> monumenten zijn aangewezen, <em>welke soorten</em> monumenten dit waren en <em>waar</em> in Nederland dit gebeurde.
+    </p>
+    <p>
+      Het doel van deze data story is inzicht te geven in de opbouw van het huidige rijksmonumentenbestand door terug te kijken naar de geschiedenis van de aanwijzingen. Zo wordt duidelijk welke pieken en thematische verschuivingen er in de loop van de tijd hebben plaatsgevonden.
+    </p>
+  </header>
+
+  <!-- =======================
+       Sectie 2. Inhoudsopgave
+  ======================== -->
+  <section id="inhoud">
+    <h2>Wat vind je in deze story?</h2>
+    <nav class="toc" aria-label="Inhoudsopgave">
+      <ul>
+        <li><a href="#wanneer">Wanneer zijn rijksmonumenten aangewezen?</a></li>
+        <li><a href="#wat">Wat voor soort monumenten zijn aangewezen?</a></li>
+        <li><a href="#waar">Waar zijn rijksmonumenten aangewezen?</a></li>
+        <li><a href="#disclaimer">Disclaimer</a></li>
+        <li><a href="#bronnen">Bronnen</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- =======================
+       Sectie 3. Wanneer
+  ======================== -->
+  <section id="wanneer">
+    <h2>Wanneer zijn rijksmonumenten aangewezen?</h2>
+    <p>
+      Het aanwijzen van rijksmonumenten begon in <strong>1961</strong>. Sindsdien zijn er jaarlijks nieuwe monumenten aan het register toegevoegd. Het aantal aanwijzingen verschilt sterk per periode. Twee duidelijke pieken vallen op:
+    </p>
+    <ul>
+      <li><strong>Piek 1 (1961–1973)</strong>: de eerste grote golf van aanwijzingen, kort na de start van het register.</li>
+      <li><strong>Piek 2 (1997–2002)</strong>: een tweede concentratie van aanwijzingen, verspreid over enkele jaren.</li>
+    </ul>
+    <p>Na 2010 nam het aantal aanwijzingen sterk af.</p>
+
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/inschrijvingsjaar.sparql"></query>
+      <figcaption>Aantal rijksmonumenten per inschrijvingsjaar.</figcaption>
+    </figure>
+
+    <p class="back-to-top"><a href="#top" aria-label="Terug naar boven">↑ Terug naar boven</a></p>
+  </section>
+
+  <!-- ========================================
+       Sectie 4. Wat voor soort monumenten
+  ========================================= -->
+  <section id="wat">
+    <h2>Wat voor soort monumenten zijn aangewezen?</h2>
+    <p>
+      Rijksmonumenten worden in het register ingedeeld naar hun oorspronkelijke functie. Hierbij onderscheiden we hoofdcategorieën (zoals woningen of religieuze gebouwen) en subcategorieën (zoals kerken of kastelen).
+    </p>
+
+    <h3 id="wat-hoofdcategorien">4.1 Hoofdcategorieën</h3>
+    <p>De meeste rijksmonumenten vallen onder de hoofdcategorie <em>woningen en woningbouwcomplexen</em>. Andere grote groepen zijn <em>boerderijen, molens en bedrijven</em> en <em>kastelen, landhuizen en parken</em>. Religieuze gebouwen vormen eveneens een aanzienlijk deel.</p>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/hoofdcategorie.sparql"></query>
+      <figcaption>Verdeling van rijksmonumenten per hoofdcategorie.</figcaption>
+    </figure>
+
+    <h3 id="wat-door-de-tijd">4.2 Hoofdcategorieën door de tijd heen</h3>
+    <p>Het aandeel van de verschillende hoofdcategorieën is niet constant gebleven. Sommige categorieën waren vooral in de beginjaren sterk vertegenwoordigd, terwijl andere groepen later meer aandacht kregen.</p>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/hoofdcategorie_per_jaar.sparql"></query>
+      <figcaption>Verdeling van aangewezen rijksmonumenten per hoofdcategorie door de tijd heen.</figcaption>
+    </figure>
+
+    <h3 id="wat-subcategorien">4.3 Subcategorieën binnen een hoofdcategorie</h3>
+    <p>Binnen een hoofdcategorie zijn monumenten verder verdeeld in subcategorieën. Onder <em>kastelen, landhuizen en parken</em> vallen bijvoorbeeld tuinen, koetshuizen en bijgebouwen. Deze verdeling kan per periode verschillen.</p>
+    <div class="control-hint">Selecteer een hoofdcategorie en periode en klik op ‘Run query’.</div>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/subcategorie_per_periode.sparql"></query>
+      <figcaption>Verdeling van subcategorieën binnen een hoofdcategorie in een gekozen periode.</figcaption>
+    </figure>
+
+    <p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
+  </section>
+
+  <!-- ========================================
+       Sectie 5. Waar (geografie)
+  ========================================= -->
+  <section id="waar">
+    <h2>Waar zijn rijksmonumenten aangewezen?</h2>
+    <p>Het aanwijzen van rijksmonumenten verschilt per regio. Sommige provincies en gemeenten kennen duidelijke concentraties, terwijl andere gebieden minder vaak zijn vertegenwoordigd.</p>
+
+    <h3 id="waar-provincies">5.1 Provinciaal niveau</h3>
+    <p>Op provinciaal niveau zijn de aanwijzingen ongelijk verdeeld. In de eerste piek (1961–1973) werden in met name Noord- en Zuid-Holland veel monumenten aangewezen. Tijdens de tweede piek (1997–2002) verschoven de aantallen deels naar andere provincies.</p>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/provincies_pieken.sparql"></query>
+      <figcaption>Aantal aangewezen rijksmonumenten per provincie in de piekperiodes en daarbuiten.</figcaption>
+    </figure>
+
+    <p>Daarnaast is het mogelijk om op een kaart per provincie te zien welke monumenten in een bepaalde periode zijn aangewezen. Monumenten in de top-20 gemeenten zijn hier buiten gelaten.</p>
+    <div class="control-hint">Kies provincie, periode en (optioneel) label; klik op ‘Run query’.</div>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/provincies_kaart.sparql"></query>
+      <figcaption>Kaart met aangewezen rijksmonumenten per provincie (zonder top-20 gemeenten).</figcaption>
+    </figure>
+
+    <h3 id="waar-gemeenten">5.2 Gemeentelijk niveau</h3>
+    <p>Een groot aantal aanwijzingen concentreert zich in enkele steden. Vooral Amsterdam, maar ook steden als Utrecht, Leiden en Maastricht, kenden veel rijksmonument-aanwijzingen.</p>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/gemeenten_pieken.sparql"></query>
+      <figcaption>Aantal aangewezen rijksmonumenten in de top-20 gemeenten tijdens de piekperiodes en daarbuiten.</figcaption>
+    </figure>
+
+    <p>Op een kaart zijn de aangewezen monumenten binnen een geselecteerde gemeente zichtbaar, voor een gekozen periode.</p>
+    <div class="control-hint">Kies gemeente en periode; klik op ‘Run query’.</div>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/gemeenten_kaart.sparql"></query>
+      <figcaption>Kaart met aangewezen rijksmonumenten in een top-20 gemeente.</figcaption>
+    </figure>
+
+    <h3 id="waar-kerken">5.3 Rijksmonumentale kerken</h3>
+    <p>Een aparte groep binnen de aanwijzingen vormen de gebedshuizen. Deze religieuze gebouwen zijn te onderscheiden naar stroming en denominatie.</p>
+    <div class="control-hint">Kies aanwijzingsperiode en (optioneel) provincie en denominatie; klik op ‘Run query’.</div>
+    <figure class="sink">
+      <!-- TODO: implement SPARQL query and renderer -->
+      <query data-query="queries/aanwijzen/kerken_kaart.sparql"></query>
+      <figcaption>Kaart met rijksmonumentale gebedshuizen en hun oorspronkelijke denominatie.</figcaption>
+    </figure>
+
+    <p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
+  </section>
+
+  <!-- =======================
+       Sectie 6. Disclaimer
+  ======================== -->
+  <section id="disclaimer" aria-labelledby="disclaimer-title">
+    <h2 id="disclaimer-title">Disclaimer</h2>
+    <details class="disclaimer-box">
+      <summary><strong>Lees de disclaimer</strong></summary>
+      <p><strong>Let op</strong></p>
+      <p><em>U kunt aan de getoonde resultaten geen rechten ontlenen. De informatie is bedoeld om te informeren en biedt geen garantie op volledigheid, juistheid of actualiteit.</em></p>
+    </details>
+  </section>
+
+  <!-- =======================
+       Sectie 7. Bronnen
+  ======================== -->
+  <section id="bronnen">
+    <h2>Bronnen</h2>
+    <ul>
+      <li><strong>Dataset:</strong> <a href="https://linkeddata.cultureelerfgoed.nl/" rel="noopener">Cultuurhistorische Objecten (CHO)</a> – Rijksdienst voor het Cultureel Erfgoed</li>
+      <li><strong>Data story gepubliceerd op:</strong> 3 mei 2023</li>
+      <li><strong>Auteur:</strong> Marije Timmermans</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
+  </footer>
+</main>
+</body>
+</html>
