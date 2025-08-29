@@ -28,20 +28,21 @@ PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 SELECT ?uriSubs (COUNT(DISTINCT ?rijksmonumentnummer) AS ?aantal)
 WHERE {
   GRAPH graph:instanties-rce {
-    ?rijksmonument ceo:datumInschrijvingInMonumentenregister ?datumInschrijving ;
-                    ceo:heeftOorspronkelijkeFunctie ?functie ;
-                    ceo:rijksmonumentnummer ?rijksmonumentnummer .
+    ?rijksmonument a ceo:Rijksmonument ;
+                   ceo:datumInschrijvingInMonumentenregister ?datumInschrijving ;
+                   ceo:heeftOorspronkelijkeFunctie ?functie ;
+                   ceo:rijksmonumentnummer ?rijksmonumentnummer .
     ?functie ceo:heeftFunctieNaam ?uri .
     MINUS { ?rijksmonument ceo:heeftJuridischeStatus <https://data.cultureelerfgoed.nl/term/id/rn/3e79bb7c-b459-4998-a9ed-78d91d069227> }
 
     BIND(year(xsd:dateTime(?datumInschrijving)) AS ?jaarInschrijving)
-    FILTER (?jaarInschrijving >= {{BEGIN}} && ?jaarInschrijving <= {{EIND}})
+    FILTER(?jaarInschrijving >= {{BEGIN}} && ?jaarInschrijving <= {{EIND}})
   }
 
   GRAPH graph:bebouwdeomgeving {
     <https://data.cultureelerfgoed.nl/term/id/rn/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?narrow .
     ?narrow skos:prefLabel ?label_ .
-    FILTER(?label_ = ?label)
+    FILTER(STR(?label_) = ?label)     # <-- belangrijk ivm @nl
     ?narrow skos:narrower+ ?uri .
 
     VALUES (?label ?narrow) { ("{{LABEL}}" <{{NARROW}}>) }
@@ -55,16 +56,16 @@ ORDER BY DESC(?aantal)
 `;
 
 
+
 // ===== Helpers =====
 function buildQuery(label, narrowUri, begin, eind) {
   return QUERY_TMPL
     .replace("{{LABEL}}", label.replace(/"/g, '\\"'))
     .replace("{{NARROW}}", narrowUri)
-    .replace("{{BEGIN}}", String(begin))
-    .replace("{{EIND}}", String(eind))
-    .replace("?BEGIN_V", String(begin)) // for text period
-    .replace("?EIND_V", String(eind));
+    .replaceAll("{{BEGIN}}", String(begin))
+    .replaceAll("{{EIND}}", String(eind));
 }
+
 
 async function runSparql(query) {
   const res = await fetch(ENDPOINT, {
@@ -93,20 +94,18 @@ function drawChart(json, label, begin, eind) {
   const data = new google.visualization.DataTable();
   data.addColumn("string", "Subcategorie");
   data.addColumn("number", "aantal");
-
-  bindings.forEach(b => {
-    data.addRow([ b.uriSubs.value, Number(b.aantal.value) ]);
-  });
+  bindings.forEach(b => data.addRow([ b.uriSubs.value, Number(b.aantal.value) ]));
 
   const opts = {
     title: `Subcategorieën — ${label} (${begin}–${eind})`,
     width: "100%",
     height: 420,
-    legend: { position: "none" },
-    bar: { groupWidth: "80%" }
+    legend: { position: "right" },
+    is3D: true,
+    sliceVisibilityThreshold: 0   // toon ook kleine slices
   };
 
-  new google.visualization.ColumnChart(document.getElementById("sc-chart")).draw(data, opts);
+  new google.visualization.PieChart(document.getElementById("sc-chart")).draw(data, opts);
 }
 
 
