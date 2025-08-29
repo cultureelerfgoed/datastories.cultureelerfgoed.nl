@@ -9,7 +9,6 @@ const CATEGORIES = [
   ["Cultuur, gezondheid en wetenschap", "https://data.cultureelerfgoed.nl/term/id/rn/0be0a6c9-0738-41cc-aaac-550d258c4261"],
   ["Handelsgebouwen, opslag- en transportgebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/e88ccbf4-e41d-49bf-9876-0f71db0e6646"],
   ["Kastelen, landhuizen en parken", "https://data.cultureelerfgoed.nl/term/id/rn/b2511baf-3b70-4667-98dd-1b850c7ea53f"],
-  ["N.V.T.", "https://data.cultureelerfgoed.nl/term/id/rn/8d4228b6-7f8d-4b78-b870-901879af8c04"],
   ["Religieuze gebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/25fac0f1-77a2-4587-ab04-dfcb66959dd8"],
   ["Sport, recreatie, vereniging en horeca", "https://data.cultureelerfgoed.nl/term/id/rn/b797b89c-1e0a-4ce7-869b-817cd98259b0"],
   ["Uitvaartcentra en begraafplaatsen", "https://data.cultureelerfgoed.nl/term/id/rn/1680dfc0-666a-4a01-9781-59e9af26ec51"],
@@ -26,7 +25,7 @@ PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?subFunctie (COUNT(?uri) AS ?labelSub)
+SELECT ?uriSubs (COUNT(DISTINCT ?rijksmonumentnummer) AS ?aantal)
 WHERE {
   GRAPH graph:instanties-rce {
     ?rijksmonument ceo:datumInschrijvingInMonumentenregister ?datumInschrijving ;
@@ -34,24 +33,27 @@ WHERE {
                     ceo:rijksmonumentnummer ?rijksmonumentnummer .
     ?functie ceo:heeftFunctieNaam ?uri .
     MINUS { ?rijksmonument ceo:heeftJuridischeStatus <https://data.cultureelerfgoed.nl/term/id/rn/3e79bb7c-b459-4998-a9ed-78d91d069227> }
+
     BIND(year(xsd:dateTime(?datumInschrijving)) AS ?jaarInschrijving)
     FILTER (?jaarInschrijving >= {{BEGIN}} && ?jaarInschrijving <= {{EIND}})
-    BIND(CONCAT(STR(?BEGIN_V)," - ", STR(?EIND_V)) AS ?periode)
   }
+
   GRAPH graph:bebouwdeomgeving {
     <https://data.cultureelerfgoed.nl/term/id/rn/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?narrow .
     ?narrow skos:prefLabel ?label_ .
     FILTER(?label_ = ?label)
     ?narrow skos:narrower+ ?uri .
-    VALUES (?label ?narrow) { ("{{LABEL}}" <{{NARROW}}> ) }
+
+    VALUES (?label ?narrow) { ("{{LABEL}}" <{{NARROW}}>) }
+
     ?uri skos:prefLabel ?uriSub .
-    BIND(REPLACE(?uriSub, "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
+    BIND(REPLACE(STR(?uriSub), "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
   }
-  BIND(CONCAT(STR(?uriSubs), " ", ?periode) AS ?subFunctie)
 }
-GROUP BY ?subFunctie
-ORDER BY DESC(?labelSub)
+GROUP BY ?uriSubs
+ORDER BY DESC(?aantal)
 `;
+
 
 // ===== Helpers =====
 function buildQuery(label, narrowUri, begin, eind) {
