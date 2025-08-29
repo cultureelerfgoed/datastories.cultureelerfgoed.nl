@@ -183,6 +183,32 @@
     <p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
   </section> --->
 
+  <section class="sink" id="subcat-widget">
+  <h3>Subcategorieën binnen een hoofdcategorie (per periode)</h3>
+
+  <div class="row g-2 align-items-end">
+    <div class="col-md-6">
+      <label for="sc-label" class="form-label">Hoofdcategorie</label>
+      <select id="sc-label" class="form-select"></select>
+    </div>
+    <div class="col-6 col-md-2">
+      <label for="sc-begin" class="form-label">Beginjaar</label>
+      <input id="sc-begin" type="number" class="form-control" min="1961" max="2026" value="1998">
+    </div>
+    <div class="col-6 col-md-2">
+      <label for="sc-eind" class="form-label">Eindjaar</label>
+      <input id="sc-eind" type="number" class="form-control" min="1961" max="2026" value="2008">
+    </div>
+    <div class="col-md-2">
+      <button id="sc-run" class="btn btn-primary w-100">Run query</button>
+    </div>
+  </div>
+
+  <div id="sc-chart" style="width:100%;height:420px;margin-top:12px;"></div>
+  <p class="control-hint">Kies hoofdcategorie en jaren (1961–2026) en klik op ‘Run query’.</p>
+</section>
+
+
   <!-- ========================================
        Sectie 5. Waar (geografie)
   ========================================= -->
@@ -312,6 +338,7 @@
 <script src="../assets/js/stories.min.js" defer></script>
 <script src="https://www.gstatic.com/charts/loader.js" defer></script>
 <script src="../assets/js/rm-widget.js" defer></script>
+<script src="/assets/js/rm-widget-subcat.js" defer></script>
 
 <script>window.onload = function () { stories(); };</script>
 
