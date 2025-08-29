@@ -86,31 +86,29 @@ function drawChart(json, label, begin, eind) {
   const bindings = json.results.bindings;
   if (!bindings.length) {
     document.getElementById("sc-chart").innerHTML =
-      '<div class="alert alert-info">Geen resultaten voor deze selectie.</div>';
+      `<div class="alert alert-info">Geen resultaten voor ${label} (${begin}–${eind}).</div>`;
     return;
   }
 
-  // PieChart werkt lekker voor verdeling subcategorieën; ColumnChart kan ook.
   const data = new google.visualization.DataTable();
   data.addColumn("string", "Subcategorie");
   data.addColumn("number", "aantal");
 
-  // subFunctie = "{naam} {begin - eind}" → we strippen de periode voor label
   bindings.forEach(b => {
-    const full = b.subFunctie.value;
-    const naam = full.replace(/\s\d{4}\s-\s\d{4}$/, "");
-    data.addRow([naam, Number(b.labelSub.value)]);
+    data.addRow([ b.uriSubs.value, Number(b.aantal.value) ]);
   });
 
   const opts = {
     title: `Subcategorieën — ${label} (${begin}–${eind})`,
     width: "100%",
     height: 420,
-    legend: { position: "right" },
-    pieHole: 0.35
+    legend: { position: "none" },
+    bar: { groupWidth: "80%" }
   };
-  new google.visualization.PieChart(document.getElementById("sc-chart")).draw(data, opts);
+
+  new google.visualization.ColumnChart(document.getElementById("sc-chart")).draw(data, opts);
 }
+
 
 // ===== Init =====
 document.addEventListener("DOMContentLoaded", () => {
