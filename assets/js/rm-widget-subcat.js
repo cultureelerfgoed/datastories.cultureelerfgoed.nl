@@ -1,5 +1,7 @@
 // --- CONFIG ---
+(() => {
 const ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql";
+})();
 
 // label -> uri (exact als jouw VALUES-lijst)
 const CATEGORIES = [
