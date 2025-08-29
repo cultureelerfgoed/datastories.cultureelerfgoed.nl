@@ -25,34 +25,39 @@ PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?uriSubs (COUNT(DISTINCT ?rijksmonumentnummer) AS ?aantal)
+SELECT ?subFunctie (COUNT(DISTINCT ?rijksmonumentnummer) AS ?labelSub)
 WHERE {
   GRAPH graph:instanties-rce {
-    ?rijksmonument a ceo:Rijksmonument ;
-                   ceo:datumInschrijvingInMonumentenregister ?datumInschrijving ;
-                   ceo:heeftOorspronkelijkeFunctie ?functie ;
-                   ceo:rijksmonumentnummer ?rijksmonumentnummer .
+    ?rijksmonument ceo:datumInschrijvingInMonumentenregister ?datumInschrijving ;
+                    ceo:heeftOorspronkelijkeFunctie ?functie ;
+                    ceo:rijksmonumentnummer ?rijksmonumentnummer .
     ?functie ceo:heeftFunctieNaam ?uri .
     MINUS { ?rijksmonument ceo:heeftJuridischeStatus <https://data.cultureelerfgoed.nl/term/id/rn/3e79bb7c-b459-4998-a9ed-78d91d069227> }
 
     BIND(year(xsd:dateTime(?datumInschrijving)) AS ?jaarInschrijving)
-    FILTER(?jaarInschrijving >= {{BEGIN}} && ?jaarInschrijving <= {{EIND}})
+    FILTER (?jaarInschrijving >= ?beginJaarInschrijving && ?jaarInschrijving <= ?eindJaarInschrijving)
+
+    # alleen voor de tekst in de output
+    BIND(CONCAT(STR(?beginJaarInschrijving), " - ", STR(?eindJaarInschrijving)) AS ?periode)
   }
 
   GRAPH graph:bebouwdeomgeving {
     <https://data.cultureelerfgoed.nl/term/id/rn/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?narrow .
     ?narrow skos:prefLabel ?label_ .
-    FILTER(STR(?label_) = ?label)     # <-- belangrijk ivm @nl
+    # strip "(default)" uit het gekozen label en vergelijk zonder taal-tag
+    BIND(REPLACE(STR(?label), "\\s*\\(default\\)\\s*$", "") AS ?labelClean)
+    FILTER(STR(?label_) = ?labelClean)
+
     ?narrow skos:narrower+ ?uri .
-
-    VALUES (?label ?narrow) { ("{{LABEL}}" <{{NARROW}}>) }
-
     ?uri skos:prefLabel ?uriSub .
-    BIND(REPLACE(STR(?uriSub), "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
+    BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
   }
+
+  BIND(CONCAT(?uriSubs, " ", ?periode) AS ?subFunctie)
 }
-GROUP BY ?uriSubs
-ORDER BY DESC(?aantal)
+GROUP BY ?subFunctie
+ORDER BY DESC(?labelSub)
+
 `;
 
 
@@ -96,16 +101,14 @@ function drawChart(json, label, begin, eind) {
   data.addColumn("number", "aantal");
   bindings.forEach(b => data.addRow([ b.uriSubs.value, Number(b.aantal.value) ]));
 
-  const opts = {
-    title: `Subcategorieën — ${label} (${begin}–${eind})`,
-    width: "100%",
-    height: 420,
-    legend: { position: "right" },
-    is3D: true,
-    sliceVisibilityThreshold: 0   // toon ook kleine slices
-  };
-
-  new google.visualization.PieChart(document.getElementById("sc-chart")).draw(data, opts);
+const opts = {
+  title: `Subcategorieën — ${label} (${begin}–${eind})`,
+  width: '100%', height: 420,
+  legend: { position: 'right' },
+  is3D: true,
+  sliceVisibilityThreshold: 0
+};
+new google.visualization.PieChart(document.getElementById('sc-chart')).draw(data, opts);
 }
 
 
