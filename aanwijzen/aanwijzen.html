@@ -159,17 +159,29 @@
       <figcaption>Verdeling van aangewezen rijksmonumenten per hoofdcategorie door de tijd heen.</figcaption>
     </figure>
 
-    <h3 id="wat-subcategorien">4.3 Subcategorieën binnen een hoofdcategorie</h3>
+<section id="wanneer-hoofdcategorie" class="sink">
+  <h3>Aantal monumenten per inschrijvingsjaar van een hoofdcategorie</h3>
+
+  <div id="rm-widget" class="rm-widget">
+    <label for="rm-select" class="form-label">Hoofdcategorie</label>
+    <select id="rm-select" class="form-select"></select>
+    <div id="rm-chart" style="width:100%; height:420px; margin-top:12px;"></div>
+  </div>
+
+  <p class="control-hint">Kies een hoofdcategorie en de grafiek wordt bijgewerkt.</p>
+</section>
+
+    <!--- <h3 id="wat-subcategorien">4.3 Subcategorieën binnen een hoofdcategorie</h3>
     <p>Binnen een hoofdcategorie zijn monumenten verder verdeeld in subcategorieën. Onder <em>kastelen, landhuizen en parken</em> vallen bijvoorbeeld tuinen, koetshuizen en bijgebouwen. Deze verdeling kan per periode verschillen.</p>
     <div class="control-hint">Selecteer een hoofdcategorie en periode en klik op ‘Run query’.</div>
-    <figure class="sink">
+    <figure class="sink"> --->
       <!-- TODO: implement SPARQL query and renderer -->
-      <query data-config="queries/aanwijzen/subcategorie_per_periode.sparql"></query>
-      <figcaption>Verdeling van subcategorieën binnen een hoofdcategorie in een gekozen periode.</figcaption>
+     <!---  <query data-config="queries/aanwijzen/subcategorie_per_periode.sparql"></query> --->
+     <!--- <figcaption>Verdeling van subcategorieën binnen een hoofdcategorie in een gekozen periode.</figcaption>
     </figure>
 
     <p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
-  </section>
+  </section> --->
 
   <!-- ========================================
        Sectie 5. Waar (geografie)
@@ -298,6 +310,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
 <script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
 <script src="../assets/js/stories.min.js" defer></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="../assets/js/rm-widget.js" defer></script>
 <script>window.onload = function () { stories(); };</script>
 
 </body>
