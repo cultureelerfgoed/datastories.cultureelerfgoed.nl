@@ -160,7 +160,7 @@ query { display: block; width: 100%; }
 ===================================================== */
 .rce-yellow-bar{
   /* full‑bleed, ook binnen .container/.wrapper */
-  inline-size: 100vw;
+  inline-size: 100%;
   margin-inline: calc(50% - 50vw);
 
   background-color:#ffb612;
@@ -322,7 +322,7 @@ img.small { max-width: 300px; float: left; margin: 0 1rem 1rem 0; }
 ===================================================== */
 .footer-rce-full{
   /* full-bleed, ook binnen .container */
-  inline-size: 100vw;
+  inline-size: 100%;
   margin-inline: calc(50% - 50vw);
 
   background-color: #ffb612;
