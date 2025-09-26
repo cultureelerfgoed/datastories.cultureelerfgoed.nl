@@ -228,17 +228,8 @@
       <figcaption>Aantal aangewezen rijksmonumenten per provincie in de piekperiodes en daarbuiten.</figcaption>
     </figure>
 
-    <p>Daarnaast is het mogelijk om op een kaart per provincie te zien welke monumenten in een bepaalde periode zijn aangewezen. Monumenten in de top-20 gemeenten zijn hier buiten gelaten.</p>
-    <div class="control-hint">Kies provincie, periode en (optioneel) label; klik op ‘Run query’.</div>
-    <figure class="sink">
-      <!-- TODO: implement SPARQL query and renderer -->
-      <query data-config="queries/aanwijzen/provincies_kaart.sparql"></query>
-      <figcaption>Kaart met aangewezen rijksmonumenten per provincie (zonder top-20 gemeenten).</figcaption>
-    </figure>
-
-    <section id="rm-map-prov" class="sink">
-  <h3>Monumenten per provincie (filterbaar)</h3>
-
+    <p>Daarnaast is het mogelijk om op een kaart per provincie te zien welke monumenten in een bepaalde periode zijn aangewezen.</p>
+<figure class="sink" id="rm-map-prov">
   <div class="row g-2 align-items-end">
     <div class="col-md-5">
       <label for="mp-label" class="form-label">Hoofdcategorie</label>
@@ -262,8 +253,9 @@
   </div>
 
   <div id="mp-map" style="height:520px; margin-top:12px; border-radius:12px; overflow:hidden;"></div>
-  <p class="control-hint">Kies hoofdcategorie, jaren en provincie (incl. Zuid-Holland) en klik op ‘Run’.</p>
-</section>
+  <figcaption>Kaart met aangewezen rijksmonumenten per provincie.</figcaption>
+</figure>
+
 
 
     <h3 id="waar-gemeenten">5.2 Gemeentelijk niveau</h3>
