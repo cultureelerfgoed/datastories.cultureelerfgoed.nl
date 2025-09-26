@@ -51,12 +51,13 @@ WHERE {
     ?prov skos:prefLabel ?provLabel .
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
-  GRAPH graph:bebouwdeomgeving {
-    VALUES (?narrow) { (<{{NARROW}}>) }
-    ?narrow skos:narrower+ ?uri .
-    ?uri skos:prefLabel ?uriSub .
-    BIND(REPLACE(STR(?uriSub), "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
-  }
+GRAPH graph:bebouwdeomgeving {
+  VALUES ?top { <{{NARROW}}> }
+  # Pak alle functies die (transitief) onder de gekozen hoofdcategorie vallen
+  ?uri skos:broaderTransitive ?top .
+  ?uri skos:prefLabel ?uriSub .
+  BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
+}
 }
 LIMIT 2000`;
 
