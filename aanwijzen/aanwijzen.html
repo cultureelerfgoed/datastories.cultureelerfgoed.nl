@@ -60,6 +60,11 @@
   <meta name="version" content="1.0-aanwijzen">
 </head>
 
+<!-- Leaflet voor kaarten -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+
 <body>
 <a href="#main" class="visually-hidden-focusable">Direct naar hoofdinhoud</a>
 <header class="rce-header-full"><div class="wrapper"><img class="rce-logo" src="../assets/imgs/logo_cultureelerfgoed.svg" alt="Rijksdienst voor het Cultureel Erfgoed"></div></header>
@@ -231,6 +236,36 @@
       <figcaption>Kaart met aangewezen rijksmonumenten per provincie (zonder top-20 gemeenten).</figcaption>
     </figure>
 
+    <section id="rm-map-prov" class="sink">
+  <h3>Monumenten per provincie (filterbaar)</h3>
+
+  <div class="row g-2 align-items-end">
+    <div class="col-md-5">
+      <label for="mp-label" class="form-label">Hoofdcategorie</label>
+      <select id="mp-label" class="form-select"></select>
+    </div>
+    <div class="col-6 col-md-2">
+      <label for="mp-begin" class="form-label">Beginjaar</label>
+      <input id="mp-begin" type="number" class="form-control" min="1961" max="2026" value="1980">
+    </div>
+    <div class="col-6 col-md-2">
+      <label for="mp-eind" class="form-label">Eindjaar</label>
+      <input id="mp-eind" type="number" class="form-control" min="1961" max="2026" value="1990">
+    </div>
+    <div class="col-md-2">
+      <label for="mp-prov" class="form-label">Provincie</label>
+      <select id="mp-prov" class="form-select"></select>
+    </div>
+    <div class="col-md-1 d-grid">
+      <button id="mp-run" class="btn btn-primary">Run</button>
+    </div>
+  </div>
+
+  <div id="mp-map" style="height:520px; margin-top:12px; border-radius:12px; overflow:hidden;"></div>
+  <p class="control-hint">Kies hoofdcategorie, jaren en provincie (incl. Zuid-Holland) en klik op ‘Run’.</p>
+</section>
+
+
     <h3 id="waar-gemeenten">5.2 Gemeentelijk niveau</h3>
     <p>Een groot aantal aanwijzingen concentreert zich in enkele steden. Vooral Amsterdam, maar ook steden als Utrecht, Leiden en Maastricht, kenden veel rijksmonument-aanwijzingen.</p>
     <figure class="sink">
@@ -339,6 +374,8 @@
 <script src="https://www.gstatic.com/charts/loader.js" defer></script>
 <script src="../assets/js/rm-widget.js" defer></script>
 <script src="../assets/js/rm-widget-subcat.js" defer></script>
+<script src="../assets/js/rm-map-provinces.js?v=1" defer></script>
+
 
 <script>window.onload = function () { stories(); };</script>
 
