@@ -2,7 +2,7 @@
   // ===== CONFIG =====
   const ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql";
 
-  // Hoofdcategorie -> URI (zoals jouw VALUES-lijst)
+  // Hoofdcategorie -> URI
   const CATEGORIES = [
     ["Archeologie (N)", "https://data.cultureelerfgoed.nl/term/id/rn/d60159d2-8b55-47b7-8301-5ac82b0f2d7f"],
     ["Bestuursgebouwen, rechtsgebouwen en overheidsgebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/74a847b5-1e0f-4f66-b910-90d2c8d9fa04"],
@@ -25,13 +25,14 @@
     "Gelderland","Overijssel","Utrecht","Zeeland","Zuid-Holland"
   ];
 
-  // ===== SPARQL (robust: filter op URIs + NL label provincie) =====
+  // ===== SPARQL: filter op (label, URI) van hoofdcategorie + provincie + jaartal
   const QUERY_TMPL = `
 PREFIX graph: <https://linkeddata.cultureelerfgoed.nl/graph/>
 PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
+PREFIX rn:    <https://data.cultureelerfgoed.nl/term/id/rn/>
 
 SELECT ?rmnr ?jaarInschrijving ?wkt ?uriSubs ?provLabel
 WHERE {
@@ -43,39 +44,35 @@ WHERE {
         ceo:heeftBasisregistratieRelatie/ceo:heeftProvincie ?prov .
     OPTIONAL { ?rm ceo:heeftGeometrie/geo:asWKT ?wkt }
     ?functie ceo:heeftFunctieNaam ?uri .
-    MINUS { ?rm ceo:heeftJuridischeStatus <https://data.cultureelerfgoed.nl/term/id/rn/3e79bb7c-b459-4998-a9ed-78d91d069227> }
+    MINUS { ?rm ceo:heeftJuridischeStatus rn:3e79bb7c-b459-4998-a9ed-78d91d069227 }
     BIND(year(xsd:dateTime(?datum)) AS ?jaarInschrijving)
     FILTER (?jaarInschrijving >= {{BEGIN}} && ?jaarInschrijving <= {{EIND}})
   }
+
+  # Koppel provincie op NL-label en exacte stringvergelijking
   GRAPH graph:owms {
     ?prov skos:prefLabel ?provLabel .
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
-GRAPH graph:bebouwdeomgeving {
-  # Root -> hoofdcategoriëen (context, niet strikt nodig maar onschuldig)
-  <https://data.cultureelerfgoed.nl/term/id/rn/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?top .
 
-  # Enforce exact de gekozen hoofdcategorie (label + URI)
-  VALUES (?hoofdcategorie ?narrow) { ("{{LABEL_RAW}}" <{{NARROW}}>) }
-
-  # Alle (sub)begrippen onder de gekozen hoofdcategorie
-  ?narrow (skos:narrower)* ?uri .
-
-  # Toon nette sublabels
-  ?uri skos:prefLabel ?uriSub .
-  BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
+  # Koppel gekozen hoofdcategorie -> alle onderliggende begrippen (incl. zichzelf)
+  GRAPH graph:bebouwdeomgeving {
+    VALUES (?hoofdcategorie ?narrow) { ("{{LABEL_RAW}}" <{{NARROW}}>) }
+    ?narrow (skos:narrower)* ?uri .
+    ?uri skos:prefLabel ?uriSub .
+    BIND(REPLACE(STR(?uriSub), "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
+  }
 }
-}
-LIMIT 2000`;
+LIMIT 4000`;
 
-function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
-  return QUERY_TMPL
-    .replaceAll("{{LABEL_RAW}}", labelRaw.replace(/"/g, '\\"'))
-    .replaceAll("{{NARROW}}", narrowUri)
-    .replaceAll("{{BEGIN}}", String(begin))
-    .replaceAll("{{EIND}}", String(eind))
-    .replaceAll("{{PROV}}", provLabel.replace(/"/g, '\\"'));
-}
+  function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
+    return QUERY_TMPL
+      .replaceAll("{{LABEL_RAW}}", labelRaw.replace(/"/g, '\\"'))
+      .replaceAll("{{NARROW}}", narrowUri)
+      .replaceAll("{{BEGIN}}", String(begin))
+      .replaceAll("{{EIND}}", String(eind))
+      .replaceAll("{{PROV}}", provLabel.replace(/"/g, '\\"'));
+  }
 
   async function runSparql(query) {
     const res = await fetch(ENDPOINT, {
@@ -90,19 +87,14 @@ function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
     return res.json();
   }
 
-  // ===== WKT → [lat, lon] (POINT en eenvoudige POLYGON/LINESTRING: pak eerste coord) =====
+  // ===== WKT -> [lat, lon] =====
   function wktToLatLng(wkt) {
     if (!wkt) return null;
     const s = String(wkt).trim();
-
-    // POINT(lon lat)
-    let m = s.match(/^POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)$/i);
+    let m = s.match(/^POINT\\s*\\(\\s*([\\-\\d.]+)\\s+([\\-\\d.]+)\\s*\\)$/i);
     if (m) return [parseFloat(m[2]), parseFloat(m[1])];
-
-    // POLYGON or LINESTRING: neem eerste coordpaar
-    m = s.match(/\(\s*([-\d.]+)\s+([-\d.]+)/);
+    m = s.match(/\\(\\s*([\\-\\d.]+)\\s+([\\-\\d.]+)/);
     if (m) return [parseFloat(m[2]), parseFloat(m[1])];
-
     return null;
   }
 
@@ -118,18 +110,24 @@ function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
     return map;
   }
 
-  function renderOnMap(rows, title) {
+  function renderOnMap(rows) {
     ensureMap();
     layer.clearLayers();
+    if (!rows.length) {
+      L.popup().setLatLng(map.getCenter())
+        .setContent("Geen resultaten voor deze selectie.")
+        .openOn(map);
+      return;
+    }
 
     const bounds = [];
     rows.forEach(r => {
       const latlng = wktToLatLng(r.wkt?.value);
       if (!latlng) return;
       bounds.push(latlng);
-      const rm = r.rmnr?.value || "";
+      const rm   = r.rmnr?.value || "";
       const jaar = r.jaarInschrijving?.value || "";
-      const sub = r.uriSubs?.value || "";
+      const sub  = r.uriSubs?.value || "";
       const link = rm ? `https://monumentenregister.cultureelerfgoed.nl/monumenten/${rm}` : null;
 
       const html = `
@@ -140,7 +138,6 @@ function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
         </div>`;
       L.marker(latlng).bindPopup(html).addTo(layer);
     });
-
     if (bounds.length) map.fitBounds(bounds, { padding: [16,16] });
   }
 
@@ -168,23 +165,21 @@ function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
 
     async function run() {
       try {
-        const narrow = selLabel.value;
-        const begin  = Math.max(1961, Math.min(2026, Number(inBeg.value || 1961)));
-        const eind   = Math.max(begin, Math.min(2026, Number(inEind.value || 2026)));
-        const prov   = selProv.value;
         const narrow   = selLabel.value; // URI
-        const labelRaw = selLabel.options[selLabel.selectedIndex].textContent; // tekst
-        const q = buildQuery(labelRaw, narrow, begin, eind, prov);
+        const labelRaw = selLabel.options[selLabel.selectedIndex].textContent; // label-tekst
+        const begin    = Math.max(1961, Math.min(2026, Number(inBeg.value || 1961)));
+        const eind     = Math.max(begin, Math.min(2026, Number(inEind.value || 2026)));
+        const prov     = selProv.value;
 
         inBeg.value = begin; inEind.value = eind;
 
-        const q = buildQuery(narrow, begin, eind, prov);
+        const q = buildQuery(labelRaw, narrow, begin, eind, prov);
         console.log("[map-prov] query →\n", q);
         const json = await runSparql(q);
         const rows = json?.results?.bindings || [];
         console.log("[map-prov] rows:", rows.length);
 
-        renderOnMap(rows, `${prov}`);
+        renderOnMap(rows);
       } catch (e) {
         console.error(e);
         ensureMap();
@@ -196,7 +191,6 @@ function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
     }
 
     btnRun.addEventListener("click", run);
-    // eerste run
-    run();
+    run(); // eerste run
   });
 })();
