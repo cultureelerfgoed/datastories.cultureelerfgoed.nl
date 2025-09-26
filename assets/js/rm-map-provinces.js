@@ -27,12 +27,15 @@
 
   // ===== SPARQL: filter op (label, URI) van hoofdcategorie + provincie + jaartal
   const QUERY_TMPL = `
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owms: <http://standaarden.overheid.nl/owms/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX graph: <https://linkeddata.cultureelerfgoed.nl/graph/>
-PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
-PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
-PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
-PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
-PREFIX rn:    <https://data.cultureelerfgoed.nl/term/id/rn/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rn: <https://data.cultureelerfgoed.nl/term/id/rn/>
+
 SELECT ?rmnr ?jaarInschrijving ?wkt ?uriSubs ?provLabel
 WHERE {
   GRAPH graph:instanties-rce {
@@ -47,17 +50,19 @@ WHERE {
     BIND(year(xsd:dateTime(?datum)) AS ?jaarInschrijving)
     FILTER (?jaarInschrijving >= {{BEGIN}} && ?jaarInschrijving <= {{EIND}})
   }
-  # Koppel provincie op NL-label en exacte stringvergelijking
+  # Koppel provincie op NL-label
   GRAPH graph:owms {
     ?prov skos:prefLabel ?provLabel .
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
   # Koppel gekozen hoofdcategorie -> alle onderliggende begrippen (incl. zichzelf)
   GRAPH graph:bebouwdeomgeving {
-    VALUES (?hoofdcategorie ?narrow) { ("{{LABEL_RAW}}" <{{NARROW}}>) }
-    ?narrow (skos:narrower)* ?uri .
+    VALUES (?label ?narrow) {
+      ("{{LABEL_RAW}}" <{{NARROW}}>)
+    }
+    ?narrow skos:narrower* ?uri .
     ?uri skos:prefLabel ?uriSub .
-    BIND(REPLACE(STR(?uriSub), "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
+    BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
   }
 }
 LIMIT 4000`;
@@ -188,6 +193,13 @@ LIMIT 4000`;
 
         inBeg.value = begin;
         inEind.value = eind;
+
+        // Debug logging
+        console.log("Label:", labelRaw);
+        console.log("Narrow URI:", narrow);
+        console.log("Begin jaar:", begin);
+        console.log("Eind jaar:", eind);
+        console.log("Provincie:", prov);
 
         const q = buildQuery(labelRaw, narrow, begin, eind, prov);
         console.log("[map-prov] query →\n", q);
