@@ -21,8 +21,8 @@
 
   // Provincie-labels (NL)
   const PROVINCES = [
-    "Drenthe","Fryslân","Flevoland","Groningen","Limburg","Noord-Brabant","Noord-Holland",
-    "Gelderland","Overijssel","Utrecht","Zeeland","Zuid-Holland"
+    "Drenthe", "Fryslân", "Flevoland", "Groningen", "Limburg", "Noord-Brabant", "Noord-Holland",
+    "Gelderland", "Overijssel", "Utrecht", "Zeeland", "Zuid-Holland"
   ];
 
   // ===== SPARQL: filter op (label, URI) van hoofdcategorie + provincie + jaartal
@@ -33,7 +33,6 @@ PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
 PREFIX rn:    <https://data.cultureelerfgoed.nl/term/id/rn/>
-
 SELECT ?rmnr ?jaarInschrijving ?wkt ?uriSubs ?provLabel
 WHERE {
   GRAPH graph:instanties-rce {
@@ -48,13 +47,11 @@ WHERE {
     BIND(year(xsd:dateTime(?datum)) AS ?jaarInschrijving)
     FILTER (?jaarInschrijving >= {{BEGIN}} && ?jaarInschrijving <= {{EIND}})
   }
-
   # Koppel provincie op NL-label en exacte stringvergelijking
   GRAPH graph:owms {
     ?prov skos:prefLabel ?provLabel .
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
-
   # Koppel gekozen hoofdcategorie -> alle onderliggende begrippen (incl. zichzelf)
   GRAPH graph:bebouwdeomgeving {
     VALUES (?hoofdcategorie ?narrow) { ("{{LABEL_RAW}}" <{{NARROW}}>) }
@@ -65,6 +62,7 @@ WHERE {
 }
 LIMIT 4000`;
 
+  // ===== HULPFUNCTIES =====
   function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
     return QUERY_TMPL
       .replaceAll("{{LABEL_RAW}}", labelRaw.replace(/"/g, '\\"'))
@@ -83,28 +81,32 @@ LIMIT 4000`;
       },
       body: query
     });
-    if (!res.ok) throw new Error(`SPARQL ${res.status} ${res.statusText}`);
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(`SPARQL ${res.status} ${res.statusText}: ${errorText}`);
+    }
+
     return res.json();
   }
 
-  // ===== WKT -> [lat, lon] =====
+  // WKT -> [lat, lon]
   function wktToLatLng(wkt) {
     if (!wkt) return null;
     const s = String(wkt).trim();
-    let m = s.match(/^POINT\\s*\\(\\s*([\\-\\d.]+)\\s+([\\-\\d.]+)\\s*\\)$/i);
-    if (m) return [parseFloat(m[2]), parseFloat(m[1])];
-    m = s.match(/\\(\\s*([\\-\\d.]+)\\s+([\\-\\d.]+)/);
-    if (m) return [parseFloat(m[2]), parseFloat(m[1])];
+    const pointMatch = s.match(/^POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)$/i);
+    if (pointMatch) return [parseFloat(pointMatch[2]), parseFloat(pointMatch[1])];
     return null;
   }
 
-  // ===== Kaart =====
+  // ===== KAART =====
   let map, layer;
+
   function ensureMap() {
     if (map) return map;
     map = L.map("mp-map", { preferCanvas: true }).setView([52.1, 5.3], 7);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap"
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     layer = L.layerGroup().addTo(map);
     return map;
@@ -113,6 +115,7 @@ LIMIT 4000`;
   function renderOnMap(rows) {
     ensureMap();
     layer.clearLayers();
+
     if (!rows.length) {
       L.popup().setLatLng(map.getCenter())
         .setContent("Geen resultaten voor deze selectie.")
@@ -124,57 +127,71 @@ LIMIT 4000`;
     rows.forEach(r => {
       const latlng = wktToLatLng(r.wkt?.value);
       if (!latlng) return;
+
       bounds.push(latlng);
-      const rm   = r.rmnr?.value || "";
+      const rm = r.rmnr?.value || "";
       const jaar = r.jaarInschrijving?.value || "";
-      const sub  = r.uriSubs?.value || "";
+      const sub = r.uriSubs?.value || "";
       const link = rm ? `https://monumentenregister.cultureelerfgoed.nl/monumenten/${rm}` : null;
 
       const html = `
         <div style="min-width:220px">
-          <div><strong>${sub}</strong></div>
-          <div>Jaar: ${jaar}</div>
-          ${link ? `<div>RM: <a href="${link}" target="_blank" rel="noopener">${rm}</a></div>` : ""}
+          <div><strong>${L.Util.escapeHtml(sub)}</strong></div>
+          <div>Jaar: ${L.Util.escapeHtml(jaar)}</div>
+          ${link ? `<div>RM: <a href="${link}" target="_blank" rel="noopener">${L.Util.escapeHtml(rm)}</a></div>` : ""}
         </div>`;
+
       L.marker(latlng).bindPopup(html).addTo(layer);
     });
-    if (bounds.length) map.fitBounds(bounds, { padding: [16,16] });
+
+    if (bounds.length) map.fitBounds(bounds, { padding: [16, 16] });
   }
 
   // ===== INIT =====
   document.addEventListener("DOMContentLoaded", () => {
     const selLabel = document.getElementById("mp-label");
-    const inBeg    = document.getElementById("mp-begin");
-    const inEind   = document.getElementById("mp-eind");
-    const selProv  = document.getElementById("mp-prov");
-    const btnRun   = document.getElementById("mp-run");
+    const inBeg = document.getElementById("mp-begin");
+    const inEind = document.getElementById("mp-eind");
+    const selProv = document.getElementById("mp-prov");
+    const btnRun = document.getElementById("mp-run");
 
-    // dropdowns vullen
+    // Dropdowns vullen
     CATEGORIES.forEach(([label, uri]) => {
       const o = document.createElement("option");
-      o.value = uri; o.textContent = label; selLabel.appendChild(o);
+      o.value = uri;
+      o.textContent = label;
+      selLabel.appendChild(o);
     });
+
     PROVINCES.forEach(p => {
       const o = document.createElement("option");
-      o.value = p; o.textContent = p; selProv.appendChild(o);
+      o.value = p;
+      o.textContent = p;
+      selProv.appendChild(o);
     });
 
-    // defaults
+    // Defaults
     selLabel.value = CATEGORIES.find(c => c[0] === "Kastelen, landhuizen en parken")?.[1] || CATEGORIES[0][1];
-    selProv.value  = "Utrecht";
+    selProv.value = "Utrecht";
 
+    // Run functie
     async function run() {
       try {
-        const narrow   = selLabel.value; // URI
-        const labelRaw = selLabel.options[selLabel.selectedIndex].textContent; // label-tekst
-        const begin    = Math.max(1961, Math.min(2026, Number(inBeg.value || 1961)));
-        const eind     = Math.max(begin, Math.min(2026, Number(inEind.value || 2026)));
-        const prov     = selProv.value;
+        btnRun.disabled = true;
+        btnRun.textContent = "Laden...";
 
-        inBeg.value = begin; inEind.value = eind;
+        const narrow = selLabel.value;
+        const labelRaw = selLabel.options[selLabel.selectedIndex].textContent;
+        const begin = Math.max(1961, Math.min(2026, Number(inBeg.value) || 1961));
+        const eind = Math.max(begin, Math.min(2026, Number(inEind.value) || 2026));
+        const prov = selProv.value;
+
+        inBeg.value = begin;
+        inEind.value = eind;
 
         const q = buildQuery(labelRaw, narrow, begin, eind, prov);
         console.log("[map-prov] query →\n", q);
+
         const json = await runSparql(q);
         const rows = json?.results?.bindings || [];
         console.log("[map-prov] rows:", rows.length);
@@ -185,12 +202,15 @@ LIMIT 4000`;
         ensureMap();
         layer.clearLayers();
         L.popup().setLatLng(map.getCenter())
-          .setContent(`<div class="alert alert-warning">Kon data niet laden: ${e.message}</div>`)
+          .setContent(`<div class="alert alert-warning">Kon data niet laden: ${L.Util.escapeHtml(e.message)}</div>`)
           .openOn(map);
+      } finally {
+        btnRun.disabled = false;
+        btnRun.textContent = "Uitvoeren";
       }
     }
 
     btnRun.addEventListener("click", run);
-    run(); // eerste run
+    run(); // Eerste run
   });
 })();
