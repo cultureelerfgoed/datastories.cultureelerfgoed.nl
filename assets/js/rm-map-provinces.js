@@ -52,11 +52,11 @@ WHERE {
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
 GRAPH graph:bebouwdeomgeving {
-  VALUES ?top { <{{NARROW}}> }          # URI van de gekozen hoofdcategorie
-  ?uri skos:broaderTransitive ?top .    # koppel ALLE onderliggende begrippen
+  VALUES ?top { <{{NARROW}}> }          # gekozen hoofdcategorie (URI)
+  ?top skos:narrower+ ?uri .            # alle onderliggende begrippen
   ?uri skos:prefLabel ?uriSub .
   BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
- }
+}
 }
 LIMIT 2000`;
 
