@@ -52,12 +52,11 @@ WHERE {
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
 GRAPH graph:bebouwdeomgeving {
-  VALUES ?top { <{{NARROW}}> }
-  # Pak alle functies die (transitief) onder de gekozen hoofdcategorie vallen
-  ?uri skos:broaderTransitive ?top .
+  VALUES ?top { <{{NARROW}}> }          # URI van de gekozen hoofdcategorie
+  ?uri skos:broaderTransitive ?top .    # koppel ALLE onderliggende begrippen
   ?uri skos:prefLabel ?uriSub .
   BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
-}
+ }
 }
 LIMIT 2000`;
 
@@ -68,6 +67,7 @@ LIMIT 2000`;
       .replaceAll("{{EIND}}", String(eind))
       .replaceAll("{{PROV}}", provLabel.replace(/"/g, '\\"'));
   }
+console.log("[map-prov] labelUri:", selLabel.value);
 
   async function runSparql(query) {
     const res = await fetch(ENDPOINT, {
