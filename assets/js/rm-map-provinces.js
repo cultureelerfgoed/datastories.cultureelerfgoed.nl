@@ -51,12 +51,12 @@ WHERE {
     ?prov skos:prefLabel ?provLabel .
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
-GRAPH graph:bebouwdeomgeving {
-  VALUES ?top { <{{NARROW}}> }          # gekozen hoofdcategorie (URI)
-  ?top skos:narrower+ ?uri .            # alle onderliggende begrippen
-  ?uri skos:prefLabel ?uriSub .
-  BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
-}
+  GRAPH graph:bebouwdeomgeving {
+    VALUES (?narrow) { (<{{NARROW}}>) }
+    ?narrow skos:narrower+ ?uri .
+    ?uri skos:prefLabel ?uriSub .
+    BIND(REPLACE(STR(?uriSub), "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
+  }
 }
 LIMIT 2000`;
 
@@ -67,7 +67,6 @@ LIMIT 2000`;
       .replaceAll("{{EIND}}", String(eind))
       .replaceAll("{{PROV}}", provLabel.replace(/"/g, '\\"'));
   }
-console.log("[map-prov] labelUri:", selLabel.value);
 
   async function runSparql(query) {
     const res = await fetch(ENDPOINT, {
