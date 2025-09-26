@@ -51,22 +51,31 @@ WHERE {
     ?prov skos:prefLabel ?provLabel .
     FILTER(LANG(?provLabel) = "nl" && STR(?provLabel) = "{{PROV}}")
   }
-  GRAPH graph:bebouwdeomgeving {
-    VALUES (?narrow) { (<{{NARROW}}>) }
-    ?narrow skos:narrower+ ?uri .
-    ?uri skos:prefLabel ?uriSub .
-    BIND(REPLACE(STR(?uriSub), "\\\\s\\\\(.*\\\\)|\\\\(.*\\\\)", "") AS ?uriSubs)
-  }
+GRAPH graph:bebouwdeomgeving {
+  # Root -> hoofdcategoriëen (context, niet strikt nodig maar onschuldig)
+  <https://data.cultureelerfgoed.nl/term/id/rn/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?top .
+
+  # Enforce exact de gekozen hoofdcategorie (label + URI)
+  VALUES (?hoofdcategorie ?narrow) { ("{{LABEL_RAW}}" <{{NARROW}}>) }
+
+  # Alle (sub)begrippen onder de gekozen hoofdcategorie
+  ?narrow (skos:narrower)* ?uri .
+
+  # Toon nette sublabels
+  ?uri skos:prefLabel ?uriSub .
+  BIND(REPLACE(STR(?uriSub), "\\s\\(.*\\)|\\(.*\\)", "") AS ?uriSubs)
+}
 }
 LIMIT 2000`;
 
-  function buildQuery(narrowUri, begin, eind, provLabel) {
-    return QUERY_TMPL
-      .replaceAll("{{NARROW}}", narrowUri)
-      .replaceAll("{{BEGIN}}", String(begin))
-      .replaceAll("{{EIND}}", String(eind))
-      .replaceAll("{{PROV}}", provLabel.replace(/"/g, '\\"'));
-  }
+function buildQuery(labelRaw, narrowUri, begin, eind, provLabel) {
+  return QUERY_TMPL
+    .replaceAll("{{LABEL_RAW}}", labelRaw.replace(/"/g, '\\"'))
+    .replaceAll("{{NARROW}}", narrowUri)
+    .replaceAll("{{BEGIN}}", String(begin))
+    .replaceAll("{{EIND}}", String(eind))
+    .replaceAll("{{PROV}}", provLabel.replace(/"/g, '\\"'));
+}
 
   async function runSparql(query) {
     const res = await fetch(ENDPOINT, {
@@ -163,6 +172,9 @@ LIMIT 2000`;
         const begin  = Math.max(1961, Math.min(2026, Number(inBeg.value || 1961)));
         const eind   = Math.max(begin, Math.min(2026, Number(inEind.value || 2026)));
         const prov   = selProv.value;
+        const narrow   = selLabel.value; // URI
+        const labelRaw = selLabel.options[selLabel.selectedIndex].textContent; // tekst
+        const q = buildQuery(labelRaw, narrow, begin, eind, prov);
 
         inBeg.value = begin; inEind.value = eind;
 
