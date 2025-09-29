@@ -793,5 +793,5 @@ h3 .back-to-toc:focus-visible {
 #actuele-stand .gauge6 > query{
   display: block !important;
   width: 100% !important;
-  height: 480px !important;   /* hoogte naar wens */
+  height: 500px !important;   /* hoogte naar wens */
 }
