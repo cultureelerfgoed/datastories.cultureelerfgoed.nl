@@ -75,40 +75,40 @@
   <!-- =======================
        Sectie 1. Introductie
   ======================== -->
-  <header>
-    <h1>Aanwijzingen van rijksmonumenten door de jaren heen</h1>
-    <p class="meta">Auteur: <strong>Marije Timmermans</strong> • Publicatiedatum: <time datetime="2023-05-03">3 mei 2023</time></p>
-    <p>
-      Sinds <strong>1961</strong> worden objecten in Nederland officieel aangewezen als rijksmonument. Deze aanwijzing bepaalt dat een gebouw, terrein of object van nationaal belang is en bescherming verdient. Het rijksmonumentenregister geeft een overzicht van al deze aanwijzingen door de tijd heen.
-    </p>
-    <p>
-      Deze data story laat zien hoe het aanwijzen van monumenten zich sinds de jaren zestig heeft ontwikkeld. We kijken naar <em>wanneer</em> monumenten zijn aangewezen, <em>welke soorten</em> monumenten dit waren en <em>waar</em> in Nederland dit gebeurde.
-    </p>
-    <p>
-      Het doel van deze data story is inzicht te geven in de opbouw van het huidige rijksmonumentenbestand door terug te kijken naar de geschiedenis van de aanwijzingen. Zo wordt duidelijk welke pieken en thematische verschuivingen er in de loop van de tijd hebben plaatsgevonden.
-    </p>
-  </header>
+<header>
+  <h1>Aanwijzingen van rijksmonumenten door de jaren heen</h1>
+  <p>
+    Sinds <strong>1961</strong> kunnen gebouwen, terreinen en objecten in Nederland de status van rijksmonument krijgen. Daarmee wordt vastgelegd dat ze van nationaal belang zijn en bescherming verdienen. In het <em>Rijksmonumentenregister</em> zijn al deze aanwijzingen vastgelegd en actueel te raadplegen.
+  </p>
+  <p>
+    In deze data story zie je hoe het aanwijzen van monumenten zich sinds de jaren zestig heeft ontwikkeld. We kijken naar drie vragen: <em>wanneer</em> zijn monumenten aangewezen, <em>welke soorten</em> waren dat en <em>waar</em> gebeurde dit?
+  </p>
+  <p>
+    Door die geschiedenis in beeld te brengen, ontstaat inzicht in de opbouw van het huidige rijksmonumentenbestand. Je ziet zo niet alleen de groei door de tijd heen, maar ook de pieken en verschuivingen in aandacht voor bepaalde typen monumenten.
+  </p>
+</header>
 
-  <!-- =======================
-       Sectie 2. Inhoudsopgave
-  ======================== -->
-  <section id="inhoud">
-    <h2>Wat vind je in deze story?</h2>
-    <nav class="toc" aria-label="Inhoudsopgave">
-      <ul>
-        <li><a href="#wanneer">Wanneer zijn rijksmonumenten aangewezen?</a></li>
-        <li><a href="#wat">Wat voor soort monumenten zijn aangewezen?</a></li>
-        <li><a href="#waar">Waar zijn rijksmonumenten aangewezen?</a></li>
-        <li><a href="#disclaimer">Disclaimer</a></li>
-        <li><a href="#bronnen">Bronnen</a></li>
-      </ul>
-    </nav>
-  </section>
+<!-- =======================
+     Sectie 2. Inhoudsopgave
+======================== -->
+<section id="inhoud">
+  <h2>Wat lees je in deze data story?</h2>
+  <nav class="toc" aria-label="Inhoudsopgave">
+    <ul>
+      <li><a href="#wanneer">Wanneer zijn monumenten aangewezen?</a></li>
+      <li><a href="#wat">Welke soorten monumenten zijn aangewezen?</a></li>
+      <li><a href="#waar">Waar in Nederland zijn monumenten aangewezen?</a></li>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      <li><a href="#bronnen">Bronnen</a></li>
+    </ul>
+  </nav>
+</section>
+
 
     <section id="actuele-stand" role="region" aria-labelledby="gauge-titel" aria-describedby="gauge-caption">
       <h3 id="gauge-titel">Actuele stand gebouwde en aangelegde rijksmonumenten</h3>
       <p>
-        Deze meters tonen de actuele aantallen gebouwde en aangelegde rijksmonumenten, inclusief complexen.
+        Hier zie je de actuele aantallen gebouwde en aangelegde rijksmonumenten, inclusief complexen.
       </p>
     <figure class="sink gauge6">
         <query 
@@ -124,17 +124,16 @@
   <section id="wanneer">
     <h2>Wanneer zijn rijksmonumenten aangewezen?</h2>
     <p>
-      Het aanwijzen van rijksmonumenten begon in <strong>1961</strong>. Sindsdien zijn er jaarlijks nieuwe monumenten aan het register toegevoegd. Het aantal aanwijzingen verschilt sterk per periode. Twee duidelijke pieken vallen op:
-    </p>
+Het aanwijzen van rijksmonumenten begon in 1961. Sindsdien zijn er jaarlijks nieuwe monumenten aan het register toegevoegd. Het aantal aanwijzingen verschilt sterk per periode, met twee duidelijke pieken:</p>
     <ul>
       <li><strong>Piek 1 (1961–1973)</strong>: de eerste grote golf van aanwijzingen, kort na de start van het register.</li>
       <li><strong>Piek 2 (1997–2002)</strong>: een tweede concentratie van aanwijzingen, verspreid over enkele jaren.</li>
     </ul>
-    <p>Na 2010 nam het aantal aanwijzingen sterk af.</p>
+    <p>Na 2010 nam het aantal aanwijzingen sterk af. In de grafiek is naast de jaarlijkse aantallen ook de cumulatieve groei van het totaal aantal rijksmonumenten zichtbaar.</p>
 
     <figure class="sink">
       <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql#query=PREFIX%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0APREFIX%20skos%3A%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX%20xsd%3A%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX%20ceo%3A%20%20%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0A%0ASELECT%20(STR(%3Fjaar)%20AS%20%3FjaarInschrijvings)%20%3Faantal%20(SUM(%3Faantal2)%20AS%20%3Fcumulatief)%0AWHERE%20%7B%0A%20%20%7B%20%20%23%20aantallen%20per%20jaar%0A%20%20%20%20SELECT%20%3Fjaar%20(COUNT(%3Frm)%20AS%20%3Faantal)%0A%20%20%20%20WHERE%20%7B%0A%20%20%20%20%20%20GRAPH%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%20%20%20%20%3Frm%20a%20ceo%3ARijksmonument%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20ceo%3AdatumInschrijvingInMonumentenregister%20%3Fd%20.%0A%20%20%20%20%20%20%20%20MINUS%20%7B%20%3Frm%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20BIND%20(YEAR(xsd%3AdateTime(%3Fd))%20AS%20%3Fjaar)%0A%20%20%20%20%7D%0A%20%20%20%20GROUP%20BY%20%3Fjaar%0A%20%20%7D%0A%20%20%7B%20%20%23%20nogmaals%20per%20jaar%2C%20voor%20cumulatieve%20som%0A%20%20%20%20SELECT%20%3Fjaar2%20(COUNT(%3Frm2)%20AS%20%3Faantal2)%0A%20%20%20%20WHERE%20%7B%0A%20%20%20%20%20%20GRAPH%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%20%20%20%20%3Frm2%20a%20ceo%3ARijksmonument%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20ceo%3AdatumInschrijvingInMonumentenregister%20%3Fd2%20.%0A%20%20%20%20%20%20%20%20MINUS%20%7B%20%3Frm2%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20BIND%20(YEAR(xsd%3AdateTime(%3Fd2))%20AS%20%3Fjaar2)%0A%20%20%20%20%7D%0A%20%20%20%20GROUP%20BY%20%3Fjaar2%0A%20%20%7D%0A%20%20FILTER%20(%3Fjaar2%20%3C%3D%20%3Fjaar)%0A%7D%0AGROUP%20BY%20%3Fjaar%20%3Faantal%0AORDER%20BY%20%3Fjaar%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fservices%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22slantedTextAngle%22%3A60%2C%22slantedText%22%3Atrue%2C%22title%22%3A%22Inschrijvingsjaar%22%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Afalse%7D%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22title%22%3A%22Aantal%20rijksmonumenten%20aangewezen%22%7D%2C%7B%22useFormatFromData%22%3Afalse%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22title%22%3A%22aantal%20rijksmonumenten%20cumulatief%22%2C%22minorGridlines%22%3A%7B%22count%22%3A%223%22%7D%2C%22formatOptions%22%3A%7B%22source%22%3A%22inline%22%7D%2C%22format%22%3A%220.%23%23%22%7D%5D%2C%22type%22%3A%22line%22%2C%22booleanRole%22%3A%22certainty%22%2C%22series%22%3A%5B%7B%22type%22%3A%22bars%22%2C%22targetAxisIndex%22%3A0%2C%22color%22%3A%22%23ff9900%22%7D%2C%7B%22targetAxisIndex%22%3A1%2C%22lineWidth%22%3A2%7D%5D%2C%22legend%22%3A%22bottom%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22title%22%3A%22Aantal%20rijksmonumenten%20per%20inschrijvingsjaar%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22ComboChart%22%7D%7D"></query>
-      <figcaption>Aantal rijksmonumenten per inschrijvingsjaar.</figcaption>
+      <figcaption>Jaarlijkse en cumulatieve aantallen rijksmonumenten per inschrijvingsjaar.</figcaption>
     </figure>
 
     <p class="back-to-top"><a href="#top" aria-label="Terug naar boven">↑ Terug naar boven</a></p>
@@ -146,19 +145,18 @@
   <section id="wat">
     <h2>Wat voor soort monumenten zijn aangewezen?</h2>
     <p>
-      Rijksmonumenten worden in het register ingedeeld naar hun oorspronkelijke functie. Hierbij onderscheiden we hoofdcategorieën (zoals woningen of religieuze gebouwen) en subcategorieën (zoals kerken of kastelen).
+      In het register zijn rijksmonumenten ingedeeld naar hun oorspronkelijke functie. Er zijn hoofdcategorieën (zoals woningen of religieuze gebouwen) en meer specifieke subcategorieën (zoals kerken of kastelen).
     </p>
 
     <h3 id="wat-hoofdcategorien">4.1 Hoofdcategorieën</h3>
-    <p>De meeste rijksmonumenten vallen onder de hoofdcategorie <em>woningen en woningbouwcomplexen</em>. Andere grote groepen zijn <em>boerderijen, molens en bedrijven</em> en <em>kastelen, landhuizen en parken</em>. Religieuze gebouwen vormen eveneens een aanzienlijk deel.</p>
+    <p>De grootste groep rijksmonumenten bestaat uit woningen en woningbouwcomplexen. Ook boerderijen, molens en bedrijven en kastelen, landhuizen en parken zijn omvangrijke categorieën. Daarnaast vormen religieuze gebouwen een aanzienlijk deel.</p>
     <figure class="sink">
-      <!-- TODO: implement SPARQL query and renderer -->
       <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql#query=PREFIX%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0Aprefix%20rn%3A%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F%3E%0A%0ASELECT%20%20%3Flabel%20(COUNT(%3Frijksmonument)%20AS%20%3Faantal)%20%20%0A%0AWHERE%20%0A%7B%0A%20%20GRAPH%20graph%3Ainstanties-rce%20%7B%0A%20%20%3Frijksmonument%20ceo%3AdatumInschrijvingInMonumentenregister%20%3FdatumInschrijving.%0A%20%20%3Frijksmonument%20ceo%3AheeftOorspronkelijkeFunctie%20%3Ffunctie.%0A%20%20%3Ffunctie%20ceo%3AheeftFunctieNaam%20%3Furi.%0A%20%20%20%20%20%20MINUS%20%7B%3Frijksmonument%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%7D%0A%20%20%7D%0A%7B%0A%20%20GRAPH%20graph%3Abebouwdeomgeving%20%7B%0A%20%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F1eeb48df-adbb-44b2-bcf1-33e3fe902413%3E%20skos%3Anarrower%20%3Fnarrow.%0A%20%20%20%20%3Fnarrow%20skos%3AprefLabel%20%3Flabel.%0A%20%20%0A%20%20%20%20%23Hoofdcategorie%C3%ABn%20selecteren%20en%20het%20juiste%20label%20geven%0A%20%20VALUES%20(%3Flabel%20%3Fnarrow)%20%7B%0A%20%20%20%20(%22Archeologie%20(N)%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fd60159d2-8b55-47b7-8301-5ac82b0f2d7f%3E)%0A%20%20%20%20(%22Bestuursgebouwen%2C%20rechtsgebouwen%20en%20overheidsgebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F74a847b5-1e0f-4f66-b910-90d2c8d9fa04%3E)%0A%20%20%20%20(%22Boerderijen%2C%20molens%20en%20bedrijven%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb8077035-db8f-47f1-ae1d-e64f75344fcf%3E)%0A(%22Cultuur%2C%20gezondheid%20en%20wetenschap%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F0be0a6c9-0738-41cc-aaac-550d258c4261%3E)%0A(%22Handelsgebouwen%2C%20opslag-%20en%20transportgebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fe88ccbf4-e41d-49bf-9876-0f71db0e6646%3E)%0A(%22Kastelen%2C%20landhuizen%20en%20parken%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb2511baf-3b70-4667-98dd-1b850c7ea53f%3E)%0A(%22N.V.T.%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F8d4228b6-7f8d-4b78-b870-901879af8c04%3E)%0A(%22Religieuze%20gebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F25fac0f1-77a2-4587-ab04-dfcb66959dd8%3E)%0A(%22Sport%2C%20recreatie%2C%20vereniging%20en%20horeca%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb797b89c-1e0a-4ce7-869b-817cd98259b0%3E)%0A(%22Uitvaartcentra%20en%20begraafplaatsen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F1680dfc0-666a-4a01-9781-59e9af26ec51%3E)%0A(%22Verdedigingswerken%20en%20militaire%20gebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F5013dcbc-1090-42e9-bc22-92de47e43783%3E)%0A(%22Voorwerpen%20op%20pleinen%20en%20dergelijke%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F92cda3e4-8c6a-41dc-9a81-02f8aba88b25%3E)%0A(%22Weg-%20en%20waterbouwkundige%20werken%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F11c897ed-d35e-4191-9254-7ab95d9d63bc%3E)%0A(%22Woningen%20en%20woningbouwcomplexen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F5b7dd16c-fa8d-4d68-984a-9ec0efc650d4%3E)%0A%0A%20%20%7D%20%20%20%20%20%20%0A%20%20%3Fnarrow%20skos%3Anarrower%2B%20%3Furi%20.%0A%20%20%20%20%20%20%0A%7D%0A%20%20%7D%0A%7D%0AGROUP%20BY%20%3Faantal%20%3Flabel%0AORDER%20BY%20desc(%3Faantal)%0A%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fservices%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22title%22%3A%22Jaar%22%2C%22slantedTextAngle%22%3A60%2C%22slantedText%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22series%22%3A%7B%220%22%3A%7B%22color%22%3A%22%23ff9900%22%7D%7D%2C%22title%22%3A%22Percentage%20monumenten%20per%20hoofdcategorie%22%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%7D%2C%22useFirstColumnAsDomain%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22is3D%22%3Atrue%2C%22pieHole%22%3A0%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22slices%22%3A%7B%220%22%3A%7B%22color%22%3A%22%23aaaa11%22%7D%7D%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22PieChart%22%7D%7D"></query>
       <figcaption>Verdeling van rijksmonumenten per hoofdcategorie.</figcaption>
     </figure>
 
     <h3 id="wat-door-de-tijd">4.2 Hoofdcategorieën door de tijd heen</h3>
-    <p>Het aandeel van de verschillende hoofdcategorieën is niet constant gebleven. Sommige categorieën waren vooral in de beginjaren sterk vertegenwoordigd, terwijl andere groepen later meer aandacht kregen.</p>
+    <p>Het aandeel van de hoofdcategorieën veranderde door de tijd heen. Sommige categorieën waren vooral in de beginjaren sterk vertegenwoordigd, terwijl andere juist later meer aandacht kregen.</p>
     <figure class="sink">
       <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql#query=PREFIX%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0Aprefix%20rn%3A%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F%3E%0A%0ASELECT%20%3Finschrijvingsjaar%20%3Flabel%20(count(distinct(%3Frijksmonument))%20as%20%3Faantal_Rijksmonumenten)%0A%0AWHERE%0A%20%20%7B%0A%20%20GRAPH%20graph%3Ainstanties-rce%20%7B%0A%20%20%3Frijksmonument%20ceo%3AdatumInschrijvingInMonumentenregister%20%3FdatumInschrijving.%0A%20%20%3Frijksmonument%20ceo%3AheeftOorspronkelijkeFunctie%20%3Ffunctie.%0A%20%20%3Ffunctie%20ceo%3AheeftFunctieNaam%20%3Furi.%0A%20%20%20%20%20%20%20%20%20%20MINUS%20%7B%3Frijksmonument%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%7D%0A%0A%20%20%7D%0A%20%7B%0A%20%20GRAPH%20graph%3Abebouwdeomgeving%20%7B%0A%20%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F1eeb48df-adbb-44b2-bcf1-33e3fe902413%3E%20skos%3Anarrower%20%3Fnarrow.%0A%20%20%20%20%3Fnarrow%20skos%3AprefLabel%20%3Flabel.%0A%20%20%0A%20%20VALUES%20(%3Flabel%20%3Fnarrow)%20%7B%0A%20%20%20%20(%22Archeologie%20(N)%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fd60159d2-8b55-47b7-8301-5ac82b0f2d7f%3E)%0A%20%20%20%20(%22Bestuursgebouwen%2C%20rechtsgebouwen%20en%20overheidsgebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F74a847b5-1e0f-4f66-b910-90d2c8d9fa04%3E)%0A%20%20%20%20(%22Boerderijen%2C%20molens%20en%20bedrijven%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb8077035-db8f-47f1-ae1d-e64f75344fcf%3E)%0A(%22Cultuur%2C%20gezondheid%20en%20wetenschap%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F0be0a6c9-0738-41cc-aaac-550d258c4261%3E)%0A(%22Handelsgebouwen%2C%20opslag-%20en%20transportgebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fe88ccbf4-e41d-49bf-9876-0f71db0e6646%3E)%0A(%22Kastelen%2C%20landhuizen%20en%20parken%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb2511baf-3b70-4667-98dd-1b850c7ea53f%3E)%0A(%22N.V.T.%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F8d4228b6-7f8d-4b78-b870-901879af8c04%3E)%0A(%22Religieuze%20gebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F25fac0f1-77a2-4587-ab04-dfcb66959dd8%3E)%0A(%22Sport%2C%20recreatie%2C%20vereniging%20en%20horeca%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb797b89c-1e0a-4ce7-869b-817cd98259b0%3E)%0A(%22Uitvaartcentra%20en%20begraafplaatsen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F1680dfc0-666a-4a01-9781-59e9af26ec51%3E)%0A(%22Verdedigingswerken%20en%20militaire%20gebouwen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F5013dcbc-1090-42e9-bc22-92de47e43783%3E)%0A(%22Voorwerpen%20op%20pleinen%20en%20dergelijke%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F92cda3e4-8c6a-41dc-9a81-02f8aba88b25%3E)%0A(%22Weg-%20en%20waterbouwkundige%20werken%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F11c897ed-d35e-4191-9254-7ab95d9d63bc%3E)%0A(%22Woningen%20en%20woningbouwcomplexen%22%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F5b7dd16c-fa8d-4d68-984a-9ec0efc650d4%3E)%0A%0A%20%20%7D%0A%20%20%20%20%20%3Fnarrow%20skos%3Anarrower%2B%20%3Furi%20.%20%0A%20%20%7D%0A%20%20%3Frijksmonument%20a%20ceo%3ARijksmonument%20.%0A%7D%0A%20%20%20%20%20BIND(year(xsd%3AdateTime(%3FdatumInschrijving))%20as%20%3FjaarInschrijving)%0A%20%20FILTER%20(%3FjaarInschrijving%20%3E%3D%20%221964%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23integer%3E%20%26%26%20%3FjaarInschrijving%20%3C%3D%20%222022%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23integer%3E)%0A%20%20bind(concat(str(%3FjaarInschrijving))%20as%20%3Finschrijvingsjaar)%0A%7D%0A%0AORDER%20by%20%3Finschrijvingsjaar%20desc(%3Flabel)&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fservices%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=pivot&outputSettings=%7B%22pivotConfig%22%3A%7B%22cols%22%3A%5B%22inschrijvingsjaar%22%5D%2C%22rows%22%3A%5B%22label%22%5D%2C%22rendererName%22%3A%22Stacked%20Bar%20Chart%22%2C%22aggregatorName%22%3A%22Sum%20as%20Fraction%20of%20Columns%22%2C%22vals%22%3A%5B%22aantal_Rijksmonumenten%22%5D%2C%22colOrder%22%3A%22key_a_to_z%22%2C%22rowOrder%22%3A%22key_a_to_z%22%7D%7D"></query>
       <figcaption>Verdeling van aangewezen rijksmonumenten per hoofdcategorie door de tijd heen.</figcaption>
@@ -173,20 +171,9 @@
     <div id="rm-chart" style="width:100%; height:420px; margin-top:12px;"></div>
   </div>
 
-  <p class="control-hint">Kies een hoofdcategorie en de grafiek wordt bijgewerkt.</p>
+  <p class="control-hint">Selecteer een hoofdcategorie om te zien hoeveel monumenten er per jaar zijn aangewezen.</p>
+      <p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
 </section>
-
-    <!--- <h3 id="wat-subcategorien">4.3 Subcategorieën binnen een hoofdcategorie</h3>
-    <p>Binnen een hoofdcategorie zijn monumenten verder verdeeld in subcategorieën. Onder <em>kastelen, landhuizen en parken</em> vallen bijvoorbeeld tuinen, koetshuizen en bijgebouwen. Deze verdeling kan per periode verschillen.</p>
-    <div class="control-hint">Selecteer een hoofdcategorie en periode en klik op ‘Run query’.</div>
-    <figure class="sink"> --->
-      <!-- TODO: implement SPARQL query and renderer -->
-     <!---  <query data-config="queries/aanwijzen/subcategorie_per_periode.sparql"></query> --->
-     <!--- <figcaption>Verdeling van subcategorieën binnen een hoofdcategorie in een gekozen periode.</figcaption>
-    </figure>
-
-    <p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
-  </section> --->
 
   <section class="sink" id="subcat-widget">
   <h3>Subcategorieën binnen een hoofdcategorie (per periode)</h3>
@@ -219,16 +206,16 @@
   ========================================= -->
   <section id="waar">
     <h2>Waar zijn rijksmonumenten aangewezen?</h2>
-    <p>Het aanwijzen van rijksmonumenten verschilt per regio. Sommige provincies en gemeenten kennen duidelijke concentraties, terwijl andere gebieden minder vaak zijn vertegenwoordigd.</p>
+    <p>Het aanwijzen van rijksmonumenten verschilt per regio. In sommige provincies en gemeenten zijn duidelijke concentraties zichtbaar, terwijl andere gebieden veel minder vaak voorkomen.</p>
 
     <h3 id="waar-provincies">5.1 Provinciaal niveau</h3>
-    <p>Op provinciaal niveau zijn de aanwijzingen ongelijk verdeeld. In de eerste piek (1961–1973) werden in met name Noord- en Zuid-Holland veel monumenten aangewezen. Tijdens de tweede piek (1997–2002) verschoven de aantallen deels naar andere provincies.</p>
+    <p>Op provinciaal niveau zijn de aanwijzingen ongelijk verdeeld. Tijdens de eerste piek (1961–1973) lag de nadruk vooral op Noord- en Zuid-Holland. In de tweede piek (1997–2002) verschoof een deel van de aanwijzingen naar andere provincies.</p>
     <figure class="sink">
       <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql#query=PREFIX%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0APREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0A%0ASELECT%20%3Fprovincie%20%3Fperiode%20(count(distinct(%3Frijksmonument))%20as%20%3Faantal_rijksmonumenten)%0A%0AWHERE%20%7B%0A%20%20GRAPH%20graph%3Ainstanties-rce%7B%0A%20%20%3Frijksmonument%20a%20ceo%3ARijksmonument%3B%0A%20%20ceo%3AheeftBasisregistratieRelatie%2Fceo%3AheeftProvincie%20%3Fprov%3B%0A%20%20ceo%3AdatumInschrijvingInMonumentenregister%20%3Finschrijving%7D%0A%20%20%0A%20%20MINUS%20%7B%3Frijksmonument%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F3e79bb7c-b459-4998-a9ed-78d91d069227%3E%7D%0A%20%20%3Fprov%20skos%3AprefLabel%20%3Fprovincie%0A%20%20BIND(year(xsd%3AdateTime(%3Finschrijving))%20as%20%3FjaarInschrijving)%0A%20%20%0A%0A%20%20BIND%20(%0A%20%20%20IF(%3FjaarInschrijving%20%3E%201960%20%26%26%20%3FjaarInschrijving%20%3C%3D%201973%2C%20%22Piek%201%22%2C%20%0A%20%20%20%20IF(%3FjaarInschrijving%20%3E%3D%201997%20%26%26%20%3FjaarInschrijving%20%3C%3D%202002%2C%20%22Piek%202%22%2C%20%22Buiten%20pieken%22))%20AS%20%3Fperiode)%0A%20%0A%7D%0A%0A%0Aorder%20by%20desc(%3FaantalRM)%20%3Fperiode%20%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fservices%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=pivot&outputSettings=%7B%22pivotConfig%22%3A%7B%22cols%22%3A%5B%22periode%22%5D%2C%22rows%22%3A%5B%22provincie%22%5D%2C%22rendererName%22%3A%22Stacked%20Bar%20Chart%22%2C%22aggregatorName%22%3A%22Sum%22%2C%22vals%22%3A%5B%22aantal_rijksmonumenten%22%5D%2C%22colOrder%22%3A%22key_a_to_z%22%2C%22rowOrder%22%3A%22key_a_to_z%22%7D%7D"></query>
       <figcaption>Aantal aangewezen rijksmonumenten per provincie in de piekperiodes en daarbuiten.</figcaption>
     </figure>
 
-    <p>Daarnaast is het mogelijk om op een kaart per provincie te zien welke monumenten in een bepaalde periode zijn aangewezen.</p>
+    <p>Met de kaart kun je per provincie bekijken welke monumenten in een bepaalde periode zijn aangewezen.</p>
 <figure class="sink" id="rm-map-prov">
   <div class="row g-2 align-items-end">
     <div class="col-md-5">
@@ -253,18 +240,18 @@
   </div>
 
   <div id="mp-map" style="height:520px; margin-top:12px; border-radius:12px; overflow:hidden;"></div>
-  <figcaption>Kaart met aangewezen rijksmonumenten per provincie.</figcaption>
+  <figcaption>Kaart met aangewezen rijksmonumenten per provincie en periode.</figcaption>
 </figure>
 
-
-
-    <h3 id="waar-gemeenten">5.2 Gemeentelijk niveau</h3>
-    <p>Een groot aantal aanwijzingen concentreert zich in enkele steden. Vooral Amsterdam, maar ook steden als Utrecht, Leiden en Maastricht, kenden veel rijksmonument-aanwijzingen.</p>
     <!-- =======================
      Gemeentekaart (waar 5.2)
 ======================== -->
+
+    <h3 id="waar-gemeenten">5.2 Gemeentelijk niveau</h3>
+    <p>Een groot deel van de aanwijzingen concentreert zich in enkele steden. Vooral Amsterdam springt eruit, gevolgd door steden als Utrecht, Leiden en Maastricht.</p>
+
 <figure class="sink" id="rm-map-mun">
-  <h3>Kaart met aangewezen rijksmonumenten per gemeente</h3>
+  <h3>Kaart van aangewezen rijksmonumenten per gemeente</h3>
 
   <div class="row g-2 align-items-end">
     <div class="col-md-5">
@@ -285,10 +272,33 @@
   </div>
 
   <div id="mm-map" style="height:520px; margin-top:12px; border-radius:12px; overflow:hidden;"></div>
-  <figcaption>Selecteer een gemeente en periode; klik op ‘Run’.</figcaption>
+  <figcaption>Kies een gemeente en periode en klik op ‘Run’ om de kaart te verversen.</figcaption>
 </figure>
 
   </section>
+
+  <!-- =======================
+     Sectie 6. Afsluiting
+======================= -->
+<section id="afsluiting">
+  <h2>Tot slot</h2>
+  <p>
+    Deze data story liet zien <em>wanneer</em> rijksmonumenten zijn aangewezen, 
+    <em>welke soorten</em> dat zijn en <em>waar</em> die aanwijzingen plaatsvonden. 
+    Samen schetsen de cijfers en kaarten de opbouw en ontwikkeling van het 
+    Nederlandse rijksmonumentenbestand sinds de jaren zestig.
+  </p>
+  <p>
+    Omdat het register dagelijks wordt bijgewerkt, veranderen de aantallen en verdelingen in de loop van de tijd. 
+    Daarmee blijft dit verhaal dynamisch: elke nieuwe aanwijzing voegt een stukje toe aan de geschiedenis.
+  </p>
+  <p>
+    Wil je zelf meer weten? Verken dan de <a href="https://monumentenregister.cultureelerfgoed.nl/" target="_blank" rel="noopener">
+    Rijksmonumentenregister</a> of raadpleeg de <a href="https://erfgoedmonitor.nl/" target="_blank" rel="noopener">Erfgoedmonitor</a> 
+    voor aanvullende inzichten.
+  </p>
+</section>
+
 
   <!-- =======================
        Sectie 6. Disclaimer
@@ -326,7 +336,7 @@
       <dd class="col-sm-9"><time datetime="2024-10-28">28&nbsp;oktober&nbsp;2024</time></dd>
 
       <dt class="col-sm-3">Datum modified</dt>
-      <dd class="col-sm-9"><time datetime="2024-10-28">28&nbsp;oktober&nbsp;2024</time></dd>
+      <dd class="col-sm-9"><time datetime="2025-09-28">28&nbsp;oktober&nbsp;2024</time></dd>
 
       <dt class="col-sm-3">Data status</dt>
       <dd class="col-sm-9">Dynamisch – dagelijkse update</dd>
@@ -344,8 +354,8 @@
     <h2>Bronnen</h2>
     <ul>
       <li><strong>Dataset:</strong> <a href="https://linkeddata.cultureelerfgoed.nl/" rel="noopener">Cultuurhistorische Objecten (CHO)</a> – Rijksdienst voor het Cultureel Erfgoed</li>
-      <li><strong>Data story gepubliceerd op:</strong> 3 mei 2023</li>
-      <li><strong>Auteur:</strong> Marije Timmermans</li>
+      <li><strong>Data story gepubliceerd op:</strong> 29 september 2025. Gebasseerd op een eerdere story van Marije Timmermans mei 2023</li>
+      <li><strong>Auteur:</strong> Marije Timmermans, Joop Vanderheiden</li>
     </ul>
   </section>
 
@@ -369,10 +379,10 @@
 <script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
 <script src="../assets/js/stories.min.js" defer></script>
 <script src="https://www.gstatic.com/charts/loader.js" defer></script>
-<script src="../assets/js/rm-widget.js" defer></script>
-<script src="../assets/js/rm-widget-subcat.js" defer></script>
-<script src="../assets/js/rm-map-provinces.js?" defer></script>
-<script src="../assets/js/rm-map-municipalities.js?" defer></script>
+<script src="../aanwijzen/js/rm-widget.js" defer></script>
+<script src="../aanwijzen/js/rm-widget-subcat.js" defer></script>
+<script src="../aanwijzen/js/rm-map-provinces.js?" defer></script>
+<script src="../aanwijzen/js/rm-map-municipalities.js?" defer></script>
 
 <script>window.onload = function () { stories(); };</script>
 
