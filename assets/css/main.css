@@ -745,33 +745,6 @@ query > div::after {
   margin-top: .35rem;
 }
 
-<style>
-  /* Gauge-sectie als breed horizontaal vlak */
-  #actuele-stand figure.sink.gauge6 {
-    grid-column: 1 / -1;      /* span hele content-grid, net als andere brede vlakken */
-    max-width: 100%;
-  }
-
-  /* Geef de renderer een vaste hoogte zodat de meters groter worden */
-  #actuele-stand figure.sink.gauge6 query,
-  #actuele-stand figure.sink.gauge6 .yasr,
-  #actuele-stand figure.sink.gauge6 .yasr > div {
-    display: block;
-    width: 100% !important;
-    height: 520px !important;  /* maak groter naar wens */
-  }
-
-  /* Iets lager op mobiel */
-  @media (max-width: 576px) {
-    #actuele-stand figure.sink.gauge6 query,
-    #actuele-stand figure.sink.gauge6 .yasr,
-    #actuele-stand figure.sink.gauge6 .yasr > div {
-      height: 420px !important;
-    }
-  }
-</style>
-
-
 
 /* Widgets netjes afronden */
 query{
@@ -807,4 +780,18 @@ h2 .back-to-toc:focus-visible,
 h3 .back-to-toc:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+/* --- FORCEER gauge full-width in 'Actuele stand' --- */
+#actuele-stand .gauge6{
+  float: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 1rem 0 !important;
+  clear: both !important;
+}
+
+#actuele-stand .gauge6 > query{
+  display: block !important;
+  width: 100% !important;
+  height: 480px !important;   /* hoogte naar wens */
 }
