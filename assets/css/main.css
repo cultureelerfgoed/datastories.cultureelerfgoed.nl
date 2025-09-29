@@ -745,32 +745,32 @@ query > div::after {
   margin-top: .35rem;
 }
 
-/* === OVERRIDE: gauge-sectie full-width, als horizontaal vlak === */
-#actuele-stand figure.sink.gauge6{
-  float: none;            /* niet meer naast tekst */
-  width: 100%;
-  max-width: 100%;
-  margin: 1rem 0;         /* zoals andere vlakken */
-  clear: both;
-}
+<style>
+  /* Gauge-sectie als breed horizontaal vlak */
+  #actuele-stand figure.sink.gauge6 {
+    grid-column: 1 / -1;      /* span hele content-grid, net als andere brede vlakken */
+    max-width: 100%;
+  }
 
-/* maak de renderer zelf ruimer */
-#actuele-stand figure.sink.gauge6 query,
-#actuele-stand figure.sink.gauge6 .yasr,
-#actuele-stand figure.sink.gauge6 .yasr > div{
-  display: block;
-  width: 100% !important;
-  height: 520px !important;   /* pas aan naar wens */
-}
-
-/* iets lager op mobiel */
-@media (max-width: 576px){
+  /* Geef de renderer een vaste hoogte zodat de meters groter worden */
   #actuele-stand figure.sink.gauge6 query,
   #actuele-stand figure.sink.gauge6 .yasr,
-  #actuele-stand figure.sink.gauge6 .yasr > div{
-    height: 420px !important;
+  #actuele-stand figure.sink.gauge6 .yasr > div {
+    display: block;
+    width: 100% !important;
+    height: 520px !important;  /* maak groter naar wens */
   }
-}
+
+  /* Iets lager op mobiel */
+  @media (max-width: 576px) {
+    #actuele-stand figure.sink.gauge6 query,
+    #actuele-stand figure.sink.gauge6 .yasr,
+    #actuele-stand figure.sink.gauge6 .yasr > div {
+      height: 420px !important;
+    }
+  }
+</style>
+
 
 
 /* Widgets netjes afronden */
