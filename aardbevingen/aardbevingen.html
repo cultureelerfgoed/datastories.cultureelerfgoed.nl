@@ -146,6 +146,18 @@
       </dl>
     </details>
   </section>
+
+  <section id="achter-de-schermen">
+  <h2>Hoe werken de query’s?</h2>
+  <p>De kaarten en tabellen in deze data story worden gemaakt met SPARQL-query’s. Deze query’s combineren verschillende databronnen:</p>
+  <ul>
+    <li><strong>Aardbevingen:</strong> uit de dataset <em>Aardbeving</em> van de RCE, met informatie over datum, tijd, diepte, magnitude en locatie.</li>
+    <li><strong>Monumenten:</strong> uit de dataset <em>CHO – Cultureel Erfgoed Objecten</em>, met rijksmonumentnummers, geometrie en plaatsnamen.</li>
+    <li><strong>Afbeeldingen:</strong> via Wikidata, gekoppeld aan het monumentnummer.</li>
+  </ul>
+  <p>De query berekent vervolgens de afstand tussen aardbevingen en monumenten. Als die minder dan 100 meter bedraagt, verschijnt de beving én het monument samen in de kaart. Zo worden erfgoed en natuurgebeurtenissen met elkaar verbonden.</p>
+</section>
+
 </main>
 
 <footer class="footer-rce-full" role="contentinfo">
