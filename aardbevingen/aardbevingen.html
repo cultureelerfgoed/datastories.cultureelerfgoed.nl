@@ -12,7 +12,12 @@
   <meta property="og:description" content="Impact van tektonische en geïnduceerde bevingen op rijksmonumenten in Nederland.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://datastories.cultureelerfgoed.nl/aardbevingen/">
-  <meta property="og:image" content="../assets/imgs/aardbevingen-icon.png">
+  <meta property="og:image" content="https://datastories.cultureelerfgoed.nl/assets/imgs/aardbevingen-icon.png">
+  <meta property="og:image:alt" content="Pictogram Aardbevingen en Rijksmonumenten">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aardbevingen en Rijksmonumenten">
+  <meta name="twitter:description" content="Impact van tektonische en geïnduceerde bevingen op rijksmonumenten in Nederland.">
+  <meta name="twitter:image" content="https://datastories.cultureelerfgoed.nl/assets/imgs/aardbevingen-icon.png">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="Rijksdienst voor het Cultureel Erfgoed">
 
@@ -175,7 +180,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
 <script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
 <script src="../assets/js/stories.min.js" defer></script>
-<script>window.onload = function () { stories(); };</script>
+<script>window.addEventListener('DOMContentLoaded', function () { if (typeof stories === 'function') { stories(); } });</script>
 
 </body>
 </html>
