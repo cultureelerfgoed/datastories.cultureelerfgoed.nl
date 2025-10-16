@@ -248,6 +248,12 @@ img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
 img.float-end { float: right; margin-left: 1rem; }
 img.small { max-width: 300px; float: left; margin: 0 1rem 1rem 0; }
 
+/* cursief fig */
+
+figcaption {
+  font-style: italic;
+}
+
 /* =====================================================
    5a. Multicolumn‑utilities
    ===================================================== */
