@@ -29,7 +29,7 @@
 
   <!-- Bootstrap en fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/ro-sans" />
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/ro-sans">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../assets/css/main.css?v=0.8.1" type="text/css">
@@ -55,7 +55,7 @@
   </div>
 </div>
 
-<main id="main" role="main" class="container mt-3 mb-4" aria-label="IJzersterk erfgoed">
+<main id="main" class="container mt-3 mb-4" aria-label="IJzersterk erfgoed">
 
   <h1>IJzersterk erfgoed: zoektocht naar staal, gietijzer en smeedijzer</h1>
   <!-- Bulletlijst direct onder h1 -->
@@ -123,7 +123,7 @@
   </section>
 
       <!-- foto voorbeeld -->
-    <section id="foto" role="region" aria-labelledby="foto-titel" aria-describedby="foto-caption">
+    <section id="foto" aria-labelledby="foto-titel" aria-describedby="foto-caption">
       <h3 id="foto-titel">Foto van vuurtoren bij De Cocksdorp</h3>
       <p>
         Een afbeelding van een rijksmonument met materiaal ijzer. Vuurtoren bij De Cocksdorp.
@@ -167,7 +167,7 @@
     </section>
 
     <!-- Tabel -->
-    <section id="ijzer-tabel" role="region" aria-labelledby="tabel-titel" aria-describedby="tabel-caption">
+    <section id="ijzer-tabel" aria-labelledby="tabel-titel" aria-describedby="tabel-caption">
       <h3 id="tabel-titel">Tabel: Rijksmonumenten met materiaal ijzer</h3>
       <p>
         Deze tabel toont alle rijksmonumenten met materiaal ijzer, gietijzer e.d., inclusief locatie, functie, gevonden begrippen en volledige omschrijving.
@@ -190,6 +190,7 @@
              <figcaption id="kaart-caption" class="mt-2">Rijksmonumenten met materiaal ijzer. Data-extract: 2025-07-28, CHO graphs <code>instanties-rce</code>, <code>punten</code>, <code>owms</code>.</figcaption>
       </figure>
     </section>
+  </section>
 
 <!-- methodeverantwoording -->
 <section id="methode" class="mt-4" aria-labelledby="methode-title">
@@ -228,9 +229,10 @@
   <section id="literatuur">
     <h2>Literatuur</h2>
     <p><em>Deze sectie is gereserveerd voor literatuur. Geen externe bronnen opgenomen.</em></p>
-    <dt class="col-sm-3">Publisher</dt>
-    <dd class="col-sm-9"><a href="https://kennis.cultureelerfgoed.nl/index.php/Zoeken_naar_ijzer_en_staal_in_het_Rijksmonumentenregister"target="_blank" rel="noopener">Datastorie op de kennisbank</a></dd>
-
+    <dl class="row">
+      <dt class="col-sm-3">Publisher</dt>
+      <dd class="col-sm-9"><a href="https://kennis.cultureelerfgoed.nl/index.php/Zoeken_naar_ijzer_en_staal_in_het_Rijksmonumentenregister" target="_blank" rel="noopener">Datastorie op de kennisbank</a></dd>
+    </dl>
   </section>
 <!-- disclaimer -->
 <section id="disclaimer" aria-labelledby="disclaimer-title" class="mt-4">
@@ -273,7 +275,7 @@
   </main>
 
 
-<footer class="footer-rce-full" role="contentinfo">
+<footer class="footer-rce-full">
   <div class="footer-inner">
     © Rijksdienst voor het Cultureel Erfgoed ·
     <nav aria-label="Footer">
