@@ -330,6 +330,9 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
 
 </main>
 
+<!-- ========== EINDE SECTIES ====== -->
+
+
 <footer class="footer-rce-full">
   <div class="footer-inner">
     © Rijksdienst voor het Cultureel Erfgoed ·
@@ -342,42 +345,10 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
   </div>
 </footer>
 
-<!-- Leaflet CSS voor de geo-kaart -->
-<link rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin="anonymous">
-
-<!-- Bootstrap JS (optioneel voor UI, niet voor queries maar laten staan) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"
-        defer></script>
-
-<!-- Google Charts loader (nodig voor outputFormat=gchart/Table) -->
-<script src="https://www.gstatic.com/charts/loader.js" defer></script>
-
-<!-- Leaflet JS (nodig voor outputFormat=geo) -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin="anonymous"
-        defer></script>
-
-<!-- Triply polyfill: maakt <query data-config="..."> werkend -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
 <script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
-
-<!-- stories.min.js (jouw renderer van de <query>-blokken etc.) -->
 <script src="../assets/js/stories.min.js" defer></script>
-
-<!-- Init -->
-<script defer>
-  document.addEventListener('DOMContentLoaded', function () {
-    if (typeof stories === 'function') {
-      stories();
-    } else {
-      console.error('stories() niet gevonden. Controleer pad ../assets/js/stories.min.js');
-    }
-  });
-</script>
+<script src="https://www.gstatic.com/charts/loader.js" defer></script>
 
 </body>
 </html>
