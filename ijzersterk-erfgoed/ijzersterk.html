@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>IJzersterk erfgoed: zoektocht naar staal, gietijzer en smeedijzer</title>
-  <meta name="description" content="Data-story over staal, gietijzer en smeedijzer in rijksmonumenten via SPARQL en linked open data.">
+  <meta name="description" content="Data story over staal, gietijzer en smeedijzer in rijksmonumenten via SPARQL en linked open data.">
   <meta name="author" content="Rijksdienst voor het Cultureel Erfgoed">
   <link rel="canonical" href="https://datastories.cultureelerfgoed.nl/ijzersterk-erfgoed/">
 
@@ -67,10 +67,10 @@
 
 <p class="lead">
   Een zoektocht naar rijksmonumenten waarin ijzer, staal, gietijzer of smeedijzer een belangrijke rol spelen.
-  Deze data-story gebruikt SPARQL-query’s om de verspreiding en toepassing van metalen in het erfgoed van Nederland zichtbaar te maken.
+  Deze data story gebruikt SPARQL-query’s om de verspreiding en toepassing van metalen in het erfgoed van Nederland zichtbaar te maken.
 </p>
 
-<h3>Wat u in deze data-story vindt</h3>
+<h3>Wat u in deze data story vindt</h3>
 <ul>
   <li>Een overzicht van rijksmonumenten met staal, ijzer of gietijzer</li>
   <li>Hun locatie, functie en categorie</li>
@@ -98,7 +98,6 @@
   <!-- Inleiding -->
   <section id="inleiding">
     <h2>Inleiding</h2>
-    <!-- Tekst ongewijzigd -->
     <p>Een collega met een platform over historische ijzerconstructies stelde een gerichte vraag: <em>welke rijksmonumenten bevatten metaalsoorten als ijzer, staal of gietijzer?</em></p>
     <p>Hij zoekt monumenten waarin <strong>een of meer</strong> van de volgende materialen voorkomen:</p>
     <ul>
@@ -238,7 +237,7 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
   <h2 id="methode-title" class="mb-2">Methodeverantwoording</h2>
 
   <p>
-    Voor deze data-story is de dataset <em>Cultureel Erfgoed Objecten</em> (CHO) van de
+    Voor deze data story is de dataset <em>Cultureel Erfgoed Objecten</em> (CHO) van de
     Rijksdienst voor het Cultureel Erfgoed (RCE) geanalyseerd met SPARQL-query’s.
     De focus ligt op rijksmonumenten waarvan de materiaalomschrijvingen termen voor
     ijzer en staal bevatten.
@@ -343,11 +342,33 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
   </div>
 </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-          crossorigin="anonymous" defer></script>
-  <script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
-  <script src="../assets/js/stories.min.js" defer></script>
+<!-- Externe libs -->
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"
+        defer></script>
+
+<script src="https://www.gstatic.com/charts/loader.js" defer></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin="anonymous"
+        defer></script>
+
+<script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
+<script src="../assets/js/stories.min.js" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof stories === 'function') {
+      stories();
+    }
+  });
+</script>
+
 </body>
 </html>
