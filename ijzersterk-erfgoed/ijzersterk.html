@@ -64,7 +64,7 @@
 <main id="main" class="container mt-3 mb-4 story" aria-label="IJzersterk erfgoed">
 
 <h1>IJzersterk erfgoed: zoektocht naar staal, gietijzer en smeedijzer</h1>
-
+<div id="top"></div>
 <p class="lead">
   Een zoektocht naar rijksmonumenten waarin ijzer, staal, gietijzer of smeedijzer een belangrijke rol spelen.
   Deze data story gebruikt SPARQL-query’s om de verspreiding en toepassing van metalen in het erfgoed van Nederland zichtbaar te maken.
@@ -94,7 +94,7 @@
       <li><a href="#literatuur">Literatuur</a></li>
     </ul>
   </nav>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
   <!-- Inleiding -->
   <section id="inleiding">
     <h2>Inleiding</h2>
@@ -118,7 +118,7 @@
     </blockquote>
     <p>De resultaten verwerkt hij tot kennisitems voor zijn platform.</p>
   </section>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
   <!-- SPARQL-query’s en dataset -->
   <section id="sparql">
     <h2>SPARQL‑query’s en de Rijksmonumentendataset</h2>
@@ -132,7 +132,7 @@
     <p>Met de query’s verzamelen we snel en nauwkeurig de informatie die nodig is. Zo brengen we niet alleen de spreiding van metaaltoepassingen in beeld, maar ook hun rol in het erfgoed.</p>
     <p>De uitkomsten gebruikt de collega om kennisitems te maken voor zijn platform over historische ijzerconstructies.</p>
   </section>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
       <!-- foto voorbeeld -->
 <section id="foto" aria-labelledby="foto-titel" aria-describedby="foto-caption">
   <h3 id="foto-titel">Voorbeeld beeldbank vermelding met ijzer</h3>
@@ -148,7 +148,7 @@
     <li>gevonden termen rond ijzer en staal in de omschrijving</li>
     <li>een koppeling naar beeldmateriaal</li>
   </ul>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
   <figure>
     <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Rijksmonumenten-sdo/services/Rijksmonumenten-sdo-jena/sparql#query=prefix%20text%3A%20%20%20%3Chttp%3A%2F%2Fjena.apache.org%2Ftext%23%3E%0Aprefix%20schema%3A%20%3Chttps%3A%2F%2Fschema.org%2F%3E%0Aprefix%20foaf%3A%20%20%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20ceo%3A%20%20%20%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20edm%3A%20%20%20%20%3Chttp%3A%2F%2Fwww.europeana.eu%2Fschemas%2Fedm%2F%3E%0Aprefix%20dc%3A%20%20%20%20%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0Aprefix%20rdf%3A%20%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix%20graph%3A%20%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0A%0Aselect%20distinct%0A%20%20%3Fnaam%20%3Fadres%20%3Fprovincie%20%3Ffuncties%20%3Fomschrijving%20%3Fnaam_%20%3Fliteral_netjes%20%3Fplaats%20%3Fmonumentaard%20%3Fbeeldbank%0A%20%20(coalesce(%3Fafbeelding%2C%20%22https%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fthesauri%2FCultuurhistorische-Thesaurus-CHT%2Fassets%2F649ece54686a0119f59e2452%22)%20as%20%3Fimage)%0A%20%20(strdt(concat(%0A%20%20%20%20'%3Cdiv%20style%3D%22background-color%3Argba(0%2C0%2C0%2C.2)%3B%22%3E'%2C%0A%20%20%20%20'%3Ccenter%3E%3Cimg%20src%3D%22%7B%7Bimage%7D%7D%22%20style%3D%22max-width%3A%20600px%3B%22%3E%3C%2Fcenter%3E'%2C%0A%20%20%20%20'%3Cli%3ERijksmonument%3A%20%3Ca%20href%3D%22https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F35278%22%20target%3D%22_blank%22%3E35278%3C%2Fa%3E%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3Enaam%3A%20%7B%7Bnaam_%7D%7D%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3Emonumentaard%3A%20%7B%7Bmonumentaard%7D%7D%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3Efunctie%3A%20%7B%7Bfuncties%7D%7D%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3Eadres%3A%20%7B%7Badres%7D%7D%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3Eplaats%3A%20%7B%7Bplaats%7D%7D%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3Eprovincie%3A%20%7B%7Bprovincie%7D%7D%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3EIn%3A%20%3Ca%20href%3D%22'%2C%20coalesce(str(%3Fbeeldbank)%2C%20%22%23%22)%2C%20'%22%20target%3D%22_blank%22%3EBeeldbank%3C%2Fa%3E%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cli%3Egevonden%20woorden%20in%20omschrijving%3A%3C%2Fbr%3E%7B%7Bliteral_netjes%7D%7D%3C%2Fli%3E'%2C%0A%20%20%20%20'%3Cb%3EOmschrijving%3A%3C%2Fb%3E%3Cbr%3E'%2C%0A%20%20%20%20IF(STRLEN(STR(%3Fomschrijving))%20%3E%20250%2C%0A%20%20%20%20%20%20%20CONCAT(SUBSTR(STR(%3Fomschrijving)%2C1%2C400)%2C'...%20%3Ca%20href%3D%22https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F35278%22%20target%3D%22_blank%22%3Elees%20verder%3C%2Fa%3E')%2C%0A%20%20%20%20%20%20%20STR(%3Fomschrijving)%0A%20%20%20%20)%2C%0A%20%20%20%20'%3Cbr%3E%3Cbr%3E%3C%2Fdiv%3E'%0A%20%20)%2C%20rdf%3AHTML)%20as%20%3Fwidget)%0A%0Awhere%20%7B%0A%20%20(%3Fchoi%20%3Fsc%20%3Fliteral)%20text%3Aquery%20(%0A%20%20%20%20schema%3Adescription%0A%20%20%20%20'(ijzer%20OR%20gietijzer%20OR%20smeedijzer%20OR%20smeedijzeren%20OR%20rvs%20OR%20gietijzeren%20OR%20corten%20OR%20cortenstaal%20OR%20roestvast%20OR%20roestvrij%20OR%20ijzeren%20OR%20roest%20OR%20welijzer%20OR%20staal%20OR%20stalen)'%0A%20%20%20%20'highlight%3As%3A%3Cstrong%20class%3D%22hiLite%22%3E%7Ce%3A%3C%2Fstrong%3E%7Cf%3A%7C'%0A%20%20).%0A%0A%20%20%3Fchoi%20schema%3Aidentifier%20%2235278%22%3B%0A%20%20%20%20%20%20%20%20schema%3Adescription%20%3Fomschrijving%3B%0A%20%20%20%20%20%20%20%20schema%3AaddressLocality%20%3Fplaats%3B%0A%20%20%20%20%20%20%20%20schema%3AaddressRegion%20%3Fprovincie%3B%0A%20%20%20%20%20%20%20%20schema%3Acategory%20%3Fmonumentaard%3B%0A%20%20%20%20%20%20%20%20schema%3AadditionalType%20%3Ffunctie%3B%0A%20%20%20%20%20%20%20%20schema%3AsameAs%20%3Fcho.%0A%0A%20%20bind(replace(%3Ffunctie%2C%20%22%5C%5Cs%5C%5C(.*%5C%5C)%7C%5C%5C(.*%5C%5C)%22%2C%20%22%22)%20as%20%3Ffuncties)%0A%20%20bind(replace(%3Fliteral%2C%20%22%5C%5C%7C%22%2C%20%22%3C%2Fli%3E%3Cli%3E%22)%20as%20%3Fliteral_netjes)%0A%0A%20%20optional%20%7B%20%3Fchoi%20schema%3Aaddress%20%3Fadres.%20%7D%0A%20%20optional%20%7B%20%3Fchoi%20schema%3Aname%20%3Fnaam.%20%7D%0A%20%20bind(coalesce(str(%3Fnaam)%2C%20%22%20-%22)%20as%20%3Fnaam_)%0A%0A%20%20filter(!regex(%3Fomschrijving%2C%20%22Corten%2C%20J.P.%7CJ.P.%20Corten%7CCortenbach%7CCortensstraat%7CHuis%20Corten%22%2C%20%22i%22))%0A%0A%20%20optional%20%7B%0A%20%20%20%20service%20%3Chttps%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fafbeeldingen2%2Fsparql%3E%20%7B%0A%20%20%20%20%20%20graph%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2Fimage%3E%20%7B%0A%20%20%20%20%20%20%20%20%3Fafb%20schema%3Aabout%20%3Fchoi%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20schema%3AcontentUrl%20%3Fafbeelding%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20edm%3AisShownAt%20%3Fbeeldbank%20.%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0Alimit%201%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2FRijksmonumenten-sdo%2Fservices%2FRijksmonumenten-sdo-jena%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery">
       </query>
@@ -159,7 +159,7 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
 </em></p>
     </section>
     <hr class="my-5">
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
   <!-- Overzicht -->
   <section id="overzicht">
     <section id="par2" class="mt-4">
@@ -190,7 +190,7 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
       <p>De resultaten worden als tabel weergegeven. Deze indeling is geschikt voor export naar CSV of verdere analyse.</p>
     </section>
   </section>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
     <!-- Tabel -->
 <section id="ijzer-tabel" aria-labelledby="tabel-titel" aria-describedby="ijzer-caption">
   <h3 id="tabel-titel">Tabel: Rijksmonumenten met materiaal ijzer</h3>
@@ -211,7 +211,7 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
 </em></p>
 
     </section>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
     <!-- Kaart -->
 <section id="kaart" aria-labelledby="kaart-titel" aria-describedby="kaart-caption">
   <h2 id="kaart-titel">Kaartweergave</h2>
@@ -228,9 +228,8 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
       </figure><p class="text-muted"><em>
 Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te passen in de Linked Data Viewer.
 </em></p>
-
     </section>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
 
 <!-- methodeverantwoording -->
 <section id="methode" class="mt-4" aria-labelledby="methode-title">
@@ -270,7 +269,7 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
     </li>
   </ul>
 </section>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
   <!-- Literatuur placeholder -->
 <section id="literatuur" class="mt-4" aria-labelledby="literatuur-title">
   <h2 id="literatuur-title" class="mb-2">Literatuur</h2>
@@ -289,7 +288,7 @@ Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te p
     </dd>
   </dl>
 </section>
-
+<p class="back-to-top"><a href="#top">↑ Terug naar boven</a></p>
 <!-- disclaimer -->
 <section id="disclaimer" aria-labelledby="disclaimer-title" class="mt-4">
   <h2 id="disclaimer-title" class="mb-2">Disclaimer</h2>
