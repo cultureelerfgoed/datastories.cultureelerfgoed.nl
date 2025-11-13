@@ -24,6 +24,7 @@ PREFIX graph: <https://linkeddata.cultureelerfgoed.nl/graph/>
 PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX rn: <https://data.cultureelerfgoed.nl/term/id/rn/2/>
 
 SELECT ?jaar (COUNT(?rijksmonument) AS ?aantal)
 WHERE {
@@ -42,7 +43,7 @@ WHERE {
     {{VALUES}}
   }
   BIND(year(xsd:dateTime(?datumInschrijving)) AS ?jaar)
-  FILTER(?jaar >= 1964 && ?jaar <= 2026)
+  FILTER(?jaar >= 1964 && ?jaar <= 2025)
 }
 GROUP BY ?jaar
 ORDER BY ?jaar
