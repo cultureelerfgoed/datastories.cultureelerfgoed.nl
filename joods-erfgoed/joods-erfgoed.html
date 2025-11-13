@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Joods erfgoed in monumenten</title>
-  <meta name="description" content="Data story over Joods cultureel erfgoed in rijksmonumenten met SPARQL en linked open data.">
+  <meta name="description"
+    content="Data story over Joods cultureel erfgoed in rijksmonumenten met SPARQL en linked open data.">
   <meta name="author" content="Rijksdienst voor het Cultureel Erfgoed">
   <link rel="canonical" href="https://datastories.cultureelerfgoed.nl/joods-erfgoed/">
   <meta property="og:title" content="Joods erfgoed in monumenten">
-  <meta property="og:description" content="Ontdek Joods erfgoed in rijksmonumenten via SPARQL‑queries en linked open data.">
+  <meta property="og:description"
+    content="Ontdek Joods erfgoed in rijksmonumenten via SPARQL‑queries en linked open data.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://datastories.cultureelerfgoed.nl/joods-erfgoed/joods-erfgoed.html">
   <meta property="og:image" content="https://datastories.cultureelerfgoed.nl/assets/imgs/og-joods-erfgoed.png">
@@ -33,216 +36,244 @@
 </head>
 
 <body>
-<a href="#main" class="visually-hidden-focusable">Direct naar hoofdinhoud</a>
-<header class="rce-header-full"><div class="wrapper"><img class="rce-logo" src="../assets/imgs/logo_cultureelerfgoed.svg" alt="Rijksdienst voor het Cultureel Erfgoed"></div></header>
-<div class="rce-yellow-bar"><div class="breadcrumb-container">
-<nav aria-label="breadcrumb"><a href="https://datastories.cultureelerfgoed.nl/">Home</a> <span class="breadcrumb-sep">&gt;</span> <span aria-current="page">Joods erfgoed</span></nav></div></div>
+  <a href="#main" class="visually-hidden-focusable">Direct naar hoofdinhoud</a>
+  <header class="rce-header-full">
+    <div class="wrapper"><img class="rce-logo" src="../assets/imgs/logo_cultureelerfgoed.svg"
+        alt="Rijksdienst voor het Cultureel Erfgoed"></div>
+  </header>
+  <div class="rce-yellow-bar">
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb"><a href="https://datastories.cultureelerfgoed.nl/">Home</a> <span
+          class="breadcrumb-sep">&gt;</span> <span aria-current="page">Joods erfgoed</span></nav>
+    </div>
+  </div>
 
-<main id="main" class="container mt-3 mb-4 story" aria-label="Joods erfgoed">
+  <main id="main" class="container mt-3 mb-4 story" aria-label="Joods erfgoed">
 
-  <h1>Joods erfgoed in rijksmonumenten</h1>
-  <!-- Bulletlijst direct onder h1 -->
-  <h3>Wat u in deze data story vindt</h3>
-  <ul>
-    <li>Welke rijksmonumenten gerelateerd zijn aan Joods erfgoed</li>
-    <li>Welke functie en categorie ze hebben</li>
-    <li>Wat hun functie en categorie is</li>
-    <li>SPARQL-queries, kaarten en tabellen</li>
-    <li>Waar deze monumenten staan</li>
-  </ul>
-
-  <!-- Inhoudsopgave -->
-  <h2>Inhoud</h2>
-  <nav class="mb-4" aria-label="Inhoudsopgave" role="doc-toc">
+    <h1>Joods erfgoed in rijksmonumenten</h1>
+    <!-- Bulletlijst direct onder h1 -->
+    <h3>Wat u in deze data story vindt</h3>
     <ul>
-      <li><a href="#inleiding">Inleiding</a></li>
-      <li><a href="#sparql">SPARQL‑queryies en dataset</a></li>
-      <li><a href="#query-tabel">Tabel: Joods erfgoed</a></li>
-      <li><a href="#kaart">Kaart: Joods erfgoed</a></li>
-      <li><a href="#methode">Methodeverantwoording</a></li>
-      <li><a href="#disclaimer">Disclaimer</a></li>
-      <li><a href="#literatuur">Literatuur</a></li>
+      <li>Welke rijksmonumenten gerelateerd zijn aan Joods erfgoed</li>
+      <li>Welke functie en categorie ze hebben</li>
+      <li>Wat hun functie en categorie is</li>
+      <li>SPARQL-queries, kaarten en tabellen</li>
+      <li>Waar deze monumenten staan</li>
     </ul>
-  </nav>
 
-<!-- Inleiding -->
-<section id="inleiding"><h2>Inleiding</h2>
-<p>We hebben onderzocht welke rijksmonumenten in het Monumentenregister verwijzen naar Joods erfgoed.</p>
-<p>De onderzoeksvraag luidde: hoeveel rijksmonumenten noemen bijvoorbeeld termen zoals:</p>
-<ul>
-  <li>Asjkenazisch</li>
-  <li>Hebreeuws</li>
-  <li>Hoogduits</li>
-  <li>Isr.</li>
-  <li>Israëlitisch</li>
-  <li>Jiddisch</li>
-  <li>Joden</li>
-  <li>Jood</li>
-  <li>Joodse</li>
-  <li>Joods</li>
-  <li>Kille</li>
-  <li>Kosher</li>
-  <li>Koosjer</li>
-  <li>Mikwe</li>
-  <li>Portugees</li>
-  <li>Rabbijn</li>
-  <li>Sefardisch</li>
-  <li>Sjabbat</li>
-  <li>sabbat</li>
-  <li>Sjoel</li>
-  <li>Synagoge</li>
-</ul>
-<p>Daarnaast is er interesse in hoofdcategorie, subcategorie, functie en locatie van deze monumenten.</p>
-<p>Het doel: vragen beantwoorden zoals hoeveel sjoels, Joodse begraafplaatsen, scholen of Hebreeuwse inscripties er zijn.</p>
-</section>
+    <!-- Inhoudsopgave -->
+    <h2>Inhoud</h2>
+    <nav class="mb-4" aria-label="Inhoudsopgave" role="doc-toc">
+      <ul>
+        <li><a href="#inleiding">Inleiding</a></li>
+        <li><a href="#sparql">SPARQL‑queryies en dataset</a></li>
+        <li><a href="#query-tabel">Tabel: Joods erfgoed</a></li>
+        <li><a href="#kaart">Kaart: Joods erfgoed</a></li>
+        <li><a href="#methode">Methodeverantwoording</a></li>
+        <li><a href="#disclaimer">Disclaimer</a></li>
+        <li><a href="#literatuur">Literatuur</a></li>
+      </ul>
+    </nav>
 
-<section id="sparql"><h2>SPARQL-queries en de Rijksmonumentendataset</h2>
-<p>SPARQL-queries op de Linked Data voorziening (LDV) van de RCE helpen bij het gericht zoeken naar monumenten met termen zoals Jood, Joods, Jiddisch, Hebreeuws, mikwe, enzovoorts.</p>
-<p>De resultaten leveren per monument onder andere hoofdcategorie, subcategorie, functie en locatie op. Dit helpt bij het documenteren en behouden van Joods cultureel erfgoed.</p>
-</section>
+    <!-- Inleiding -->
+    <section id="inleiding">
+      <h2>Inleiding</h2>
+      <p>We hebben onderzocht welke rijksmonumenten in het Monumentenregister verwijzen naar Joods erfgoed.</p>
+      <p>De onderzoeksvraag luidde: hoeveel rijksmonumenten noemen bijvoorbeeld termen zoals:</p>
+      <ul>
+        <li>Asjkenazisch</li>
+        <li>Hebreeuws</li>
+        <li>Hoogduits</li>
+        <li>Isr.</li>
+        <li>Israëlitisch</li>
+        <li>Jiddisch</li>
+        <li>Joden</li>
+        <li>Jood</li>
+        <li>Joodse</li>
+        <li>Joods</li>
+        <li>Kille</li>
+        <li>Kosher</li>
+        <li>Koosjer</li>
+        <li>Mikwe</li>
+        <li>Portugees</li>
+        <li>Rabbijn</li>
+        <li>Sefardisch</li>
+        <li>Sjabbat</li>
+        <li>sabbat</li>
+        <li>Sjoel</li>
+        <li>Synagoge</li>
+      </ul>
+      <p>Daarnaast is er interesse in hoofdcategorie, subcategorie, functie en locatie van deze monumenten.</p>
+      <p>Het doel: vragen beantwoorden zoals hoeveel sjoels, Joodse begraafplaatsen, scholen of Hebreeuwse inscripties
+        er zijn.</p>
+    </section>
+
+    <section id="sparql">
+      <h2>SPARQL-queries en de Rijksmonumentendataset</h2>
+      <p>SPARQL-queries op de Linked Data voorziening (LDV) van de RCE helpen bij het gericht zoeken naar monumenten met
+        termen zoals Jood, Joods, Jiddisch, Hebreeuws, mikwe, enzovoorts.</p>
+      <p>De resultaten leveren per monument onder andere hoofdcategorie, subcategorie, functie en locatie op. Dit helpt
+        bij het documenteren en behouden van Joods cultureel erfgoed.</p>
+    </section>
 
 
-  <!-- Tabel -->
-  <section id="query-tabel" aria-labelledby="tabel-titel" aria-describedby="tabel-caption">
-    <h2 id="tabel-titel">Tabel: Joods erfgoed</h2>
-    <p>
-      Deze query doorzoekt de dataset op Joodse termen. Per monument worden omschrijving, nummer, functie en locatie opgehaald.
-    </p>
-    <p><strong>Zoektermen:</strong> Jood, Joods, Joodse, Joden, Israëlitisch, Hebreeuws, Jiddisch, Kosher, Koosjer, Sjabbat, Kille, Mikwe, Sjoel, Hoogduits, Asjkenazisch, Portugees, etc.</p>
-    <p><strong>Uitsluitingen:</strong> Jodenbreestraat, Jozef Israëls.</p>
-    <p><mark>Deze weergave is geoptimaliseerd voor export naar CSV.</mark></p>
-    <figure>
-    <query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql#query=prefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0A%0Aselect%20distinct%20(uri(concat(%22https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F%22%2C%20%3Frijksmonumentnummer))%20as%20%3Fmonumentenregister)%20%0A%3Frijksmonumentnummer%20%3Fprovincie%20%3Ffunctie%20%3Fcategorieenfunctie%0A(group_concat(distinct%20%3FjoodsGerelateerd)%20as%20%3FgevondenTermen)%20%3Fomschrijving%0Awhere%20%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Fchoi%20a%20ceo%3ARijksmonument.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb2d9a59a-fe1e-4552-9a05-3c2acddff864%3E.%0A%20%20%20%20%3Fchoi%20ceo%3Arijksmonumentnummer%20%3Frijksmonumentnummer%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%2Fceo%3Aomschrijving%20%3Fomschrijving_%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%20%3Fstandpunt_omschrijving.%0A%20%20%20%20%3Fstandpunt_omschrijving%20ceo%3AformeelStandpunt%20%221%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23boolean%3E.%0A%20%20%20%20bind(replace(replace(%3Fomschrijving_%2C%20%22%5Cr%22%2C%20%22%20%22)%2C%20%22%5Cn%22%2C%20%22%20%22)%20as%20%3Fomschrijving)%0A%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jood)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jood%22%2C%20%22%22)%20as%20%3FmatchLabel1)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joods)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joods%22%2C%20%22%22)%20as%20%3FmatchLabel2)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joodse)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joodse%22%2C%20%22%22)%20as%20%3FmatchLabel3)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joden)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joden%22%2C%20%22%22)%20as%20%3FmatchLabel4)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isra%C3%ABlitisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isra%C3%ABlitisch%22%2C%20%22%22)%20as%20%3FmatchLabel5)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hebreeuws)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hebreeuws%22%2C%20%22%22)%20as%20%3FmatchLabel6)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jiddisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jiddisch%22%2C%20%22%22)%20as%20%3FmatchLabel7)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kosher)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kosher%22%2C%20%22%22)%20as%20%3FmatchLabel8)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Koosjer)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Koosjer%22%2C%20%22%22)%20as%20%3FmatchLabel9)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjabbat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjabbat%22%2C%20%22%22)%20as%20%3FmatchLabel10)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kille)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kille%22%2C%20%22%22)%20as%20%3FmatchLabel11)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Mikwe)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Mikwe%22%2C%20%22%22)%20as%20%3FmatchLabel12)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjoel)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjoel%22%2C%20%22%22)%20as%20%3FmatchLabel13)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hoogduits)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hoogduits%22%2C%20%22%22)%20as%20%3FmatchLabel14)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Asjkenazisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Asjkenazisch%22%2C%20%22%22)%20as%20%3FmatchLabel15)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Portugees)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Portugees%22%2C%20%22%22)%20as%20%3FmatchLabel16)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sabat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sabat%22%2C%20%22%22)%20as%20%3FmatchLabel17)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Synagoge)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Synagoge%22%2C%20%22%22)%20as%20%3FmatchLabel18)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Serfadisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Serfadisch%22%2C%20%22%22)%20as%20%3FmatchLabel19)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Rabbijn)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Rabbijn%22%2C%20%22%22)%20as%20%3FmatchLabel20)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidster%22%2C%20%22%22)%20as%20%3FmatchLabel21)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidsster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidsster%22%2C%20%22%22)%20as%20%3FmatchLabel22)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isr.)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isr.%22%2C%20%22%22)%20as%20%3FmatchLabel23)%0A%20%20%20%20%0A%20%20%20%20bind(concat(if(%3FmatchLabel1%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel1%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel2%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel2%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel3%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel3%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel4%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel4%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel5%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel5%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel6%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel6%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel7%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel7%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel8%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel8%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel9%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel9%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel10%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel10%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel11%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel11%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel12%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel12%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel13%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel13%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel14%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel14%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel15%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel15%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel16%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel16%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel17%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel17%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel18%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel18%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel19%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel19%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel20%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel21%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel21%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel22%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel23%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel23)%20as%20%3FjoodsGerelateerd)%0A%20%20%7D%0A%20%20%0A%20%20filter(%3FjoodsGerelateerd%20!%3D%20%22%22)%0A%20%20filter(!regex(%3Fomschrijving%2C%20%22gehucht%20Kille%7CJodenbreestraat%7CJozef%20Isra%C3%ABls%22%2C%20%22i%22))%0A%0A%20%20optional%20%7B%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOorspronkelijkeFunctie%20%3Ffuncties_.%0A%20%20%20%20%3Ffuncties_%20ceo%3AheeftFunctieNaam%20%3Ffuncties%20.%0A%20%20%20%20%3Ffuncties%20skos%3AprefLabel%20%3Ffunctieh%20.%0A%20%20%20%20bind(replace(%3Ffunctieh%2C%20%22%5C%5Cs%5C%5C(.*%5C%5C)%7C%5C%5C(.*%5C%5C)%22%2C%20%22%22)%20as%20%3Ffunctie)%0A%20%20%20%20%3Ffuncties_%20ceo%3AformeelStandpunt%20%221%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23boolean%3E.%0A%0A%20%20%20%20graph%20graph%3Abebouwdeomgeving%20%7B%0A%20%20%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%20%20%3Ffuncties%20skos%3Abroader%20%3Fbroader1%20.%0A%20%20%20%20%20%20%20%20%3Fbroader1%20skos%3AprefLabel%20%3Ffunctie1h%20.%0A%20%20%20%20%20%20%20%20%20%20%20%20bind(replace(%3Ffunctie1h%2C%20%22%5C%5Cs%5C%5C(.*%5C%5C)%7C%5C%5C(.*%5C%5C)%22%2C%20%22%22)%20as%20%3Ffunctie1)%0A%20%20%20%20%20%20%20%20filter(%3Ffunctie1%20!%3D%20%22bebouwde%20omgeving%22)%0A%20%20%20%20%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%20%20%20%20%3Fbroader1%20skos%3Abroader%20%3Fbroader2%20.%0A%20%20%20%20%20%20%20%20%20%20%3Fbroader2%20skos%3AprefLabel%20%3Ffunctie2%20.%0A%20%20%20%20%20%20%20%20%20%20filter(%3Ffunctie2%20!%3D%20%22bebouwde%20omgeving%22)%0A%20%20%20%20%20%20%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Fbroader2%20skos%3Abroader%20%3Fbroader3%20.%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Fbroader3%20skos%3AprefLabel%20%3Ffunctie3%20.%0A%20%20%20%20%20%20%20%20%20%20%20%20filter(%3Ffunctie3%20!%3D%20%22bebouwde%20omgeving%22)%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20bind(concat(%0A%20%20%20%20%20%20if(bound(%3Ffunctie1)%2C%20concat(%22%22%2C%20%3Ffunctie1)%2C%20%22%22)%2C%0A%20%20%20%20%20%20if(bound(%3Ffunctie2)%2C%20concat(%22%20%7C%20%22%2C%20%3Ffunctie2)%2C%20%22%22)%2C%0A%20%20%20%20%20%20if(bound(%3Ffunctie3)%2C%20concat(%22%20%7C%20%22%2C%20%3Ffunctie3)%2C%20%22%22)%0A%20%20%20%20)%20as%20%3Fcategorieenfunctie)%0A%20%20%7D%0A%20%20%0A%20%20%3Fchoi%20ceo%3AheeftBasisregistratieRelatie%2Fceo%3AheeftProvincie%20%3Fprov.%0A%20%20graph%20graph%3Aowms%20%7B%0A%20%20%20%20%3Fprov%20skos%3AprefLabel%20%3Fprovincie.%0A%20%20%7D%0A%0A%7D%0Agroup%20by%20%3Fprovincie%20%3Fomschrijving%20%3Frijksmonumentnummer%20%3Fmonumentenregister%20%3Ffunctie%20%3Fcategorieenfunctie%0Aorder%20by%20%3Fprovincie%20%3Ffunctie%20%3Frijksmonumentnummer&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22annotations%22%3A%7B%22domain%22%3A%7B%22style%22%3A%22line%22%7D%7D%2C%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22slantedTextAngle%22%3A60%2C%22slantedText%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22legend%22%3A%22right%22%2C%22series%22%3A%7B%220%22%3A%7B%22color%22%3A%22%23f1c232%22%7D%7D%2C%22title%22%3A%22Per%20jaar%22%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Afalse%7D%2C%22vAxes%22%3A%5B%7B%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22useFormatFromData%22%3Atrue%2C%22logScale%22%3Afalse%7D%2C%7B%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22useFormatFromData%22%3Atrue%2C%22logScale%22%3Afalse%7D%5D%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A%22100%25%22%2C%22alternatingRowStyle%22%3Afalse%2C%22showRowNumber%22%3Atrue%2C%22page%22%3A%22enable%22%2C%22sortColumn%22%3A%221%22%2C%22height%22%3A%22100%25%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3A%5B0%2C%7B%22sourceColumn%22%3A1%2C%22properties%22%3A%7B%22role%22%3A%22annotation%22%7D%2C%22label%22%3A%22rijksmonumentnummer%22%7D%2C%7B%22sourceColumn%22%3A2%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22provincie%22%7D%2C%7B%22sourceColumn%22%3A3%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22functie%22%7D%2C%7B%22sourceColumn%22%3A4%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22categorieenfunctie%22%7D%2C%7B%22sourceColumn%22%3A5%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22gevondenTermen%22%7D%2C%7B%22sourceColumn%22%3A6%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22omschrijving%22%7D%5D%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22Table%22%7D%7D"></query>
+    <!-- Tabel -->
+    <section id="query-tabel" aria-labelledby="tabel-titel" aria-describedby="tabel-caption">
+      <h2 id="tabel-titel">Tabel: Joods erfgoed</h2>
+      <p>
+        Deze query doorzoekt de dataset op Joodse termen. Per monument worden omschrijving, nummer, functie en locatie
+        opgehaald.
+      </p>
+      <p><strong>Zoektermen:</strong> Jood, Joods, Joodse, Joden, Israëlitisch, Hebreeuws, Jiddisch, Kosher, Koosjer,
+        Sjabbat, Kille, Mikwe, Sjoel, Hoogduits, Asjkenazisch, Portugees, etc.</p>
+      <p><strong>Uitsluitingen:</strong> Jodenbreestraat, Jozef Israëls.</p>
+      <p><mark>Deze weergave is geoptimaliseerd voor export naar CSV.</mark></p>
+      <figure>
+        <query
+          data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql#query=prefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0A%0Aselect%20distinct%20(uri(concat(%22https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F%22%2C%20%3Frijksmonumentnummer))%20as%20%3Fmonumentenregister)%20%0A%3Frijksmonumentnummer%20%3Fprovincie%20%3Ffunctie%20%3Fcategorieenfunctie%0A(group_concat(distinct%20%3FjoodsGerelateerd)%20as%20%3FgevondenTermen)%20%3Fomschrijving%0Awhere%20%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Fchoi%20a%20ceo%3ARijksmonument.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F2%2Fb2d9a59a-fe1e-4552-9a05-3c2acddff864%3E.%0A%20%20%20%20%3Fchoi%20ceo%3Arijksmonumentnummer%20%3Frijksmonumentnummer%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%2Fceo%3Aomschrijving%20%3Fomschrijving_%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%20%3Fstandpunt_omschrijving.%0A%20%20%20%20%3Fstandpunt_omschrijving%20ceo%3AformeelStandpunt%20%221%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23boolean%3E.%0A%20%20%20%20bind(replace(replace(%3Fomschrijving_%2C%20%22%5Cr%22%2C%20%22%20%22)%2C%20%22%5Cn%22%2C%20%22%20%22)%20as%20%3Fomschrijving)%0A%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jood)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jood%22%2C%20%22%22)%20as%20%3FmatchLabel1)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joods)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joods%22%2C%20%22%22)%20as%20%3FmatchLabel2)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joodse)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joodse%22%2C%20%22%22)%20as%20%3FmatchLabel3)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joden)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joden%22%2C%20%22%22)%20as%20%3FmatchLabel4)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isra%C3%ABlitisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isra%C3%ABlitisch%22%2C%20%22%22)%20as%20%3FmatchLabel5)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hebreeuws)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hebreeuws%22%2C%20%22%22)%20as%20%3FmatchLabel6)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jiddisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jiddisch%22%2C%20%22%22)%20as%20%3FmatchLabel7)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kosher)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kosher%22%2C%20%22%22)%20as%20%3FmatchLabel8)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Koosjer)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Koosjer%22%2C%20%22%22)%20as%20%3FmatchLabel9)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjabbat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjabbat%22%2C%20%22%22)%20as%20%3FmatchLabel10)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kille)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kille%22%2C%20%22%22)%20as%20%3FmatchLabel11)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Mikwe)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Mikwe%22%2C%20%22%22)%20as%20%3FmatchLabel12)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjoel)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjoel%22%2C%20%22%22)%20as%20%3FmatchLabel13)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hoogduits)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hoogduits%22%2C%20%22%22)%20as%20%3FmatchLabel14)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Asjkenazisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Asjkenazisch%22%2C%20%22%22)%20as%20%3FmatchLabel15)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Portugees)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Portugees%22%2C%20%22%22)%20as%20%3FmatchLabel16)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sabat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sabat%22%2C%20%22%22)%20as%20%3FmatchLabel17)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Synagoge)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Synagoge%22%2C%20%22%22)%20as%20%3FmatchLabel18)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Serfadisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Serfadisch%22%2C%20%22%22)%20as%20%3FmatchLabel19)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Rabbijn)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Rabbijn%22%2C%20%22%22)%20as%20%3FmatchLabel20)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidster%22%2C%20%22%22)%20as%20%3FmatchLabel21)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidsster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidsster%22%2C%20%22%22)%20as%20%3FmatchLabel22)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isr.)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isr.%22%2C%20%22%22)%20as%20%3FmatchLabel23)%0A%20%20%20%20%0A%20%20%20%20bind(concat(if(%3FmatchLabel1%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel1%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel2%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel2%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel3%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel3%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel4%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel4%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel5%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel5%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel6%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel6%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel7%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel7%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel8%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel8%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel9%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel9%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel10%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel10%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel11%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel11%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel12%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel12%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel13%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel13%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel14%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel14%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel15%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel15%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel16%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel16%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel17%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel17%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel18%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel18%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel19%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel19%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel20%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel21%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel21%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel22%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel23%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel23)%20as%20%3FjoodsGerelateerd)%0A%20%20%7D%0A%20%20%0A%20%20filter(%3FjoodsGerelateerd%20!%3D%20%22%22)%0A%20%20filter(!regex(%3Fomschrijving%2C%20%22gehucht%20Kille%7CJodenbreestraat%7CJozef%20Isra%C3%ABls%22%2C%20%22i%22))%0A%0A%20%20optional%20%7B%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOorspronkelijkeFunctie%20%3Ffuncties_.%0A%20%20%20%20%3Ffuncties_%20ceo%3AheeftFunctieNaam%20%3Ffuncties%20.%0A%20%20%20%20%3Ffuncties%20skos%3AprefLabel%20%3Ffunctieh%20.%0A%20%20%20%20bind(replace(%3Ffunctieh%2C%20%22%5C%5Cs%5C%5C(.*%5C%5C)%7C%5C%5C(.*%5C%5C)%22%2C%20%22%22)%20as%20%3Ffunctie)%0A%20%20%20%20%3Ffuncties_%20ceo%3AformeelStandpunt%20%221%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23boolean%3E.%0A%0A%20%20%20%20graph%20graph%3Abebouwdeomgeving%20%7B%0A%20%20%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%20%20%3Ffuncties%20skos%3Abroader%20%3Fbroader1%20.%0A%20%20%20%20%20%20%20%20%3Fbroader1%20skos%3AprefLabel%20%3Ffunctie1h%20.%0A%20%20%20%20%20%20%20%20%20%20%20%20bind(replace(%3Ffunctie1h%2C%20%22%5C%5Cs%5C%5C(.*%5C%5C)%7C%5C%5C(.*%5C%5C)%22%2C%20%22%22)%20as%20%3Ffunctie1)%0A%20%20%20%20%20%20%20%20filter(%3Ffunctie1%20!%3D%20%22bebouwde%20omgeving%22)%0A%20%20%20%20%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%20%20%20%20%3Fbroader1%20skos%3Abroader%20%3Fbroader2%20.%0A%20%20%20%20%20%20%20%20%20%20%3Fbroader2%20skos%3AprefLabel%20%3Ffunctie2%20.%0A%20%20%20%20%20%20%20%20%20%20filter(%3Ffunctie2%20!%3D%20%22bebouwde%20omgeving%22)%0A%20%20%20%20%20%20%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Fbroader2%20skos%3Abroader%20%3Fbroader3%20.%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Fbroader3%20skos%3AprefLabel%20%3Ffunctie3%20.%0A%20%20%20%20%20%20%20%20%20%20%20%20filter(%3Ffunctie3%20!%3D%20%22bebouwde%20omgeving%22)%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20bind(concat(%0A%20%20%20%20%20%20if(bound(%3Ffunctie1)%2C%20concat(%22%22%2C%20%3Ffunctie1)%2C%20%22%22)%2C%0A%20%20%20%20%20%20if(bound(%3Ffunctie2)%2C%20concat(%22%20%7C%20%22%2C%20%3Ffunctie2)%2C%20%22%22)%2C%0A%20%20%20%20%20%20if(bound(%3Ffunctie3)%2C%20concat(%22%20%7C%20%22%2C%20%3Ffunctie3)%2C%20%22%22)%0A%20%20%20%20)%20as%20%3Fcategorieenfunctie)%0A%20%20%7D%0A%20%20%0A%20%20%3Fchoi%20ceo%3AheeftBasisregistratieRelatie%2Fceo%3AheeftProvincie%20%3Fprov.%0A%20%20graph%20graph%3Aowms%20%7B%0A%20%20%20%20%3Fprov%20skos%3AprefLabel%20%3Fprovincie.%0A%20%20%7D%0A%0A%7D%0Agroup%20by%20%3Fprovincie%20%3Fomschrijving%20%3Frijksmonumentnummer%20%3Fmonumentenregister%20%3Ffunctie%20%3Fcategorieenfunctie%0Aorder%20by%20%3Fprovincie%20%3Ffunctie%20%3Frijksmonumentnummer&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22annotations%22%3A%7B%22domain%22%3A%7B%22style%22%3A%22line%22%7D%7D%2C%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22slantedTextAngle%22%3A60%2C%22slantedText%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22legend%22%3A%22right%22%2C%22series%22%3A%7B%220%22%3A%7B%22color%22%3A%22%23f1c232%22%7D%7D%2C%22title%22%3A%22Per%20jaar%22%2C%22tooltip%22%3A%7B%22isHtml%22%3Atrue%2C%22ignoreBounds%22%3Afalse%7D%2C%22vAxes%22%3A%5B%7B%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22useFormatFromData%22%3Atrue%2C%22logScale%22%3Afalse%7D%2C%7B%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22useFormatFromData%22%3Atrue%2C%22logScale%22%3Afalse%7D%5D%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A%22100%25%22%2C%22alternatingRowStyle%22%3Afalse%2C%22showRowNumber%22%3Atrue%2C%22page%22%3A%22enable%22%2C%22sortColumn%22%3A%221%22%2C%22height%22%3A%22100%25%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3A%5B0%2C%7B%22sourceColumn%22%3A1%2C%22properties%22%3A%7B%22role%22%3A%22annotation%22%7D%2C%22label%22%3A%22rijksmonumentnummer%22%7D%2C%7B%22sourceColumn%22%3A2%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22provincie%22%7D%2C%7B%22sourceColumn%22%3A3%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22functie%22%7D%2C%7B%22sourceColumn%22%3A4%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22categorieenfunctie%22%7D%2C%7B%22sourceColumn%22%3A5%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22gevondenTermen%22%7D%2C%7B%22sourceColumn%22%3A6%2C%22properties%22%3A%7B%22role%22%3A%22annotationText%22%7D%2C%22label%22%3A%22omschrijving%22%7D%5D%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22Table%22%7D%7D">
+        </query>
         <figcaption id="tabel-caption" class="mt-2"><em>Joods erfgoed.</em></figcaption>
       </figure>
-      <p class="text-muted"><em>Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te passen in de Linked Data Viewer.
-</em></p>
+      <p class="text-muted"><em>Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te passen in
+          de Linked Data Viewer.
+        </em></p>
 
     </section>
 
     <section id="kaart" aria-labelledby="kaart-titel" aria-describedby="kaart-caption">
       <h3 id="kaart-titel">Geografisch: Joods erfgoed</h3>
-      <p>Met dezelfde zoeklogica kan de selectie ook geografisch worden weergegeven. Deze kaart toont alle rijksmonumenten van Joods erfgoed, inclusief locatie, functie, gevonden begrippen en volledige omschrijving.
+      <p>Met dezelfde zoeklogica kan de selectie ook geografisch worden weergegeven. Deze kaart toont alle
+        rijksmonumenten van Joods erfgoed, inclusief locatie, functie, gevonden begrippen en volledige omschrijving.
       </p>
       <figure>
-<query data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql#query=prefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0A%0Aselect%20distinct%0A%20%20(strdt(concat(%0A%20%20%20%20'%3Ctable%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3ERijksmonumenten%20met%20Joods%20erfgoed%3C%2Fb%3E%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EMonument%3A%20%3C%2Fb%3E'%2C%20str(%3Frijksmonumentnummer)%2C%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EFunctie%3A%20%3C%2Fb%3E'%2C%20group_concat(distinct%20str(%3Ffunctiel)%3B%20separator%3D'%3B%20')%2C%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EGevonden%20termen%3A%20%3C%2Fb%3E'%2C%20(group_concat(distinct%20%3FjoodsGerelateerd%3B%20separator%3D%22%3B%20%22)%20)%2C%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EOmschrijving%3A%20%3C%2Fb%3E'%2C%0A%20%20%20%20if(strlen(str(%3Fomschrijving))%20%3E%20250%2C%0A%20%20%20%20concat(substr(str(%3Fomschrijving)%2C%201%2C%20250)%2C%20%22...%20%3Ca%20href%3D'https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F%22%2C%20str(%3Frijksmonumentnummer)%2C%20%22'%20target%3D'_blank'%3Elees%20hier%20verder%3C%2Fa%3E%22)%2C%0A%20%20%20%20str(%3Fomschrijving))%2C%0A%20%20%20%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3ERegister%3A%20%3C%2Fb%3E'%2C'%3Ca%20href%3D%22https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F'%2Cstr(%3Frijksmonumentnummer)%2C'%22%20target%3D%22_blank%22%3E'%2Cstr(%3Frijksmonumentnummer)%2C'%3C%2Fa%3E%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftable%3E')%2C%20rdf%3AHTML)%20as%20%3FgeometrieLabel)%0A%20%20%3Fgeometrie%20%3Fprovincie%20%20%3Frijksmonumentnummer%0A%0Awhere%20%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Fchoi%20rdf%3Atype%20ceo%3ARijksmonument.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2Fb2d9a59a-fe1e-4552-9a05-3c2acddff864%3E.%0A%20%20%20%20%3Fchoi%20ceo%3Arijksmonumentnummer%20%3Frijksmonumentnummer%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%2Fceo%3Aomschrijving%20%3Fomschrijving_%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%20%3Fstandpunt_omschrijving.%0A%20%20%20%20%3Fstandpunt_omschrijving%20ceo%3AformeelStandpunt%20%221%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23boolean%3E.%0A%20%20%20%20bind(replace(replace(%3Fomschrijving_%2C%20%22%5Cr%22%2C%20%22%20%22)%2C%20%22%5Cn%22%2C%20%22%20%22)%20as%20%3Fomschrijving)%0A%0A%20%20%20%20%23%20Zoektermen%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jood)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jood%22%2C%20%22%22)%20as%20%3FmatchLabel1)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joods)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joods%22%2C%20%22%22)%20as%20%3FmatchLabel2)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joodse)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joodse%22%2C%20%22%22)%20as%20%3FmatchLabel3)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joden)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joden%22%2C%20%22%22)%20as%20%3FmatchLabel4)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isra%C3%ABlitisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isra%C3%ABlitisch%22%2C%20%22%22)%20as%20%3FmatchLabel5)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hebreeuws)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hebreeuws%22%2C%20%22%22)%20as%20%3FmatchLabel6)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jiddisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jiddisch%22%2C%20%22%22)%20as%20%3FmatchLabel7)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kosher)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kosher%22%2C%20%22%22)%20as%20%3FmatchLabel8)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Koosjer)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Koosjer%22%2C%20%22%22)%20as%20%3FmatchLabel9)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjabbat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjabbat%22%2C%20%22%22)%20as%20%3FmatchLabel10)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kille)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kille%22%2C%20%22%22)%20as%20%3FmatchLabel11)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Mikwe)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Mikwe%22%2C%20%22%22)%20as%20%3FmatchLabel12)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjoel)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjoel%22%2C%20%22%22)%20as%20%3FmatchLabel13)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hoogduits)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hoogduits%22%2C%20%22%22)%20as%20%3FmatchLabel14)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Asjkenazisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Asjkenazisch%22%2C%20%22%22)%20as%20%3FmatchLabel15)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Portugees)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Portugees%22%2C%20%22%22)%20as%20%3FmatchLabel16)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sabat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sabat%22%2C%20%22%22)%20as%20%3FmatchLabel17)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Synagoge)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Synagoge%22%2C%20%22%22)%20as%20%3FmatchLabel18)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Serfadisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Serfadisch%22%2C%20%22%22)%20as%20%3FmatchLabel19)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Rabbijn)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Rabbijn%22%2C%20%22%22)%20as%20%3FmatchLabel20)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidster%22%2C%20%22%22)%20as%20%3FmatchLabel21)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidsster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidsster%22%2C%20%22%22)%20as%20%3FmatchLabel22)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isr.)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isr.%22%2C%20%22%22)%20as%20%3FmatchLabel23)%0A%0A%20%20%20%20bind(concat(if(%3FmatchLabel1%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel1%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel2%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel2%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel3%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel3%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel4%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel4%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel5%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel5%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel6%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel6%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel7%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel7%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel8%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel8%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel9%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel9%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel10%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel10%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel11%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel11%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel12%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel12%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel13%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel13%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel14%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel14%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel15%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel15%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel16%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel16%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel17%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel17%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel18%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel18%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel19%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel19%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel20%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel21%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel21%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel22%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel23%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel23)%20as%20%3FjoodsGerelateerd)%0A%20%20%7D%0A%0A%20%20filter(%3FjoodsGerelateerd%20!%3D%20%22%22)%0A%20%20filter(!regex(%3Fomschrijving%2C%20%22gehucht%20Kille%7CJodenbreestraat%7CJozef%20Isra%C3%ABls%22%2C%20%22i%22))%0A%0A%20%20optional%20%7B%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOorspronkelijkeFunctie%20%3Ffuncties_.%0A%20%20%20%20%3Ffuncties_%20ceo%3AheeftFunctieNaam%20%3Ffuncties%20.%0A%20%20%20%20%3Ffuncties%20skos%3AprefLabel%20%3Ffunctie%20.%0A%20%20%20%20bind(replace(%3Ffunctie%2C%20%22%5C%5Cs%5C%5C(.*%5C%5C)%7C%5C%5C(.*%5C%5C)%22%2C%20%22%22)%20as%20%3Ffunctiel)%0A%20%20%7D%0A%0A%20%20%3Fchoi%20ceo%3AheeftBasisregistratieRelatie%2Fceo%3AheeftProvincie%20%3Fprov.%0A%20%20graph%20graph%3Aowms%20%7B%0A%20%20%20%20%3Fprov%20skos%3AprefLabel%20%3Fprovincie.%0A%20%20%7D%0A%0A%20%20graph%20graph%3Apunten%20%7B%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fchoi%20ceo%3AheeftGeometrie%2Fgeo%3AasWKT%20%3Fgeometrie.%0A%20%20%20%20%7D%0A%20%20%7D%0A%0A%7D%0Agroup%20by%20%3Fprovincie%20%3Fomschrijving%20%3Frijksmonumentnummer%20%3Fmonumentenregister%20%3Ffunctie%20%3Fcategorieenfunctie%20%3Fgeometrie%0A%23%3Fprovincie%20%3Fomschrijving%20%3Frijksmonumentnummer%20%3Fgeometrie%20%3FgeometrieLabel%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22visualization%22%3A%22grouped%22%7D">
-  </query>
+        <query
+          data-config="https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql#query=prefix%20ceo%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fdef%2Fceo%23%3E%0Aprefix%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Flinkeddata.cultureelerfgoed.nl%2Fgraph%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0A%0Aselect%20distinct%0A%20%20(strdt(concat(%0A%20%20%20%20'%3Ctable%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3ERijksmonumenten%20met%20Joods%20erfgoed%3C%2Fb%3E%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EMonument%3A%20%3C%2Fb%3E'%2C%20str(%3Frijksmonumentnummer)%2C%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EFunctie%3A%20%3C%2Fb%3E'%2C%20group_concat(distinct%20str(%3Ffunctiel)%3B%20separator%3D'%3B%20')%2C%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EGevonden%20termen%3A%20%3C%2Fb%3E'%2C%20(group_concat(distinct%20%3FjoodsGerelateerd%3B%20separator%3D%22%3B%20%22)%20)%2C%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3EOmschrijving%3A%20%3C%2Fb%3E'%2C%0A%20%20%20%20if(strlen(str(%3Fomschrijving))%20%3E%20250%2C%0A%20%20%20%20concat(substr(str(%3Fomschrijving)%2C%201%2C%20250)%2C%20%22...%20%3Ca%20href%3D'https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F%22%2C%20str(%3Frijksmonumentnummer)%2C%20%22'%20target%3D'_blank'%3Elees%20hier%20verder%3C%2Fa%3E%22)%2C%0A%20%20%20%20str(%3Fomschrijving))%2C%0A%20%20%20%20'%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftr%3E'%2C%0A%20%20%20%20'%3Ctd%3E%3Cb%3ERegister%3A%20%3C%2Fb%3E'%2C'%3Ca%20href%3D%22https%3A%2F%2Fmonumentenregister.cultureelerfgoed.nl%2Fmonumenten%2F'%2Cstr(%3Frijksmonumentnummer)%2C'%22%20target%3D%22_blank%22%3E'%2Cstr(%3Frijksmonumentnummer)%2C'%3C%2Fa%3E%3C%2Ftd%3E'%2C%0A%20%20%20%20'%3C%2Ftable%3E')%2C%20rdf%3AHTML)%20as%20%3FgeometrieLabel)%0A%20%20%3Fgeometrie%20%3Fprovincie%20%20%3Frijksmonumentnummer%0A%0Awhere%20%7B%0A%20%20graph%20graph%3Ainstanties-rce%20%7B%0A%20%20%20%20%3Fchoi%20rdf%3Atype%20ceo%3ARijksmonument.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftJuridischeStatus%20%3Chttps%3A%2F%2Fdata.cultureelerfgoed.nl%2Fterm%2Fid%2Frn%2F2%2Fb2d9a59a-fe1e-4552-9a05-3c2acddff864%3E.%0A%20%20%20%20%3Fchoi%20ceo%3Arijksmonumentnummer%20%3Frijksmonumentnummer%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%2Fceo%3Aomschrijving%20%3Fomschrijving_%20.%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOmschrijving%20%3Fstandpunt_omschrijving.%0A%20%20%20%20%3Fstandpunt_omschrijving%20ceo%3AformeelStandpunt%20%221%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23boolean%3E.%0A%20%20%20%20bind(replace(replace(%3Fomschrijving_%2C%20%22%5Cr%22%2C%20%22%20%22)%2C%20%22%5Cn%22%2C%20%22%20%22)%20as%20%3Fomschrijving)%0A%0A%20%20%20%20%23%20Zoektermen%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jood)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jood%22%2C%20%22%22)%20as%20%3FmatchLabel1)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joods)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joods%22%2C%20%22%22)%20as%20%3FmatchLabel2)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joodse)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joodse%22%2C%20%22%22)%20as%20%3FmatchLabel3)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Joden)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Joden%22%2C%20%22%22)%20as%20%3FmatchLabel4)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isra%C3%ABlitisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isra%C3%ABlitisch%22%2C%20%22%22)%20as%20%3FmatchLabel5)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hebreeuws)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hebreeuws%22%2C%20%22%22)%20as%20%3FmatchLabel6)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Jiddisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Jiddisch%22%2C%20%22%22)%20as%20%3FmatchLabel7)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kosher)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kosher%22%2C%20%22%22)%20as%20%3FmatchLabel8)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Koosjer)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Koosjer%22%2C%20%22%22)%20as%20%3FmatchLabel9)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjabbat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjabbat%22%2C%20%22%22)%20as%20%3FmatchLabel10)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Kille)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Kille%22%2C%20%22%22)%20as%20%3FmatchLabel11)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Mikwe)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Mikwe%22%2C%20%22%22)%20as%20%3FmatchLabel12)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sjoel)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sjoel%22%2C%20%22%22)%20as%20%3FmatchLabel13)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Hoogduits)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Hoogduits%22%2C%20%22%22)%20as%20%3FmatchLabel14)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Asjkenazisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Asjkenazisch%22%2C%20%22%22)%20as%20%3FmatchLabel15)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Portugees)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Portugees%22%2C%20%22%22)%20as%20%3FmatchLabel16)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Sabat)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Sabat%22%2C%20%22%22)%20as%20%3FmatchLabel17)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Synagoge)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Synagoge%22%2C%20%22%22)%20as%20%3FmatchLabel18)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Serfadisch)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Serfadisch%22%2C%20%22%22)%20as%20%3FmatchLabel19)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Rabbijn)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Rabbijn%22%2C%20%22%22)%20as%20%3FmatchLabel20)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidster%22%2C%20%22%22)%20as%20%3FmatchLabel21)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Davidsster)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Davidsster%22%2C%20%22%22)%20as%20%3FmatchLabel22)%0A%20%20%20%20bind(if(regex(%3Fomschrijving%2C%20%22%5C%5Cb(Isr.)%5C%5Cb%22%2C%20%22i%22)%2C%20%22Isr.%22%2C%20%22%22)%20as%20%3FmatchLabel23)%0A%0A%20%20%20%20bind(concat(if(%3FmatchLabel1%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel1%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel2%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel2%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel3%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel3%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel4%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel4%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel5%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel5%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel6%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel6%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel7%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel7%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel8%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel8%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel9%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel9%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel10%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel10%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel11%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel11%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel12%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel12%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel13%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel13%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel14%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel14%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel15%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel15%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel16%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel16%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel17%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel17%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel18%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel18%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel19%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel19%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel20%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel21%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel21%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel22%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3FmatchLabel23%20!%3D%20%22%22%2C%20%22%20%22%2C%20%22%22)%2C%20%3FmatchLabel23)%20as%20%3FjoodsGerelateerd)%0A%20%20%7D%0A%0A%20%20filter(%3FjoodsGerelateerd%20!%3D%20%22%22)%0A%20%20filter(!regex(%3Fomschrijving%2C%20%22gehucht%20Kille%7CJodenbreestraat%7CJozef%20Isra%C3%ABls%22%2C%20%22i%22))%0A%0A%20%20optional%20%7B%0A%20%20%20%20%3Fchoi%20ceo%3AheeftOorspronkelijkeFunctie%20%3Ffuncties_.%0A%20%20%20%20%3Ffuncties_%20ceo%3AheeftFunctieNaam%20%3Ffuncties%20.%0A%20%20%20%20%3Ffuncties%20skos%3AprefLabel%20%3Ffunctie%20.%0A%20%20%20%20bind(replace(%3Ffunctie%2C%20%22%5C%5Cs%5C%5C(.*%5C%5C)%7C%5C%5C(.*%5C%5C)%22%2C%20%22%22)%20as%20%3Ffunctiel)%0A%20%20%7D%0A%0A%20%20%3Fchoi%20ceo%3AheeftBasisregistratieRelatie%2Fceo%3AheeftProvincie%20%3Fprov.%0A%20%20graph%20graph%3Aowms%20%7B%0A%20%20%20%20%3Fprov%20skos%3AprefLabel%20%3Fprovincie.%0A%20%20%7D%0A%0A%20%20graph%20graph%3Apunten%20%7B%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fchoi%20ceo%3AheeftGeometrie%2Fgeo%3AasWKT%20%3Fgeometrie.%0A%20%20%20%20%7D%0A%20%20%7D%0A%0A%7D%0Agroup%20by%20%3Fprovincie%20%3Fomschrijving%20%3Frijksmonumentnummer%20%3Fmonumentenregister%20%3Ffunctie%20%3Fcategorieenfunctie%20%3Fgeometrie%0A%23%3Fprovincie%20%3Fomschrijving%20%3Frijksmonumentnummer%20%3Fgeometrie%20%3FgeometrieLabel%0A&endpoint=https%3A%2F%2Fapi.linkeddata.cultureelerfgoed.nl%2Fdatasets%2Frce%2Fcho%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=application%2Fn-triples%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22visualization%22%3A%22grouped%22%7D">
+        </query>
         <figcaption id="joods-erfgoed-caption" class="mt-2"><em>Joods erfgoed.</em></figcaption>
       </figure>
       <p class="text-muted"><em>
-Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te passen in de Linked Data Viewer.
-</em></p>
+          Klik op de blauwe pijl om de originele SPARQL-query te bekijken en zelf aan te passen in de Linked Data
+          Viewer.
+        </em></p>
 
     </section>
 
-<!-- Methodeverantwoording -->
-<section id="methode" class="mt-4" aria-labelledby="methode-title">
-  <h2 id="methode-title" class="mb-2">Methodeverantwoording</h2>
+    <!-- Methodeverantwoording -->
+    <section id="methode" class="mt-4" aria-labelledby="methode-title">
+      <h2 id="methode-title" class="mb-2">Methodeverantwoording</h2>
 
-  <p>
-    Voor deze data story is de <em>Cultureel Erfgoed Objecten</em> (CHO)‑dataset van de
-    Rijksdienst voor het Cultureel Erfgoed (RCE) geanalyseerd met SPARQL‑queries.
-    De focus lag op rijksmonumenten waarvan de beschrijving Joodse termen bevat.
-  </p>
+      <p>
+        Voor deze data story is de <em>Cultureel Erfgoed Objecten</em> (CHO)‑dataset van de
+        Rijksdienst voor het Cultureel Erfgoed (RCE) geanalyseerd met SPARQL‑queries.
+        De focus lag op rijksmonumenten waarvan de beschrijving Joodse termen bevat.
+      </p>
 
-  <h3>Gebruikte datasets</h3>
-  <ul>
-    <li>RCE CHO – Cultureel Erfgoed Objecten</li>
-    <li>Graphs: <code>instanties-rce</code>, <code>punten</code> en <code>owms</code></li>
-  </ul>
+      <h3>Gebruikte datasets</h3>
+      <ul>
+        <li>RCE CHO – Cultureel Erfgoed Objecten</li>
+        <li>Graphs: <code>instanties-rce</code>, <code>punten</code> en <code>owms</code></li>
+      </ul>
 
-  <h3>Hoe is de selectie gemaakt?</h3>
-  <ul>
-    <li>Alleen objecten met de juridische status ‘rijksmonument’ zijn meegenomen.</li>
-    <li>Beschrijvingen zijn gefilterd op een lijst Joodse zoektermen (bijv. <code>Joods</code>, <code>Synagoge</code>, <code>Mikwe</code>).</li>
-    <li>Niet‑relevante hits zijn uitgesloten&nbsp;(zoals <em>Jodenbreestraat</em> of <em>Jozef Israëls</em>).</li>
-    <li>Functies, categorieën en locatiedata zijn toegevoegd via bestaande relaties in de dataset.</li>
-  </ul>
+      <h3>Hoe is de selectie gemaakt?</h3>
+      <ul>
+        <li>Alleen objecten met de juridische status ‘rijksmonument’ zijn meegenomen.</li>
+        <li>Beschrijvingen zijn gefilterd op een lijst Joodse zoektermen (bijv. <code>Joods</code>,
+          <code>Synagoge</code>, <code>Mikwe</code>).</li>
+        <li>Niet‑relevante hits zijn uitgesloten&nbsp;(zoals <em>Jodenbreestraat</em> of <em>Jozef Israëls</em>).</li>
+        <li>Functies, categorieën en locatiedata zijn toegevoegd via bestaande relaties in de dataset.</li>
+      </ul>
 
-  <h3>Wat zijn de beperkingen?</h3>
-  <ul>
-    <li>Zoektermen komen niet altijd expliciet voor; aantallen kunnen daarom lager uitvallen dan in werkelijkheid.</li>
-    <li>Niet alle monumenten beschikken over gedetailleerde functie‑ of locatievelden.</li>
-    <li>De CHO‑dataset verandert continu; resultaten vormen een momentopname (<time datetime="2025-07-28">28&nbsp;juli&nbsp;2025</time>).</li>
-  </ul>
-</section>
-  <!-- Literatuur placeholder -->
-<section id="literatuur">
-  <h2>Literatuur</h2>
-  <p><em>Deze sectie is gereserveerd voor literatuur. Er zijn geen externe bronnen opgenomen.</em></p>
-  <p>
-    Zie ook:
-    <a href="https://kennis.cultureelerfgoed.nl/index.php/Overzicht_van_rijksbeschermd_Joods_erfgoed"
-       target="_blank"
-       rel="noopener">
-      Overzicht van rijksbeschermd Joods erfgoed (Kennisbank RCE)
-    </a>.
-  </p>
-</section>
+      <h3>Wat zijn de beperkingen?</h3>
+      <ul>
+        <li>Zoektermen komen niet altijd expliciet voor; aantallen kunnen daarom lager uitvallen dan in werkelijkheid.
+        </li>
+        <li>Niet alle monumenten beschikken over gedetailleerde functie‑ of locatievelden.</li>
+        <li>De CHO‑dataset verandert continu; resultaten vormen een momentopname (<time
+            datetime="2025-07-28">28&nbsp;juli&nbsp;2025</time>).</li>
+      </ul>
+    </section>
+    <!-- Literatuur placeholder -->
+    <section id="literatuur">
+      <h2>Literatuur</h2>
+      <p><em>Deze sectie is gereserveerd voor literatuur. Er zijn geen externe bronnen opgenomen.</em></p>
+      <p>
+        Zie ook:
+        <a href="https://kennis.cultureelerfgoed.nl/index.php/Overzicht_van_rijksbeschermd_Joods_erfgoed"
+          target="_blank" rel="noopener">
+          Overzicht van rijksbeschermd Joods erfgoed (Kennisbank RCE)
+        </a>.
+      </p>
+    </section>
 
-<!-- =============================== -->
-<!-- DISCLAIMER                      -->
-<!-- =============================== -->
-<section id="disclaimer" aria-labelledby="disclaimer-title" class="mt-4">
-  <h2 id="disclaimer-title" class="mb-2">Disclaimer</h2>
+    <!-- =============================== -->
+    <!-- DISCLAIMER                      -->
+    <!-- =============================== -->
+    <section id="disclaimer" aria-labelledby="disclaimer-title" class="mt-4">
+      <h2 id="disclaimer-title" class="mb-2">Disclaimer</h2>
 
-  <details class="disclaimer-box">
-    <summary><strong>Lees de disclaimer</strong></summary>
+      <details class="disclaimer-box">
+        <summary><strong>Lees de disclaimer</strong></summary>
 
-    <p><strong>Let op</strong></p>
-    <p><em>U kunt aan de in deze data story getoonde resultaten geen rechten ontlenen.</em></p>
-    
-    <dl class="row small">
-      <dt class="col-sm-3">Titel</dt>
-      <dd class="col-sm-9">Joods erfgoed in rijksmonumenten</dd>
+        <p><strong>Let op</strong></p>
+        <p><em>U kunt aan de in deze data story getoonde resultaten geen rechten ontlenen.</em></p>
 
-      <dt class="col-sm-3">Beschrijving</dt>
-      <dd class="col-sm-9">Deze data story gebruikt de CHO‑dataset van de RCE. Bewerking en samenstelling door de Rijksdienst voor het Cultureel Erfgoed.</dd>
+        <dl class="row small">
+          <dt class="col-sm-3">Titel</dt>
+          <dd class="col-sm-9">Joods erfgoed in rijksmonumenten</dd>
 
-      <dt class="col-sm-3">Publicerende organisatie</dt>
-      <dd class="col-sm-9"><a href="https://www.cultureelerfgoed.nl" target="_blank" rel="noopener">Rijksdienst voor het Cultureel Erfgoed</a></dd>
+          <dt class="col-sm-3">Beschrijving</dt>
+          <dd class="col-sm-9">Deze data story gebruikt de CHO‑dataset van de RCE. Bewerking en samenstelling door de
+            Rijksdienst voor het Cultureel Erfgoed.</dd>
 
-      <dt class="col-sm-3">Licentie</dt>
-      <dd class="col-sm-9"><a href="https://opendatacommons.org/licenses/by/1-0/" target="_blank" rel="noopener">Open Data Commons Attribution&nbsp;1.0</a></dd>
+          <dt class="col-sm-3">Publicerende organisatie</dt>
+          <dd class="col-sm-9"><a href="https://www.cultureelerfgoed.nl" target="_blank" rel="noopener">Rijksdienst voor
+              het Cultureel Erfgoed</a></dd>
 
-      <dt class="col-sm-3">Datasets</dt>
-      <dd class="col-sm-9">
-        <ul class="mb-0 ps-3">
-          <li><a href="https://linkeddata.cultureelerfgoed.nl/rce/cho" target="_blank" rel="noopener">CHO – Cultureel Erfgoed Objecten</a></li>
-          <li><a href="https://linkeddata.cultureelerfgoed.nl/graph/punten" target="_blank" rel="noopener">Punten</a></li>
-          <li><a href="https://linkeddata.cultureelerfgoed.nl/graph/owms" target="_blank" rel="noopener">OWMS‑thesauri</a></li>
-        </ul>
-      </dd>
+          <dt class="col-sm-3">Licentie</dt>
+          <dd class="col-sm-9"><a href="https://opendatacommons.org/licenses/by/1-0/" target="_blank"
+              rel="noopener">Open Data Commons Attribution&nbsp;1.0</a></dd>
 
-      <dt class="col-sm-3">Data‑extract</dt>
-      <dd class="col-sm-9"><time datetime="2025-07-28">28&nbsp;juli&nbsp;2025</time></dd>
-    </dl>
-  </details>
-</section>
-<!-- ========== EINDE SECTIES ====== -->
+          <dt class="col-sm-3">Datasets</dt>
+          <dd class="col-sm-9">
+            <ul class="mb-0 ps-3">
+              <li><a href="https://linkeddata.cultureelerfgoed.nl/rce/cho" target="_blank" rel="noopener">CHO –
+                  Cultureel Erfgoed Objecten</a></li>
+              <li><a href="https://linkeddata.cultureelerfgoed.nl/graph/punten" target="_blank"
+                  rel="noopener">Punten</a></li>
+              <li><a href="https://linkeddata.cultureelerfgoed.nl/graph/owms" target="_blank"
+                  rel="noopener">OWMS‑thesauri</a></li>
+            </ul>
+          </dd>
+
+          <dt class="col-sm-3">Data‑extract</dt>
+          <dd class="col-sm-9"><time datetime="2025-07-28">28&nbsp;juli&nbsp;2025</time></dd>
+        </dl>
+      </details>
+    </section>
+    <!-- ========== EINDE SECTIES ====== -->
 
 
-</main>
+  </main>
 
-<footer class="footer-rce-full">
-  <div class="footer-inner">
-    © Rijksdienst voor het Cultureel Erfgoed ·
-    <nav aria-label="Footer">
-      <a href="mailto:info@cultureelerfgoed.nl" class="footer-link">info@cultureelerfgoed.nl</a> ·
-      <a href="https://www.cultureelerfgoed.nl/contact" class="footer-link">Contact</a> ·
-      <a href="https://www.cultureelerfgoed.nl/copyright" class="footer-link">Copyright</a> ·
-      <a href="https://www.cultureelerfgoed.nl/toegankelijkheid" class="footer-link">Toegankelijkheid</a>
-    </nav>
-  </div>
-</footer>
+  <footer class="footer-rce-full">
+    <div class="footer-inner">
+      © Rijksdienst voor het Cultureel Erfgoed ·
+      <nav aria-label="Footer">
+        <a href="mailto:info@cultureelerfgoed.nl" class="footer-link">info@cultureelerfgoed.nl</a> ·
+        <a href="https://www.cultureelerfgoed.nl/contact" class="footer-link">Contact</a> ·
+        <a href="https://www.cultureelerfgoed.nl/copyright" class="footer-link">Copyright</a> ·
+        <a href="https://www.cultureelerfgoed.nl/toegankelijkheid" class="footer-link">Toegankelijkheid</a>
+      </nav>
+    </div>
+  </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
-<script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
-<script src="../assets/js/stories.min.js" defer></script>
-<script src="https://www.gstatic.com/charts/loader.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://yasgui.triply.cc/yasgui.polyfill.min.js" defer></script>
+  <script src="../assets/js/stories.min.js" defer></script>
+  <script src="https://www.gstatic.com/charts/loader.js" defer></script>
 
-<script>window.onload = function () { stories(); };</script>
+  <script>window.onload = function () { stories(); };</script>
 
 </body>
-</html>
 
+</html>
