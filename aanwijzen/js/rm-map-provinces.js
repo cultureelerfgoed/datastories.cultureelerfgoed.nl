@@ -2,22 +2,22 @@
   const ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql";
 
   const CATEGORIES = [
-    ["Archeologie (N)", "https://data.cultureelerfgoed.nl/term/id/rn/d60159d2-8b55-47b7-8301-5ac82b0f2d7f"],
-    ["Bestuursgebouwen, rechtsgebouwen en overheidsgebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/74a847b5-1e0f-4f66-b910-90d2c8d9fa04"],
-    ["Boerderijen, molens en bedrijven", "https://data.cultureelerfgoed.nl/term/id/rn/b8077035-db8f-47f1-ae1d-e64f75344fcf"],
-    ["Cultuur, gezondheid en wetenschap", "https://data.cultureelerfgoed.nl/term/id/rn/0be0a6c9-0738-41cc-aaac-550d258c4261"],
-    ["Handelsgebouwen, opslag- en transportgebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/e88ccbf4-e41d-49bf-9876-0f71db0e6646"],
-    ["Kastelen, landhuizen en parken", "https://data.cultureelerfgoed.nl/term/id/rn/b2511baf-3b70-4667-98dd-1b850c7ea53f"],
-    ["Religieuze gebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/25fac0f1-77a2-4587-ab04-dfcb66959dd8"],
-    ["Sport, recreatie, vereniging en horeca", "https://data.cultureelerfgoed.nl/term/id/rn/b797b89c-1e0a-4ce7-869b-817cd98259b0"],
-    ["Uitvaartcentra en begraafplaatsen", "https://data.cultureelerfgoed.nl/term/id/rn/1680dfc0-666a-4a01-9781-59e9af26ec51"],
-    ["Verdedigingswerken en militaire gebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/5013dcbc-1090-42e9-bc22-92de47e43783"],
-    ["Voorwerpen op pleinen en dergelijke", "https://data.cultureelerfgoed.nl/term/id/rn/92cda3e4-8c6a-41dc-9a81-02f8aba88b25"],
-    ["Weg- en waterbouwkundige werken", "https://data.cultureelerfgoed.nl/term/id/rn/11c897ed-d35e-4191-9254-7ab95d9d63bc"],
-    ["Woningen en woningbouwcomplexen", "https://data.cultureelerfgoed.nl/term/id/rn/5b7dd16c-fa8d-4d68-984a-9ec0efc650d4"]
+    ["Archeologie (N)", "https://data.cultureelerfgoed.nl/term/id/rn/2/d60159d2-8b55-47b7-8301-5ac82b0f2d7f"],
+    ["Bestuursgebouwen, rechtsgebouwen en overheidsgebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/2/74a847b5-1e0f-4f66-b910-90d2c8d9fa04"],
+    ["Boerderijen, molens en bedrijven", "https://data.cultureelerfgoed.nl/term/id/rn/2/b8077035-db8f-47f1-ae1d-e64f75344fcf"],
+    ["Cultuur, gezondheid en wetenschap", "https://data.cultureelerfgoed.nl/term/id/rn/2/0be0a6c9-0738-41cc-aaac-550d258c4261"],
+    ["Handelsgebouwen, opslag- en transportgebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/2/e88ccbf4-e41d-49bf-9876-0f71db0e6646"],
+    ["Kastelen, landhuizen en parken", "https://data.cultureelerfgoed.nl/term/id/rn/2/b2511baf-3b70-4667-98dd-1b850c7ea53f"],
+    ["Religieuze gebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/2/25fac0f1-77a2-4587-ab04-dfcb66959dd8"],
+    ["Sport, recreatie, vereniging en horeca", "https://data.cultureelerfgoed.nl/term/id/rn/2/b797b89c-1e0a-4ce7-869b-817cd98259b0"],
+    ["Uitvaartcentra en begraafplaatsen", "https://data.cultureelerfgoed.nl/term/id/rn/2/1680dfc0-666a-4a01-9781-59e9af26ec51"],
+    ["Verdedigingswerken en militaire gebouwen", "https://data.cultureelerfgoed.nl/term/id/rn/2/5013dcbc-1090-42e9-bc22-92de47e43783"],
+    ["Voorwerpen op pleinen en dergelijke", "https://data.cultureelerfgoed.nl/term/id/rn/2/92cda3e4-8c6a-41dc-9a81-02f8aba88b25"],
+    ["Weg- en waterbouwkundige werken", "https://data.cultureelerfgoed.nl/term/id/rn/2/11c897ed-d35e-4191-9254-7ab95d9d63bc"],
+    ["Woningen en woningbouwcomplexen", "https://data.cultureelerfgoed.nl/term/id/rn/2/5b7dd16c-fa8d-4d68-984a-9ec0efc650d4"]
   ];
 
-  const PROVINCES = ["Drenthe","Fryslân","Flevoland","Groningen","Limburg","Noord-Brabant","Noord-Holland","Gelderland","Overijssel","Utrecht","Zeeland","Zuid-Holland"];
+  const PROVINCES = ["Drenthe", "Fryslân", "Flevoland", "Groningen", "Limburg", "Noord-Brabant", "Noord-Holland", "Gelderland", "Overijssel", "Utrecht", "Zeeland", "Zuid-Holland"];
 
   const QUERY_TMPL = `
 PREFIX graph: <https://linkeddata.cultureelerfgoed.nl/graph/>
@@ -25,7 +25,7 @@ PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
 PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
-PREFIX rn:    <https://data.cultureelerfgoed.nl/term/id/rn/>
+PREFIX rn:    <https://data.cultureelerfgoed.nl/term/id/rn/2/>
 SELECT ?rmnr ?jaarInschrijving ?wkt ?uriSubs ?provLabel
 WHERE {
   GRAPH graph:instanties-rce {
@@ -122,9 +122,9 @@ LIMIT 4000`;
       const latlng = wktToLatLng(r.wkt?.value);
       if (!latlng) return;
       bounds.push(latlng);
-      const rm   = r.rmnr?.value || "";
+      const rm = r.rmnr?.value || "";
       const jaar = r.jaarInschrijving?.value || "";
-      const sub  = r.uriSubs?.value || "";
+      const sub = r.uriSubs?.value || "";
       const link = rm ? `https://monumentenregister.cultureelerfgoed.nl/monumenten/${rm}` : null;
 
       const html = `
@@ -142,10 +142,10 @@ LIMIT 4000`;
   // --- INIT ---
   document.addEventListener("DOMContentLoaded", () => {
     const selLabel = document.getElementById("mp-label");
-    const inBeg    = document.getElementById("mp-begin");
-    const inEind   = document.getElementById("mp-eind");
-    const selProv  = document.getElementById("mp-prov");
-    const btnRun   = document.getElementById("mp-run");
+    const inBeg = document.getElementById("mp-begin");
+    const inEind = document.getElementById("mp-eind");
+    const selProv = document.getElementById("mp-prov");
+    const btnRun = document.getElementById("mp-run");
 
     // Kaart meteen tonen zodat je nooit een leeg vlak ziet
     ensureMap();
@@ -161,20 +161,20 @@ LIMIT 4000`;
     });
 
     selLabel.value = CATEGORIES.find(c => c[0] === "Kastelen, landhuizen en parken")?.[1] || CATEGORIES[0][1];
-    selProv.value  = "Utrecht";
+    selProv.value = "Utrecht";
 
     async function run() {
       try {
         btnRun.disabled = true;
         btnRun.textContent = "Laden…";
 
-        const narrow   = selLabel.value;
+        const narrow = selLabel.value;
         const labelRaw = selLabel.options[selLabel.selectedIndex].textContent;
-        const begin    = Math.max(1961, Math.min(2026, Number(inBeg.value)  || 1961));
-        const eind     = Math.max(begin, Math.min(2026, Number(inEind.value) || 2026));
-        const prov     = selProv.value;
+        const begin = Math.max(1961, Math.min(2026, Number(inBeg.value) || 1961));
+        const eind = Math.max(begin, Math.min(2026, Number(inEind.value) || 2026));
+        const prov = selProv.value;
 
-        inBeg.value  = begin;
+        inBeg.value = begin;
         inEind.value = eind;
 
         const q = buildQuery(labelRaw, narrow, begin, eind, prov);

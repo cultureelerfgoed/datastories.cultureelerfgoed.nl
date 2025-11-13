@@ -40,7 +40,7 @@ PREFIX graph: <https://linkeddata.cultureelerfgoed.nl/graph/>
 PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 PREFIX ceo:   <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
 PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
-PREFIX rn:    <https://data.cultureelerfgoed.nl/term/id/rn/>
+PREFIX rn:    <https://data.cultureelerfgoed.nl/term/id/rn/2/>
 
 SELECT ?shape ?shapeLabel ?wkt ?jaarInschrijving
 WHERE {
@@ -66,21 +66,21 @@ WHERE {
 
   GRAPH graph:bebouwdeomgeving {
     # Hoofdcategorieboom ⇒ subbegrippen ⇒ nette sublabel zonder haakjes
-    <https://data.cultureelerfgoed.nl/term/id/rn/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?narrow .
+    <https://data.cultureelerfgoed.nl/term/id/rn/2/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?narrow .
     VALUES (?narrowLabel ?narrow) {
-      ("Archeologie (N)" <https://data.cultureelerfgoed.nl/term/id/rn/d60159d2-8b55-47b7-8301-5ac82b0f2d7f>)
-      ("Bestuursgebouwen, rechtsgebouwen en overheidsgebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/74a847b5-1e0f-4f66-b910-90d2c8d9fa04>)
-      ("Boerderijen, molens en bedrijven" <https://data.cultureelerfgoed.nl/term/id/rn/b8077035-db8f-47f1-ae1d-e64f75344fcf>)
-      ("Cultuur, gezondheid en wetenschap" <https://data.cultureelerfgoed.nl/term/id/rn/0be0a6c9-0738-41cc-aaac-550d258c4261>)
-      ("Handelsgebouwen, opslag- en transportgebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/e88ccbf4-e41d-49bf-9876-0f71db0e6646>)
-      ("Kastelen, landhuizen en parken" <https://data.cultureelerfgoed.nl/term/id/rn/b2511baf-3b70-4667-98dd-1b850c7ea53f>)
-      ("Religieuze gebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/25fac0f1-77a2-4587-ab04-dfcb66959dd8>)
-      ("Sport, recreatie, vereniging en horeca" <https://data.cultureelerfgoed.nl/term/id/rn/b797b89c-1e0a-4ce7-869b-817cd98259b0>)
-      ("Uitvaartcentra en begraafplaatsen" <https://data.cultureelerfgoed.nl/term/id/rn/1680dfc0-666a-4a01-9781-59e9af26ec51>)
-      ("Verdedigingswerken en militaire gebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/5013dcbc-1090-42e9-bc22-92de47e43783>)
-      ("Voorwerpen op pleinen en dergelijke" <https://data.cultureelerfgoed.nl/term/id/rn/92cda3e4-8c6a-41dc-9a81-02f8aba88b25>)
-      ("Weg- en waterbouwkundige werken" <https://data.cultureelerfgoed.nl/term/id/rn/11c897ed-d35e-4191-9254-7ab95d9d63bc>)
-      ("Woningen en woningbouwcomplexen" <https://data.cultureelerfgoed.nl/term/id/rn/5b7dd16c-fa8d-4d68-984a-9ec0efc650d4>)
+      ("Archeologie (N)" <https://data.cultureelerfgoed.nl/term/id/rn/2/d60159d2-8b55-47b7-8301-5ac82b0f2d7f>)
+      ("Bestuursgebouwen, rechtsgebouwen en overheidsgebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/2/74a847b5-1e0f-4f66-b910-90d2c8d9fa04>)
+      ("Boerderijen, molens en bedrijven" <https://data.cultureelerfgoed.nl/term/id/rn/2/b8077035-db8f-47f1-ae1d-e64f75344fcf>)
+      ("Cultuur, gezondheid en wetenschap" <https://data.cultureelerfgoed.nl/term/id/rn/2/0be0a6c9-0738-41cc-aaac-550d258c4261>)
+      ("Handelsgebouwen, opslag- en transportgebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/2/e88ccbf4-e41d-49bf-9876-0f71db0e6646>)
+      ("Kastelen, landhuizen en parken" <https://data.cultureelerfgoed.nl/term/id/rn/2/b2511baf-3b70-4667-98dd-1b850c7ea53f>)
+      ("Religieuze gebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/2/25fac0f1-77a2-4587-ab04-dfcb66959dd8>)
+      ("Sport, recreatie, vereniging en horeca" <https://data.cultureelerfgoed.nl/term/id/rn/2/b797b89c-1e0a-4ce7-869b-817cd98259b0>)
+      ("Uitvaartcentra en begraafplaatsen" <https://data.cultureelerfgoed.nl/term/id/rn/2/1680dfc0-666a-4a01-9781-59e9af26ec51>)
+      ("Verdedigingswerken en militaire gebouwen" <https://data.cultureelerfgoed.nl/term/id/rn/2/5013dcbc-1090-42e9-bc22-92de47e43783>)
+      ("Voorwerpen op pleinen en dergelijke" <https://data.cultureelerfgoed.nl/term/id/rn/2/92cda3e4-8c6a-41dc-9a81-02f8aba88b25>)
+      ("Weg- en waterbouwkundige werken" <https://data.cultureelerfgoed.nl/term/id/rn/2/11c897ed-d35e-4191-9254-7ab95d9d63bc>)
+      ("Woningen en woningbouwcomplexen" <https://data.cultureelerfgoed.nl/term/id/rn/2/5b7dd16c-fa8d-4d68-984a-9ec0efc650d4>)
     }
     ?narrow skos:narrower+ ?uri .
     ?uri skos:prefLabel ?uriSub .
@@ -182,10 +182,10 @@ LIMIT 5000
 
   // ===== INIT UI =====
   document.addEventListener("DOMContentLoaded", () => {
-    const selGem  = document.getElementById("mm-gemeente");
-    const inBeg   = document.getElementById("mm-begin");
-    const inEind  = document.getElementById("mm-eind");
-    const btnRun  = document.getElementById("mm-run");
+    const selGem = document.getElementById("mm-gemeente");
+    const inBeg = document.getElementById("mm-begin");
+    const inEind = document.getElementById("mm-eind");
+    const btnRun = document.getElementById("mm-run");
 
     // Dropdown vullen
     // Zet "Amsterdam (default)" als label bovenaan, maar waarde = "Amsterdam"
@@ -202,14 +202,14 @@ LIMIT 5000
 
     // Defaults
     selGem.value = "Amsterdam";
-    if (!inBeg.value)  inBeg.value  = 1965;
+    if (!inBeg.value) inBeg.value = 1965;
     if (!inEind.value) inEind.value = 1969;
 
     async function run() {
       try {
         btnRun.disabled = true;
-        const begin = Math.max(1961, Math.min(2026, Number(inBeg.value)  || 1961));
-        const eind  = Math.max(begin, Math.min(2026, Number(inEind.value) || 2026));
+        const begin = Math.max(1961, Math.min(2026, Number(inBeg.value) || 1961));
+        const eind = Math.max(begin, Math.min(2026, Number(inEind.value) || 2026));
         inBeg.value = begin; inEind.value = eind;
 
         const gem = selGem.value;
