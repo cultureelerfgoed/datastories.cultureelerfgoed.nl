@@ -37,10 +37,8 @@ WHERE {
   }
   GRAPH graph:bebouwdeomgeving {
     <https://data.cultureelerfgoed.nl/term/id/rn/2/1eeb48df-adbb-44b2-bcf1-33e3fe902413> skos:narrower ?narrow .
-    ?narrow skos:prefLabel ?label_ .
-    FILTER(?label_ = ?label)
+        {{VALUES}}
     ?narrow skos:narrower+ ?uri .
-    {{VALUES}}
   }
   BIND(year(xsd:dateTime(?datumInschrijving)) AS ?jaar)
   FILTER(?jaar >= 1964 && ?jaar <= 2025)
@@ -50,7 +48,7 @@ ORDER BY ?jaar
 `;
 
 function buildQuery(label, uri) {
-  const values = `VALUES (?label ?narrow) { ("${label}" <${uri}>) }`;
+  const values = `VALUES ?narrow { <${uri}> }`;
   return QUERY_TMPL.replace("{{VALUES}}", values);
 }
 
